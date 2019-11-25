@@ -3,9 +3,10 @@ import functions
 
 def setup():
     # Sets required global variables
-    global currentScreen, timer, backgroundImg, regularFont
+    global currentScreen, timer, backgroundImg, regularFont, d
     currentScreen = 'start'
     timer = 10
+    d = 0
     
     # Sets the default visual settings (fullscreen/font)
     fullScreen()
@@ -49,9 +50,69 @@ def draw():
         text(currentScreen, width/2, height/2)
         #code
     
+    # Draws the random screen
+    elif currentScreen == 'random':
+        global d
+        if mousePressed and d == 0:
+            d = d + 1
+            l = [10, 20, 30, 40]
+            e = 4
+            x = int(random(0, 4))
+            f = x
+            while e > 0:
+                if f > 0:
+                    x = int(random(0, len(l)))
+                    text("X", 10, l.pop(x))
+                    f = f - 1
+                else:
+                    text("O", 10, l.pop())
+                e  = e - 1
+            l = [10, 20, 30, 40]
+            e = 4
+            x = int(random(0, 4))
+            f = x
+            while e > 0:
+                if f > 0:
+                    x = int(random(0, len(l)))
+                    text("X", 20, l.pop(x))
+                    f = f - 1
+                else:
+                    text("O", 20, l.pop())
+                e  = e - 1
+            l = [10, 20, 30, 40]
+            e = 4
+            x = int(random(0, 4))
+            f = x
+            while e > 0:
+                if f > 0:
+                    x = int(random(0, len(l)))
+                    text("X", 30, l.pop(x))
+                    f = f - 1
+                else:
+                    text("O", 30, l.pop())
+                e  = e - 1
+            l = [10, 20, 30, 40]
+            e = 4
+            x = int(random(0, 4))
+            f = x
+            while e > 0:
+                if f > 0:
+                    x = int(random(0, len(l)))
+                    text("X", 40, l.pop(x))
+                    f = f - 1
+                else:
+                    text("O", 40, l.pop())
+                e  = e - 1
+        
 def keyPressed():    
-    global currentScreen
+    global currentScreen, d, timer
     print(keyCode)
-    currentScreen = 'timer'
-    fontList = PFont.list()
-    print(fontList)
+    if str(key) == 't':
+        currentScreen = 'timer'
+        timer = 10
+    elif str(key) == 'r':
+        currentScreen = 'random'
+    
+def mouseReleased():
+    global d
+    d = d - 1
