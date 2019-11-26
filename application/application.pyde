@@ -19,15 +19,18 @@ def setup():
     textAlign(CENTER, CENTER)
     
 def draw():
-    background(backgroundImg)
+    
     
     # Draws start screen
     if currentScreen == 'start':
+        textSize(200)
         text(currentScreen, width/2, height/2)
         
     # Draws timer screen
     elif currentScreen == 'timer':
+        textSize(200)
         global timer    
+        background(backgroundImg)
         text(timer, width/2, height/2)
         time.sleep(1)
         if timer == 1 or timer == 'De tijd is op!':
@@ -54,8 +57,9 @@ def draw():
     elif currentScreen == 'random':
         global d
         if mousePressed and d == 0:
+        textSize(50)
             d = d + 1
-            l = [10, 20, 30, 40]
+            l = [40, 100, 160, 220]
             e = 4
             x = int(random(0, 4))
             f = x
@@ -67,41 +71,41 @@ def draw():
                 else:
                     text("O", 10, l.pop())
                 e  = e - 1
-            l = [10, 20, 30, 40]
+            l = [40, 100, 160, 220]
             e = 4
             x = int(random(0, 4))
             f = x
             while e > 0:
                 if f > 0:
                     x = int(random(0, len(l)))
-                    text("X", 20, l.pop(x))
+                    text("X", 70, l.pop(x))
                     f = f - 1
                 else:
-                    text("O", 20, l.pop())
+                    text("O", 70, l.pop())
                 e  = e - 1
-            l = [10, 20, 30, 40]
+            l = [40, 100, 160, 220]
             e = 4
             x = int(random(0, 4))
             f = x
             while e > 0:
                 if f > 0:
                     x = int(random(0, len(l)))
-                    text("X", 30, l.pop(x))
+                    text("X", 130, l.pop(x))
                     f = f - 1
                 else:
-                    text("O", 30, l.pop())
+                    text("O", 130, l.pop())
                 e  = e - 1
-            l = [10, 20, 30, 40]
+            l = [40, 100, 160, 220]
             e = 4
             x = int(random(0, 4))
             f = x
             while e > 0:
                 if f > 0:
                     x = int(random(0, len(l)))
-                    text("X", 40, l.pop(x))
+                    text("X", 170, l.pop(x))
                     f = f - 1
                 else:
-                    text("O", 40, l.pop())
+                    text("O", 170, l.pop())
                 e  = e - 1
         
 def keyPressed():    
