@@ -57,7 +57,7 @@ def draw():
     elif currentScreen == 'random':
         global d
         if mousePressed and d == 0:
-        textSize(50)
+            textSize(50)
             d = d + 1
             l = [40, 100, 160, 220]
             e = 4
