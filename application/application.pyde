@@ -69,10 +69,10 @@ def draw():
         while e > 0:
             if f > 0:
                 x = int(random(0, len(l)))
-                text("X", 10, l.pop(x))
+                text("X", 20, l.pop(x))
                 f = f - 1
             else:
-                text("O", 10, l.pop())
+                text("O", 20, l.pop())
             e  = e - 1
         l = [40, 100, 160, 220]
         e = 4
@@ -81,10 +81,10 @@ def draw():
         while e > 0:
             if f > 0:
                 x = int(random(0, len(l)))
-                text("X", 70, l.pop(x))
+                text("X", 80, l.pop(x))
                 f = f - 1
             else:
-                text("O", 70, l.pop())
+                text("O", 80, l.pop())
             e  = e - 1
         l = [40, 100, 160, 220]
         e = 4
@@ -93,10 +93,10 @@ def draw():
         while e > 0:
             if f > 0:
                 x = int(random(0, len(l)))
-                text("X", 130, l.pop(x))
+                text("X", 140, l.pop(x))
                 f = f - 1
             else:
-                text("O", 130, l.pop())
+                text("O", 140, l.pop())
             e  = e - 1
         l = [40, 100, 160, 220]
         e = 4
@@ -105,10 +105,10 @@ def draw():
         while e > 0:
             if f > 0:
                 x = int(random(0, len(l)))
-                text("X", 180, l.pop(x))
+                text("X", 200, l.pop(x))
                 f = f - 1
             else:
-                text("O", 180, l.pop())
+                text("O", 200, l.pop())
             e  = e - 1
         
 def keyPressed():    
