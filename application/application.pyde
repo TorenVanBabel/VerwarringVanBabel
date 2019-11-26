@@ -17,6 +17,7 @@ def setup():
     textSize(200)
     fill(0)
     textAlign(CENTER, CENTER)
+    background(backgroundImg)
     
 def draw():
     
@@ -55,6 +56,7 @@ def draw():
     
     # Draws the random screen
     elif currentScreen == 'random':
+        background(backgroundImg)
         global d
         if mousePressed and d == 0:
             textSize(50)
