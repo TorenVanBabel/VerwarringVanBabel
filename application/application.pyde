@@ -68,7 +68,7 @@ def instructie():
     textSize(50)
     
     d = d + 1
-    l = [40, 100, 160, 220]
+    l = [280, 100, 160, 220]
     e = 4
     x = int(random(0, 4))
     f = x
@@ -76,13 +76,13 @@ def instructie():
         if f > 0:
             x = int(random(0, len(l)))
             fill(0)
-            circle(20, l.pop(x), 40)
+            circle(width / 2 - 30, l.pop(x), 40)
             f = f - 1
         else:
             noFill()
-            circle(20, l.pop(), 40)
+            circle(width / 2 - 30, l.pop(), 40)
         e  = e - 1
-    l = [40, 100, 160, 220]
+    l = [280, 100, 160, 220]
     e = 4
     x = int(random(0, 4))
     f = x
@@ -90,13 +90,13 @@ def instructie():
         if f > 0:
             x = int(random(0, len(l)))
             fill(0)
-            circle(80, l.pop(x), 40)
+            circle(width / 2 + 30, l.pop(x), 40)
             f = f - 1
         else:
             noFill()
-            circle(80, l.pop(), 40)
+            circle(width / 2 + 30, l.pop(), 40)
         e  = e - 1
-    l = [40, 100, 160, 220]
+    l = [280, 100, 160, 220]
     e = 4
     x = int(random(0, 4))
     f = x
@@ -104,13 +104,13 @@ def instructie():
         if f > 0:
             x = int(random(0, len(l)))
             fill(0)
-            circle(140, l.pop(x), 40)
+            circle(width / 2 + 90, l.pop(x), 40)
             f = f - 1
         else:
             noFill()
-            circle(140, l.pop(), 40)
+            circle(width / 2 + 90, l.pop(), 40)
         e  = e - 1
-    l = [40, 100, 160, 220]
+    l = [280, 100, 160, 220]
     e = 4
     x = int(random(0, 4))
     f = x
@@ -118,13 +118,18 @@ def instructie():
         if f > 0:
             x = int(random(0, len(l)))
             fill(0)
-            circle(200, l.pop(x), 40)
+            circle(width / 2 - 90, l.pop(x), 40)
             f = f - 1
         else:
             noFill()
-            circle(200, l.pop(), 40)
+            circle(width / 2 - 90, l.pop(), 40)
         e  = e - 1
-        
+    x = int(random(0, 4))
+    instrlist = ['je mag geen links of rechts zeggen', 'je mag geen coordinaten gebruiken', 'je mag geen ja of nee zeggen','je mag geen omhoog of omlaag gebruiken']
+    textSize(30)
+    text(instrlist.pop(x), width / 2 ,height / 3)
+    
+    
 def keyPressed():    
     global currentScreen, d, timer
     print(keyCode)
