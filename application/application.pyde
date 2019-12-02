@@ -58,58 +58,61 @@ def draw():
     # Draws the random screen
     elif currentScreen == 'random' and d == 0:
         background(backgroundImg)
+        instructie()
         
-        
-        textSize(50)
-        d = d + 1
-        l = [40, 100, 160, 220]
-        e = 4
-        x = int(random(0, 4))
-        f = x
-        while e > 0:
-            if f > 0:
-                x = int(random(0, len(l)))
-                text("X", 20, l.pop(x))
-                f = f - 1
-            else:
-                text("O", 20, l.pop())
-            e  = e - 1
-        l = [40, 100, 160, 220]
-        e = 4
-        x = int(random(0, 4))
-        f = x
-        while e > 0:
-            if f > 0:
-                x = int(random(0, len(l)))
-                text("X", 80, l.pop(x))
-                f = f - 1
-            else:
-                text("O", 80, l.pop())
-            e  = e - 1
-        l = [40, 100, 160, 220]
-        e = 4
-        x = int(random(0, 4))
-        f = x
-        while e > 0:
-            if f > 0:
-                x = int(random(0, len(l)))
-                text("X", 140, l.pop(x))
-                f = f - 1
-            else:
-                text("O", 140, l.pop())
-            e  = e - 1
-        l = [40, 100, 160, 220]
-        e = 4
-        x = int(random(0, 4))
-        f = x
-        while e > 0:
-            if f > 0:
-                x = int(random(0, len(l)))
-                text("X", 200, l.pop(x))
-                f = f - 1
-            else:
-                text("O", 200, l.pop())
-            e  = e - 1
+         
+def instructie():
+    global d , instructieImg
+    textSize(50)
+    d = d + 1
+    l = [40, 100, 160, 220]
+    e = 4
+    x = int(random(0, 4))
+    f = x
+    while e > 0:
+        if f > 0:
+            x = int(random(0, len(l)))
+            text("X", 20, l.pop(x))
+            f = f - 1
+        else:
+           text("O", 20, l.pop())
+        e  = e - 1
+    l = [40, 100, 160, 220]
+    e = 4
+    x = int(random(0, 4))
+    f = x
+    while e > 0:
+        if f > 0:
+            x = int(random(0, len(l)))
+            text("X", 80, l.pop(x))
+            f = f - 1
+        else:
+            text("O", 80, l.pop())
+        e  = e - 1
+    l = [40, 100, 160, 220]
+    e = 4
+    x = int(random(0, 4))
+    f = x
+    while e > 0:
+        if f > 0:
+            x = int(random(0, len(l)))
+            text("X", 140, l.pop(x))
+            f = f - 1
+        else:
+            text("O", 140, l.pop())
+        e  = e - 1
+    l = [40, 100, 160, 220]
+    e = 4
+    x = int(random(0, 4))
+    f = x
+    while e > 0:
+        if f > 0:
+            x = int(random(0, len(l)))
+            text("X", 200, l.pop(x))
+            f = f - 1
+        else:
+            text("O", 200, l.pop())
+        e  = e - 1
         
 def keyPressed():    
     global currentScreen, d, timer
