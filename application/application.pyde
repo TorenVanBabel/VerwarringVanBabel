@@ -3,10 +3,11 @@ import functions
 
 def setup():
     # Sets required global variables
-    global currentScreen, timer, backgroundImg, regularFont, d
+    global currentScreen, timer, backgroundImg, regularFont, d, instrImg
     currentScreen = 'start'
     timer = 10
     d = 0
+    instrImg = loadImage('instructie')
     
     # Sets the default visual settings (fullscreen/font)
     fullScreen()
@@ -30,6 +31,7 @@ def draw():
         
     # Draws timer screen
     elif currentScreen == 'timer':
+        d= 0
         textSize(200)
         global timer    
         background(backgroundImg)
@@ -62,8 +64,9 @@ def draw():
         
          
 def instructie():
-    global d , instructieImg
+    global d , instrImg
     textSize(50)
+    
     d = d + 1
     l = [40, 100, 160, 220]
     e = 4
@@ -72,10 +75,12 @@ def instructie():
     while e > 0:
         if f > 0:
             x = int(random(0, len(l)))
-            text("X", 20, l.pop(x))
+            fill(0)
+            circle(20, l.pop(x), 40)
             f = f - 1
         else:
-           text("O", 20, l.pop())
+            noFill()
+            circle(20, l.pop(), 40)
         e  = e - 1
     l = [40, 100, 160, 220]
     e = 4
@@ -84,10 +89,12 @@ def instructie():
     while e > 0:
         if f > 0:
             x = int(random(0, len(l)))
-            text("X", 80, l.pop(x))
+            fill(0)
+            circle(80, l.pop(x), 40)
             f = f - 1
         else:
-            text("O", 80, l.pop())
+            noFill()
+            circle(80, l.pop(), 40)
         e  = e - 1
     l = [40, 100, 160, 220]
     e = 4
@@ -96,10 +103,12 @@ def instructie():
     while e > 0:
         if f > 0:
             x = int(random(0, len(l)))
-            text("X", 140, l.pop(x))
+            fill(0)
+            circle(140, l.pop(x), 40)
             f = f - 1
         else:
-            text("O", 140, l.pop())
+            noFill()
+            circle(140, l.pop(), 40)
         e  = e - 1
     l = [40, 100, 160, 220]
     e = 4
@@ -108,10 +117,12 @@ def instructie():
     while e > 0:
         if f > 0:
             x = int(random(0, len(l)))
-            text("X", 200, l.pop(x))
+            fill(0)
+            circle(200, l.pop(x), 40)
             f = f - 1
         else:
-            text("O", 200, l.pop())
+            noFill()
+            circle(200, l.pop(), 40)
         e  = e - 1
         
 def keyPressed():    
@@ -120,7 +131,7 @@ def keyPressed():
     if str(key) == 't':
         currentScreen = 'timer'
         timer = 10
-    elif str(key) == 'r':
+    if str(key) == 'r':
         currentScreen = 'random'
     
 def mouseReleased():
