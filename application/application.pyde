@@ -144,18 +144,24 @@ import functions
 
 def setup():
     # Sets required global variables
-    global currentScreen, timer, backgroundImg, regularFont, d, instrImg
+    global currentScreen, timer, backgroundImg, regularFont, d, instrImg, img, img2, img3, img4, img5
     currentScreen = 'start'
     timer = 10
     d = 0
-
-    instrImg = loadImage('instructie.jpeg')
     
 
+    #Startscherm afbeeldingen en highlight button
+    img = loadImage("startscherm1.jpg")
+    img2 = loadImage("starttekst.png")
+    img3 = loadImage("logo.png")
+    img4 = loadImage("buttonstart.png")
+    img5 = loadImage("buttonstarthigh.png")
+
+    instrImg = loadImage('instructie.jpeg')
 
     # Sets the default visual settings (fullscreen/font)
     fullScreen()
-    backgroundImg = loadImage('achtergrond.jpg')
+    backgroundImg = loadImage('startscherm1.jpg')
     backgroundImg.resize(width, height)
     regularFont = createFont('Felix Titling', 50)
     textFont(regularFont)
@@ -164,13 +170,16 @@ def setup():
     textAlign(CENTER, CENTER)
     background(backgroundImg)
     
+    image(img2,280,10,720,576)
+    image(img3,720,200,150,170)
+    image(img4,420, 390, 500, 350)
    
 def draw():    
     global d, currentScreen
+
     # Draws start screen
     if currentScreen == 'start':
-        textSize(200)
-        text(currentScreen, width/2, height/2)
+        startmenu()
         
     # Draws timer screen
     elif currentScreen == 'timer':
@@ -273,6 +282,22 @@ def instructie():
     instrlist = ['je mag geen links of rechts zeggen', 'je mag geen coordinaten gebruiken', 'je mag geen ja of nee zeggen','je mag geen omhoog of omlaag gebruiken']
     textSize(30)
     text(instrlist.pop(x), width / 1.95 ,height / 1.3 )
+    
+def startmenu():
+    global img, img2, img3, img4, img5
+    image(img2,280,10,720,576)
+    image(img3,720,200,150,170)
+    image(img4,420, 390, 500, 350)
+    
+    if (mousePressed == True and mouseX > 500 and mouseX < 820 and mouseY > 500 and mouseY < 600):
+        image(img5,420, 390, 500, 350)
+    else:
+        fill(255)   # Black
+        loop()
+
+    
+    
+    
     
     
 def keyPressed():    
