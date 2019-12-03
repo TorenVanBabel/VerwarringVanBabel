@@ -1,5 +1,6 @@
 import time
 import functions
+from datetime import datetime
 
 def setup():
     # Sets required global variables
@@ -7,6 +8,7 @@ def setup():
     currentScreen = 'start'
     timer = 10
     d = 0
+    
     # Sets the default visual settings (fullscreen/font)
     fullScreen()
     backgroundImg = loadImage('achtergrond.jpg')
@@ -21,11 +23,17 @@ def setup():
    
 def draw():    
     global d, currentScreen
+    textAlign(CENTER, CENTER)
+    textSize(200)
+    
+    if currentScreen != 'random':
+        d = 0
+        
     # Draws start screen
     if currentScreen == 'start':
         textSize(200)
         text(currentScreen, width/2, height/2)
-        
+  
     # Draws timer screen
     elif currentScreen == 'timer':
         textSize(200)
@@ -39,7 +47,7 @@ def draw():
             currentScreen = 'start'
         else:
             timer = timer - 1
-            
+          
     # Draws main menu screen
     elif currentScreen == 'mainmenu':
         text(currentScreen, width/2, height/2)
@@ -110,8 +118,14 @@ def draw():
             else:
                 text("O", 200, l.pop())
             e  = e - 1
+            
+    now = datetime.now()
+    current_time = now.strftime("%H:%M:%S")
+    textAlign(LEFT, BOTTOM)
+    textSize(25)
+    text(current_time, 10, height-10)
         
-def keyPressed():    
+def keyPressed():
     global currentScreen, d, timer
     print(keyCode)
     if str(key) == 't':
@@ -122,4 +136,4 @@ def keyPressed():
     
 def mouseReleased():
     global d
-    d = d - 1
+    d = 0
