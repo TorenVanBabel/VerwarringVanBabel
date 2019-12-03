@@ -33,6 +33,7 @@ def setup():
     image(img3,720,200,150,170)
     image(img4,420, 390, 500, 350)
    
+   
 def draw():    
     global d, currentScreen
 
@@ -63,8 +64,10 @@ def draw():
     elif currentScreen == 'random' and d == 0:
         background(backgroundImg)
         instructie()
-        
-         
+    
+    clock()
+    
+    
 def instructie():
     global d , instrImg
     textSize(50)
@@ -131,6 +134,7 @@ def instructie():
     textSize(30)
     text(instrlist.pop(x), width / 1.95 ,height / 1.3 )
     
+    
 def timerFunc():
     global timer, d, currentScreen
     d = 0
@@ -146,6 +150,7 @@ def timerFunc():
     
 def startmenu():
     global img, img2, img3, img4, img5
+    image(backgroundImg, 0, 0, width, height)
     image(img2,280,10,720,576)
     image(img3,720,200,150,170)
     image(img4,420, 390, 500, 350)
@@ -154,11 +159,17 @@ def startmenu():
         image(img5,420, 390, 500, 350)
     else:
         fill(255)   # Black
-        loop()
+        loop()   
 
-    
-    
-    
+def clock():
+    noSmooth()
+    textSize(50)
+    fill(255)
+    textAlign(RIGHT)    
+    t = time.localtime()
+    current_time = time.strftime("%H:%M", t)
+    text(current_time, width-20, height-20)
+    textAlign(CENTER)
     
     
 def keyPressed():    
@@ -169,6 +180,10 @@ def keyPressed():
         timer = 10
     if str(key) == 'r':
         currentScreen = 'random'
+    if str(key) == 'm':
+        currentScreen = 'mainmenu'
+    if str(key) == 's':
+        currentScreen = 'start'
     
 def mouseReleased():
     global d
