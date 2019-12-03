@@ -3,10 +3,15 @@ import functions
 
 def setup():
     # Sets required global variables
-    global currentScreen, timer, backgroundImg, regularFont, d
+    global currentScreen, timer, backgroundImg, regularFont, d, instrImg
     currentScreen = 'start'
     timer = 10
     d = 0
+
+    instrImg = loadImage('instructie.jpeg')
+    
+
+
     # Sets the default visual settings (fullscreen/font)
     fullScreen()
     backgroundImg = loadImage('achtergrond.jpg')
@@ -28,6 +33,7 @@ def draw():
         
     # Draws timer screen
     elif currentScreen == 'timer':
+        d= 0
         textSize(200)
         global timer    
         background(backgroundImg)
@@ -58,66 +64,83 @@ def draw():
     # Draws the random screen
     elif currentScreen == 'random' and d == 0:
         background(backgroundImg)
+        instructie()
         
-        
-        textSize(50)
-        d = d + 1
-        l = [40, 100, 160, 220]
-        e = 4
-        x = int(random(0, 4))
-        f = x
-        while e > 0:
-            if f > 0:
-                x = int(random(0, len(l)))
-                text("X", 20, l.pop(x))
-                f = f - 1
-            else:
-                text("O", 20, l.pop())
-            e  = e - 1
-        l = [40, 100, 160, 220]
-        e = 4
-        x = int(random(0, 4))
-        f = x
-        while e > 0:
-            if f > 0:
-                x = int(random(0, len(l)))
-                text("X", 80, l.pop(x))
-                f = f - 1
-            else:
-                text("O", 80, l.pop())
-            e  = e - 1
-        l = [40, 100, 160, 220]
-        e = 4
-        x = int(random(0, 4))
-        f = x
-        while e > 0:
-            if f > 0:
-                x = int(random(0, len(l)))
-                text("X", 140, l.pop(x))
-                f = f - 1
-            else:
-                text("O", 140, l.pop())
-            e  = e - 1
-        l = [40, 100, 160, 220]
-        e = 4
-        x = int(random(0, 4))
-        f = x
-        while e > 0:
-            if f > 0:
-                x = int(random(0, len(l)))
-                text("X", 200, l.pop(x))
-                f = f - 1
-            else:
-                text("O", 200, l.pop())
-            e  = e - 1
-        
+         
+def instructie():
+    global d , instrImg
+    textSize(50)
+    image(instrImg, (width // 2) -300 , 30)
+    d = d + 1
+    l = [525, 150, 275 , 400]
+    e = 4
+    x = int(random(0, 4))
+    f = x
+    while e > 0:
+        if f > 0:
+            x = int(random(0, len(l)))
+            fill(0)
+            circle(width / 2 - 0, l.pop(x), 60)
+            f = f - 1
+        else:
+            noFill()
+            circle(width / 2 - 0, l.pop(), 60)
+        e  = e - 1
+    l = [525, 150, 275 , 400]
+    e = 4
+    x = int(random(0, 4))
+    f = x
+    while e > 0:
+        if f > 0:
+            x = int(random(0, len(l)))
+            fill(0)
+            circle(width / 2 + 130, l.pop(x), 60)
+            f = f - 1
+        else:
+            noFill()
+            circle(width / 2 + 130, l.pop(), 60)
+        e  = e - 1
+    l = [525, 150, 275 , 400 ]
+    e = 4
+    x = int(random(0, 4))
+    f = x
+    while e > 0:
+        if f > 0:
+            x = int(random(0, len(l)))
+            fill(0)
+            circle(width / 2 + 260, l.pop(x), 60)
+            f = f - 1
+        else:
+            noFill()
+            circle(width / 2 + 260, l.pop(), 60)
+        e  = e - 1
+    l = [525, 150, 275 , 400]
+    e = 4
+    x = int(random(0, 4))
+    f = x
+    while e > 0:
+        if f > 0:
+            x = int(random(0, len(l)))
+            fill(0)
+            circle(width / 2 - 125, l.pop(x), 60)
+            f = f - 1
+        else:
+            noFill()
+            circle(width / 2 - 125, l.pop(), 60)
+        e  = e - 1
+    x = int(random(0, 4))
+    instrlist = ['je mag geen links of rechts zeggen', 'je mag geen coordinaten gebruiken', 'je mag geen ja of nee zeggen','je mag geen omhoog of omlaag gebruiken']
+    textSize(30)
+    text(instrlist.pop(x), width / 1.95 ,height / 1.3 )
+    
+    
 def keyPressed():    
     global currentScreen, d, timer
     print(keyCode)
     if str(key) == 't':
         currentScreen = 'timer'
         timer = 10
-    elif str(key) == 'r':
+    if str(key) == 'r':
         currentScreen = 'random'
     
 def mouseReleased():
