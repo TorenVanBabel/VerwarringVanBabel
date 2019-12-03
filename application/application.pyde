@@ -3,11 +3,14 @@ import functions
 
 def setup():
     # Sets required global variables
-    global currentScreen, timer, backgroundImg, regularFont, d, instrImg
+    global currentScreen, timer, backgroundImg, regularFont, d, instrImg, font, font2, imgLogo
     currentScreen = 'start'
     timer = 10
     d = 0
     instrImg = loadImage('instructie.jpeg')
+    font = createFont("Arial", 100)
+    font2= createFont("Arial", 35)
+    imgLogo = loadImage("BabelLogo.jpeg")
     
     # Sets the default visual settings (fullscreen/font)
     fullScreen()
@@ -44,8 +47,45 @@ def draw():
             
     # Draws main menu screen
     elif currentScreen == 'mainmenu':
-        text(currentScreen, width/2, height/2)
-        #code
+        global font, font2, imgLogo
+        fill(218,165,32)    
+    
+        rectMode(CENTER)
+        rect(340,340,465,60) 
+        stroke(0,25,0)
+    
+        rectMode(CENTER)
+        rect(340,490,465,60)
+    
+        rectMode(CENTER)
+        rect(340,640,465,60)
+    
+        textFont(font)
+        fill(0,0,0)
+    
+        textAlign(CENTER)
+        text("Hoofdmenu",width/2,120)
+   
+        textFont(font2)
+        fill(0,0,0)
+    
+        textAlign(RIGHT)
+        text("Randomizer instructiekaarten",570,350)
+    
+        textFont(font2)
+        fill(0,0,0)
+    
+        textAlign(CENTER)
+        text("Gebruikersnamen invoeren",325,500)
+    
+        textAlign(CENTER)
+        text("Stopwatch", 200, 650)
+    
+        image(imgLogo,1350,700,450,350)
+    
+        if (mousePressed == True):
+            if ((mouseX > 200) and (mouseX < 450) and (mouseY > 75) and (mouseY < 300)):
+                 fill(0)     
     
     # Draws the cards screen
     elif currentScreen == 'card':
