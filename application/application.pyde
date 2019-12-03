@@ -132,17 +132,15 @@ def instructie():
     text(instrlist.pop(x), width / 1.95 ,height / 1.3 )
     
 def timerFunc():
-    global timer, d
+    global timer, d, currentScreen
     d = 0
     textSize(200)
     fill(255)   
     background(backgroundImg)
     text(timer, width/2, height/2)
     time.sleep(1)
-    if timer == 1:
+    if timer == 1 or timer == 'De tijd is op!':
         timer = 'De tijd is op!'
-    elif timer == 'De tijd is op!':
-        currentScreen = 'start'
     else:
         timer = timer - 1
     
