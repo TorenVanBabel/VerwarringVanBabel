@@ -3,14 +3,19 @@ import functions
 
 def setup():
     # Sets required global variables
-    global currentScreen, timer, backgroundImg, regularFont, d, instrImg
-    currentScreen = 'start'
+    global currentScreen, timer, backgroundImg, regularFont, d, instrImg, img, img2, img3, img4, img5
+    currentScreen = ''
     timer = 10
     d = 0
 
-    instrImg = loadImage('instructie.jpeg')
-    
+    #Startscherm afbeeldingen en highlight button
+    img = loadImage("startscherm1.jpg")
+    img2 = loadImage("starttekst.png")
+    img3 = loadImage("logo.png")
+    img4 = loadImage("buttonstart.png")
+    img5 = loadImage("buttonstarthigh.png")
 
+    instrImg = loadImage('instructie.jpeg')
 
     # Sets the default visual settings (fullscreen/font)
     fullScreen()
@@ -26,6 +31,15 @@ def setup():
    
 def draw():    
     global d, currentScreen
+    image(img2,280,10,720,576)
+    image(img3,720,200,150,170)
+    image(img4,420, 390, 500, 350)
+
+    if (mousePressed == True and mouseX > 500 and mouseX < 820 and mouseY > 500 and mouseY < 600):
+        image(img5,420, 390, 500, 350)
+    else:
+        fill(255)   # Black
+        loop()
     # Draws start screen
     if currentScreen == 'start':
         textSize(200)
