@@ -7,8 +7,11 @@ def setup():
     currentScreen = 'start'
     timer = 10
     d = 0
+
     instrImg = loadImage('instructie.jpeg')
     
+
+
     # Sets the default visual settings (fullscreen/font)
     fullScreen()
     backgroundImg = loadImage('achtergrond.jpg')
@@ -20,10 +23,9 @@ def setup():
     textAlign(CENTER, CENTER)
     background(backgroundImg)
     
-def draw():
-    global d
-    
-    
+   
+def draw():    
+    global d, currentScreen
     # Draws start screen
     if currentScreen == 'start':
         textSize(200)
@@ -37,8 +39,10 @@ def draw():
         background(backgroundImg)
         text(timer, width/2, height/2)
         time.sleep(1)
-        if timer == 1 or timer == 'De tijd is op!':
+        if timer == 1:
             timer = 'De tijd is op!'
+        elif timer == 'De tijd is op!':
+            currentScreen = 'start'
         else:
             timer = timer - 1
             
