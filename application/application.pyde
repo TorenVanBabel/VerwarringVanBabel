@@ -47,46 +47,8 @@ def draw():
             
     # Draws main menu screen
     elif currentScreen == 'mainmenu':
-        global font, font2, imgLogo
-        fill(218,165,32)    
-    
-        rectMode(CENTER)
-        rect(340,340,465,60) 
-        stroke(0,25,0)
-    
-        rectMode(CENTER)
-        rect(340,490,465,60)
-    
-        rectMode(CENTER)
-        rect(340,640,465,60)
-    
-        textFont(font)
-        fill(0,0,0)
-    
-        textAlign(CENTER)
-        text("Hoofdmenu",width/2,120)
-   
-        textFont(font2)
-        fill(0,0,0)
-    
-        textAlign(RIGHT)
-        text("Randomizer instructiekaarten",570,350)
-    
-        textFont(font2)
-        fill(0,0,0)
-    
-        textAlign(CENTER)
-        text("Gebruikersnamen invoeren",325,500)
-    
-        textAlign(CENTER)
-        text("Stopwatch", 200, 650)
-    
-        image(imgLogo,1350,700,450,350)
-    
-        if (mousePressed == True):
-            if ((mouseX > 200) and (mouseX < 450) and (mouseY > 75) and (mouseY < 300)):
-                 fill(0)     
-    
+        hoofdmenu()
+        
     # Draws the cards screen
     elif currentScreen == 'card':
         text(currentScreen, width/2, height/2)
@@ -165,10 +127,59 @@ def instructie():
             circle(width / 2 - 125, l.pop(), 60)
         e  = e - 1
     x = int(random(0, 4))
-    instrlist = ['je mag geen links of rechts zeggen', 'je mag geen coordinaten gebruiken', 'je mag geen ja of nee zeggen','je mag geen omhoog of omlaag gebruiken']
+    instrlist = ['je mag geen links of rechts zeggen', 'je mag geen coördinaten gebruiken', 'je mag geen ja of nee zeggen','je mag geen omhoog of omlaag zeggen']
     textSize(30)
     text(instrlist.pop(x), width / 1.95 ,height / 1.3 )
     
+    
+    
+def hoofdmenu():
+    global font, font2, imgLogo, d
+    fill(218,165,32)    
+     
+    background(backgroundImg)
+        
+    rectMode(CENTER)
+    rect(340,340,465,60) 
+    stroke(0,25,0)
+    
+    rectMode(CENTER)
+    rect(340,490,465,60)
+    
+    rectMode(CENTER)
+    rect(340,640,465,60)
+    
+    textFont(font)
+    fill(0,0,0)
+    
+    textAlign(CENTER)
+    text("Hoofdmenu",width/2,120)
+   
+    textFont(font2)
+    fill(0,0,0)
+    
+    textAlign(RIGHT)
+    text("Randomizer instructiekaarten",570,350)
+    
+    textFont(font2)
+    fill(0,0,0)
+    
+    textAlign(CENTER)
+    text("Handleiding",325,500)
+    
+    textAlign(CENTER)
+    text("Stopwatch", 200, 650)
+    
+    image(imgLogo,1350,700,450,350)
+    
+    if mousePressed == True and mouseX > 105 and mouseX < 575 and mouseY > 309 and mouseY < 371 and d == 0:
+        d = 1
+        while key != 'p':
+            instructie()
+    if mousePressed == True and mouseX > 105 and mouseX < 575 and mouseY > 459 and mouseY < 521:
+        circle(20,20,20)
+    if mousePressed == True and mouseX > 105 and mouseX < 575 and mouseY > 609 and mouseY < 671: 
+        circle(20,20,20)    
     
 def keyPressed():    
     global currentScreen, d, timer
@@ -178,7 +189,12 @@ def keyPressed():
         timer = 10
     if str(key) == 'r':
         currentScreen = 'random'
+    if str(key) == 'y':
+        currentScreen = 'mainmenu'
     
 def mouseReleased():
     global d
     d = d - 1
+    
+
+    
