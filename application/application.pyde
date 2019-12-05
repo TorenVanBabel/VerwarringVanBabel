@@ -41,6 +41,9 @@ def draw():
     if currentScreen == 'start':
         startmenu()
         
+    if currentScreen == 'hoofdmenu':
+        hoofdmenu()
+    
     # Draws timer screen
     elif currentScreen == 'timer':
         timerFunc()
@@ -149,7 +152,8 @@ def timerFunc():
         timer = timer - 1
     
 def hoofdmenu():
-    global font, font2, imgLogo, d
+    global font, font2, imgLogo, d, currentScreen
+    currenScreen = 'hoofdmenu'
     d = 0
     fill(218,165,32)    
      
@@ -165,19 +169,19 @@ def hoofdmenu():
     rectMode(CENTER)
     rect(340,640,465,60)
     
-    textFont(font)
+    textSize(100)
     fill(0,0,0)
     
     textAlign(CENTER)
     text("Hoofdmenu",width/2,120)
    
-    textFont(font2)
+    textSize(50)
     fill(0,0,0)
     
     textAlign(RIGHT)
     text("Randomizer instructiekaarten",570,350)
     
-    textFont(font2)
+    textSize(50)
     fill(0,0,0)
     
     textAlign(CENTER)
@@ -198,7 +202,7 @@ def hoofdmenu():
         circle(20,20,20)    
     
 def startmenu():
-    global img, img2, img3, img4, img5
+    global img, img2, img3, img4, img5, currenScreen
     image(backgroundImg, 0, 0, width, height)
     image(img2,280,10,720,576)
     image(img3,720,200,150,170)
@@ -206,6 +210,7 @@ def startmenu():
     
     if (mousePressed == True and mouseX > 500 and mouseX < 820 and mouseY > 500 and mouseY < 600):
         image(img5,420, 390, 500, 350)
+        hoofdmenu()
     else:
         fill(255)   # Black
         loop()   
@@ -223,6 +228,7 @@ def clock():
     
 def keyPressed():    
     global currentScreen, d, timer
+    d = 0
     print(keyCode)
     if str(key) == 't':
         currentScreen = 'timer'
@@ -236,4 +242,4 @@ def keyPressed():
     
 def mouseReleased():
     global d
-    d = d - 1
+    d = 0
