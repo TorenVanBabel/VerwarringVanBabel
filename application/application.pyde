@@ -148,6 +148,55 @@ def timerFunc():
     else:
         timer = timer - 1
     
+def hoofdmenu():
+    global font, font2, imgLogo, d
+    d = 0
+    fill(218,165,32)    
+     
+    background(backgroundImg)
+        
+    rectMode(CENTER)
+    rect(340,340,465,60) 
+    stroke(0,25,0)
+    
+    rectMode(CENTER)
+    rect(340,490,465,60)
+    
+    rectMode(CENTER)
+    rect(340,640,465,60)
+    
+    textFont(font)
+    fill(0,0,0)
+    
+    textAlign(CENTER)
+    text("Hoofdmenu",width/2,120)
+   
+    textFont(font2)
+    fill(0,0,0)
+    
+    textAlign(RIGHT)
+    text("Randomizer instructiekaarten",570,350)
+    
+    textFont(font2)
+    fill(0,0,0)
+    
+    textAlign(CENTER)
+    text("Handleiding",325,500)
+    
+    textAlign(CENTER)
+    text("Stopwatch", 200, 650)
+    
+
+    
+    if mousePressed == True and mouseX > 105 and mouseX < 575 and mouseY > 309 and mouseY < 371 and d == 0:
+        d = 1
+        while key != 'p':
+            instructie()
+    if mousePressed == True and mouseX > 105 and mouseX < 575 and mouseY > 459 and mouseY < 521:
+        circle(20,20,20)
+    if mousePressed == True and mouseX > 105 and mouseX < 575 and mouseY > 609 and mouseY < 671: 
+        circle(20,20,20)    
+    
 def startmenu():
     global img, img2, img3, img4, img5
     image(backgroundImg, 0, 0, width, height)
