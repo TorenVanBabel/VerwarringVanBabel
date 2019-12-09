@@ -3,10 +3,11 @@ import functions
 
 def setup():
     # Sets required global variables
-    global currentScreen, timer, backgroundImg, regularFont, d, instrImg, img, img2, img3, img4, img5
+    global currentScreen, timer, backgroundImg, regularFont, d, instrImg, img, Save, img2, img3, img4, img5
     currentScreen = 'start'
     timer = 10
     d = 0
+    Save = False
     
 
     #Startscherm afbeeldingen en highlight button
@@ -35,7 +36,7 @@ def setup():
    
    
 def draw():    
-    global d, currentScreen
+    global d, currentScreen, Save, randomList, fillOrNoFill
 
     # Draws start screen
     if currentScreen == 'start':
@@ -64,87 +65,106 @@ def draw():
         #code
     
     # Draws the random screen
-    elif currentScreen == 'random' and d == 0:
-        background(backgroundImg)
+    elif currentScreen == 'random' :
         instructie()
     
     clock()
     
     
 def instructie():
-    global d , instrImg
-    textSize(50)
-    image(instrImg, (width // 2) -300 , 30)
-    d = d + 1
-    l = [525, 150, 275 , 400]
-    e = 4
-    x = int(random(0, 4))
-    f = x
-    while e > 0:
-        if f > 0:
-            x = int(random(0, len(l)))
+    global d , instrImg, timer, Save, randomList, fillOrNoFill
+    if Save != True:
+        textSize(50)
+        background(backgroundImg)
+        image(instrImg, (width // 2) -300 , 30)
+        d = d + 1
+        l = [525, 150, 275 , 400]
+        e = 4
+        x = int(random(0, 4))
+        f = x
+        randomList = []
+        fillOrNoFill= []
+        while e > 0:
+            randomList.append (width / 2 - 0)
+            if f > 0:
+                x = int(random(0, len(l)))
+                randomList.append(l.pop(x))
+                fillOrNoFill.append(0)
+                f = f - 1
+            else:
+                fillOrNoFill.append(1)
+                randomList.append (l.pop())
+            e  = e - 1
+        l = [525, 150, 275 , 400]
+        e = 4
+        x = int(random(0, 4))
+        f = x
+        while e > 0:
+            randomList.append (width / 2 + 130)
+            if f > 0:
+                x = int(random(0, len(l)))
+                randomList.append(l.pop(x))
+                fillOrNoFill.append(0)
+                f = f - 1
+            else:
+                fillOrNoFill.append(1)
+                randomList.append (l.pop())
+            e  = e - 1
+        l = [525, 150, 275 , 400 ]
+        e = 4
+        x = int(random(0, 4))
+        f = x
+        while e > 0:
+            randomList.append (width / 2 + 260)
+            if f > 0:
+                x = int(random(0, len(l)))
+                randomList.append(l.pop(x))
+                fillOrNoFill.append(0)
+                f = f - 1
+            else:
+                fillOrNoFill.append(1)
+                randomList.append (l.pop())
+            e  = e - 1
+        l = [525, 150, 275 , 400]
+        e = 4
+        x = int(random(0, 4))
+        f = x
+        while e > 0:
+            randomList.append (width / 2 - 125)
+            if f > 0:
+                x = int(random(0, len(l)))
+                randomList.append(l.pop(x))
+                fillOrNoFill.append(0)
+                f = f - 1
+            else:
+                fillOrNoFill.append(1)
+                randomList.append (l.pop())
+            e  = e - 1
+        x = int(random(0, 4))
+        instrlist = ['je mag geen links of rechts zeggen', 'je mag geen coordinaten gebruiken', 'je mag geen ja of nee zeggen','je mag geen omhoog of omlaag gebruiken']
+        textSize(30)
+        instr = instrlist.pop(x)
+        Save = True
+    while len(randomList) > 0:
+        x = fillOrNoFill.pop(0)
+        if x == 0:
             fill(0)
-            circle(width / 2 - 0, l.pop(x), 60)
-            f = f - 1
-        else:
+        if x == 1:
             noFill()
-            circle(width / 2 - 0, l.pop(), 60)
-        e  = e - 1
-    l = [525, 150, 275 , 400]
-    e = 4
-    x = int(random(0, 4))
-    f = x
-    while e > 0:
-        if f > 0:
-            x = int(random(0, len(l)))
-            fill(0)
-            circle(width / 2 + 130, l.pop(x), 60)
-            f = f - 1
-        else:
-            noFill()
-            circle(width / 2 + 130, l.pop(), 60)
-        e  = e - 1
-    l = [525, 150, 275 , 400 ]
-    e = 4
-    x = int(random(0, 4))
-    f = x
-    while e > 0:
-        if f > 0:
-            x = int(random(0, len(l)))
-            fill(0)
-            circle(width / 2 + 260, l.pop(x), 60)
-            f = f - 1
-        else:
-            noFill()
-            circle(width / 2 + 260, l.pop(), 60)
-        e  = e - 1
-    l = [525, 150, 275 , 400]
-    e = 4
-    x = int(random(0, 4))
-    f = x
-    while e > 0:
-        if f > 0:
-            x = int(random(0, len(l)))
-            fill(0)
-            circle(width / 2 - 125, l.pop(x), 60)
-            f = f - 1
-        else:
-            noFill()
-            circle(width / 2 - 125, l.pop(), 60)
-        e  = e - 1
-    x = int(random(0, 4))
-    instrlist = ['je mag geen links of rechts zeggen', 'je mag geen coordinaten gebruiken', 'je mag geen ja of nee zeggen','je mag geen omhoog of omlaag gebruiken']
-    textSize(30)
-    text(instrlist.pop(x), width / 1.95 ,height / 1.3 )
+        circle(randomList.pop(0), randomList.pop(0), 60)
+        text(instr, width / 1.95 ,height / 1.3 )
+        
+    timerFunc()
     
+        
+    
+
     
 def timerFunc():
     global timer, d, currentScreen
-    d = 0
     textSize(200)
     fill(255)   
-    background(backgroundImg)
-    text(timer, width/2, height/2)
+    text(timer, width /1.2, height/2)
     time.sleep(1)
     if timer == 1 or timer == 'De tijd is op!':
         timer = 'De tijd is op!'
