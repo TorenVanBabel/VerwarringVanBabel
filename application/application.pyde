@@ -1,11 +1,13 @@
+from datetime import time, datetime
 import time
 import functions
 
 def setup():
     # Sets required global variables
-    global currentScreen, timer, backgroundImg, regularFont, d, instrImg, img, Save, img2, img3, img4, img5
+    global currentScreen, timerStart, secondsPassed, backgroundImg, regularFont, d, instrImg, img, Save, img2, img3, img4, img5
     currentScreen = 'start'
-    timer = 10
+    timerStart = datetime.now()
+    secondsPassed = 0
     d = 0
     Save = False
 
@@ -70,7 +72,7 @@ def draw():
     
 # Generates a new random card and shows it on the screen    
 def instructie():
-    global d , instrImg, timer, Save, randomList, fillOrNoFill, instr
+    global d , instrImg, timerStart, Save, randomList, fillOrNoFill, instr
     if Save != True:
         textSize(50)
         d = d + 1
@@ -162,21 +164,21 @@ def instructie():
         
 # Draws a timer on the screen that counts down to 0
 def timerFunc():
-    global timer, d, currentScreen
+    global timerStart, timePassed, d, currentScreen
     textSize(200)
-    fill(0)   
-    time.sleep(1)
-    if timer == 0 or timer == 'De tijd is op!':
-        timer = 'De tijd is op!'
+    fill(0)
+    timePassed = (datetime.now() - timerStart).seconds
+    if timePassed > 10 or timePassed == 'De tijd is op!':
+        timePassed = 'De tijd is op!'
         background(backgroundImg)
-        text(timer, width /2, height/2)
+        text(timePassed, width /2, height/2)
     else:
-        text(timer, width /1.2, height/2)
-        timer = timer - 1
+        text(10 - timePassed, width /1.2, height/2)
+
     
 # Draws the hoofdmenu
 def hoofdmenu():
-    global font, font2, imgLogo, d, currentScreen
+    global font, font2, imgLogo, d, currentScreen, timerStart
     currentScreen = 'hoofdmenu'
     d = 0
     background(backgroundImg)
@@ -208,6 +210,7 @@ def hoofdmenu():
     if mousePressed == True and mouseX > 105 and mouseX < 575 and mouseY > 309 and mouseY < 371 and d == 0:
         d = 1
         currentScreen = 'random'
+        timerStart = datetime.now()
         background(backgroundImg)
     
     if mousePressed == True and mouseX > 105 and mouseX < 575 and mouseY > 459 and mouseY < 521:
@@ -215,6 +218,7 @@ def hoofdmenu():
     if mousePressed == True and mouseX > 105 and mouseX < 575 and mouseY > 609 and mouseY < 671 and d == 0: 
         d = 1
         currentScreen = 'timer'
+        timerStart = datetime.now()
         background(backgroundImg)  
     
 def startmenu():
@@ -241,12 +245,12 @@ def clock():
     
     
 def keyPressed():    
-    global currentScreen, d, timer
+    global currentScreen, d, timerStart
     d = 0
     print(keyCode)
     if str(key) == 't':
         currentScreen = 'timer'
-        timer = 10
+        timerStart = datetime.now()
     if str(key) == 'r':
         currentScreen = 'random'
     if str(key) == 'm':
