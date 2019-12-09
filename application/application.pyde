@@ -194,8 +194,9 @@ def hoofdmenu():
     
     if mousePressed == True and mouseX > 105 and mouseX < 575 and mouseY > 309 and mouseY < 371 and d == 0:
         d = 1
-        while key != 'p':
-            instructie()
+        currentScreen = 'random'
+        background(backgroundImg)
+    
     if mousePressed == True and mouseX > 105 and mouseX < 575 and mouseY > 459 and mouseY < 521:
         circle(20,20,20)
     if mousePressed == True and mouseX > 105 and mouseX < 575 and mouseY > 609 and mouseY < 671: 
@@ -242,4 +243,4 @@ def keyPressed():
     
 def mouseReleased():
     global d
-    d = 0
+    d = 0 
