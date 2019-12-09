@@ -47,7 +47,7 @@ def draw():
     # Draws timer screen
     elif currentScreen == 'timer':
         background(backgroundImg)
-        timerFunc()
+        timerFunc(width/2)
             
     # Draws the cards screen
     elif currentScreen == 'card':
@@ -159,11 +159,11 @@ def instructie():
         circle(randomList[f], randomList[f+1], 60)
         text(instr, width / 1.95 ,height / 1.3 )
         f += 2
-    timerFunc()
+    timerFunc(width/1.2)
     
         
 # Draws a timer on the screen that counts down to 0
-def timerFunc():
+def timerFunc(placement):
     global timerStart, timePassed, d, currentScreen
     textSize(200)
     fill(0)
@@ -173,7 +173,7 @@ def timerFunc():
         background(backgroundImg)
         text(timePassed, width /2, height/2)
     else:
-        text(10 - timePassed, width /1.2, height/2)
+        text(10 - timePassed, placement, height/2)
 
     
 # Draws the hoofdmenu
