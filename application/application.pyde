@@ -47,6 +47,7 @@ def draw():
     
     # Draws timer screen
     elif currentScreen == 'timer':
+        background(backgroundImg)
         timerFunc()
             
     # Draws main menu screen
@@ -72,11 +73,9 @@ def draw():
     
     
 def instructie():
-    global d , instrImg, timer, Save, randomList, fillOrNoFill
+    global d , instrImg, timer, Save, randomList, fillOrNoFill, instr
     if Save != True:
         textSize(50)
-        background(backgroundImg)
-        image(instrImg, (width // 2) -300 , 30)
         d = d + 1
         l = [525, 150, 275 , 400]
         e = 4
@@ -145,15 +144,22 @@ def instructie():
         textSize(30)
         instr = instrlist.pop(x)
         Save = True
-    while len(randomList) > 0:
-        x = fillOrNoFill.pop(0)
+    background(backgroundImg)
+    image(instrImg, (width // 2) -300 , 30)
+    f = 0
+    o = 0
+    textSize(30)
+    while f < 31:
+        if o < 16:
+            x = fillOrNoFill[o]
+        o = o + 1
         if x == 0:
             fill(0)
         if x == 1:
             noFill()
-        circle(randomList.pop(0), randomList.pop(0), 60)
+        circle(randomList[f], randomList[f+1], 60)
         text(instr, width / 1.95 ,height / 1.3 )
-        
+        f += 2
     timerFunc()
     
         
@@ -163,12 +169,14 @@ def instructie():
 def timerFunc():
     global timer, d, currentScreen
     textSize(200)
-    fill(255)   
-    text(timer, width /1.2, height/2)
+    fill(0)   
     time.sleep(1)
-    if timer == 1 or timer == 'De tijd is op!':
+    if timer == 0 or timer == 'De tijd is op!':
         timer = 'De tijd is op!'
+        background(backgroundImg)
+        text(timer, width /2, height/2)
     else:
+        text(timer, width /1.2, height/2)
         timer = timer - 1
     
 def hoofdmenu():
@@ -195,20 +203,20 @@ def hoofdmenu():
     textAlign(CENTER)
     text("Hoofdmenu",width/2,120)
    
-    textSize(50)
+    textSize(43)
     fill(0,0,0)
     
-    textAlign(RIGHT)
-    text("Randomizer instructiekaarten",570,350)
+    textAlign(LEFT)
+    text("instructiekaarten",110,350)
     
-    textSize(50)
+    textSize(43)
     fill(0,0,0)
     
-    textAlign(CENTER)
-    text("Handleiding",325,500)
+    textAlign(LEFT)
+    text("Droomkaarten",110,500)
     
-    textAlign(CENTER)
-    text("Stopwatch", 200, 650)
+    textAlign(LEFT)
+    text("Stopwatch", 110, 650)
     
 
     
@@ -219,8 +227,10 @@ def hoofdmenu():
     
     if mousePressed == True and mouseX > 105 and mouseX < 575 and mouseY > 459 and mouseY < 521:
         circle(20,20,20)
-    if mousePressed == True and mouseX > 105 and mouseX < 575 and mouseY > 609 and mouseY < 671: 
-        circle(20,20,20)    
+    if mousePressed == True and mouseX > 105 and mouseX < 575 and mouseY > 609 and mouseY < 671 and d == 0: 
+        d = 1
+        currentScreen = 'timer'
+        background(backgroundImg)  
     
 def startmenu():
     global img, img2, img3, img4, img5, currentScreen
