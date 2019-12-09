@@ -69,6 +69,7 @@ def draw():
         instructie()
     
     clock()
+    startButton(50, 50, 0.1*width, 0.05*height, 'Start')
     
     
 def instructie():
@@ -244,3 +245,16 @@ def keyPressed():
 def mouseReleased():
     global d
     d = 0 
+    
+def startButton(buttonCoordX, buttonCoordY, buttonSizeX, buttonSizeY, textInput):
+    global currentScreen
+    rectMode(CORNER)
+    fill(218,165,32)
+    rect(buttonCoordX, buttonCoordY, buttonSizeX, buttonSizeY)
+    textAlign(CENTER, CENTER)
+    fill(0)
+    textSize(buttonSizeY*0.6)
+    text(textInput, (buttonCoordX*2+buttonSizeX)/2, (buttonCoordY*2-textDescent()+buttonSizeY)/2) 
+    if (mousePressed == True and (buttonCoordX < mouseX < buttonCoordX+buttonSizeX) and (buttonCoordY < mouseY < buttonCoordY+buttonSizeY)):
+        currentScreen = 'start'
+        
