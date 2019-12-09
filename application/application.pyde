@@ -153,7 +153,7 @@ def timerFunc():
     
 def hoofdmenu():
     global font, font2, imgLogo, d, currentScreen
-    currenScreen = 'hoofdmenu'
+    currentScreen = 'hoofdmenu'
     d = 0
     fill(218,165,32)    
      
@@ -202,7 +202,7 @@ def hoofdmenu():
         circle(20,20,20)    
     
 def startmenu():
-    global img, img2, img3, img4, img5, currenScreen
+    global img, img2, img3, img4, img5, currentScreen
     image(backgroundImg, 0, 0, width, height)
     image(img2,280,10,720,576)
     image(img3,720,200,150,170)
