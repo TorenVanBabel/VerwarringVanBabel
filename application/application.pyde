@@ -253,6 +253,7 @@ def keyPressed():
         timerStart = datetime.now()
     if str(key) == 'r':
         currentScreen = 'random'
+        timerStart = datetime.now()
     if str(key) == 'm':
         currentScreen = 'hoofdmenu'
     if str(key) == 's':
