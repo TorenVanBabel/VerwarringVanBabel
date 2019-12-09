@@ -3,19 +3,20 @@ import functions
 
 def setup():
     # Sets required global variables
-    global currentScreen, timer, backgroundImg, regularFont, d, instrImg, img, img2, img3, img4, img5
+    global currentScreen, timer, backgroundImg, regularFont, d, instrImg, img, Save, img2, img3, img4, img5
     currentScreen = 'start'
     timer = 10
     d = 0
-    
+    Save = False
 
-    #Startscherm afbeeldingen en highlight button
+    # Startscherm afbeeldingen en highlight button
     img = loadImage("startscherm1.jpg")
     img2 = loadImage("starttekst.png")
     img3 = loadImage("logo.png")
     img4 = loadImage("buttonstart.png")
     img5 = loadImage("buttonstarthigh.png")
 
+    # Loads static image for random card generation
     instrImg = loadImage('instructie.jpeg')
 
     # Sets the default visual settings (fullscreen/font)
@@ -28,31 +29,24 @@ def setup():
     fill(0)
     textAlign(CENTER, CENTER)
     background(backgroundImg)
-    
-    image(img2,280,10,720,576)
-    image(img3,720,200,150,170)
-    image(img4,420, 390, 500, 350)
-   
+
    
 def draw():    
-    global d, currentScreen
+    global d, currentScreen, Save, randomList, fillOrNoFill
 
     # Draws start screen
     if currentScreen == 'start':
         startmenu()
-        
+    
+    # Draws hoofdmenu    
     if currentScreen == 'hoofdmenu':
         hoofdmenu()
     
     # Draws timer screen
     elif currentScreen == 'timer':
+        background(backgroundImg)
         timerFunc()
             
-    # Draws main menu screen
-    elif currentScreen == 'mainmenu':
-        text(currentScreen, width/2, height/2)
-        #code
-    
     # Draws the cards screen
     elif currentScreen == 'card':
         text(currentScreen, width/2, height/2)
@@ -64,110 +58,135 @@ def draw():
         #code
     
     # Draws the random screen
-    elif currentScreen == 'random' and d == 0:
-        background(backgroundImg)
+    elif currentScreen == 'random' :
         instructie()
     
+    # Draws clock in bottom right on every screen
     clock()
-    startButton(50, 50, 0.1*width, 0.05*height, 'Start')
     
+    # Draws button back to main menu where needed
+    if False == (currentScreen == 'start' or currentScreen == 'hoofdmenu'):
+        mainMenuButton()
     
+# Generates a new random card and shows it on the screen    
 def instructie():
-    global d , instrImg
-    textSize(50)
+    global d , instrImg, timer, Save, randomList, fillOrNoFill, instr
+    if Save != True:
+        textSize(50)
+        d = d + 1
+        l = [525, 150, 275 , 400]
+        e = 4
+        x = int(random(0, 4))
+        f = x
+        randomList = []
+        fillOrNoFill= []
+        while e > 0:
+            randomList.append (width / 2 - 0)
+            if f > 0:
+                x = int(random(0, len(l)))
+                randomList.append(l.pop(x))
+                fillOrNoFill.append(0)
+                f = f - 1
+            else:
+                fillOrNoFill.append(1)
+                randomList.append (l.pop())
+            e  = e - 1
+        l = [525, 150, 275 , 400]
+        e = 4
+        x = int(random(0, 4))
+        f = x
+        while e > 0:
+            randomList.append (width / 2 + 130)
+            if f > 0:
+                x = int(random(0, len(l)))
+                randomList.append(l.pop(x))
+                fillOrNoFill.append(0)
+                f = f - 1
+            else:
+                fillOrNoFill.append(1)
+                randomList.append (l.pop())
+            e  = e - 1
+        l = [525, 150, 275 , 400 ]
+        e = 4
+        x = int(random(0, 4))
+        f = x
+        while e > 0:
+            randomList.append (width / 2 + 260)
+            if f > 0:
+                x = int(random(0, len(l)))
+                randomList.append(l.pop(x))
+                fillOrNoFill.append(0)
+                f = f - 1
+            else:
+                fillOrNoFill.append(1)
+                randomList.append (l.pop())
+            e  = e - 1
+        l = [525, 150, 275 , 400]
+        e = 4
+        x = int(random(0, 4))
+        f = x
+        while e > 0:
+            randomList.append (width / 2 - 125)
+            if f > 0:
+                x = int(random(0, len(l)))
+                randomList.append(l.pop(x))
+                fillOrNoFill.append(0)
+                f = f - 1
+            else:
+                fillOrNoFill.append(1)
+                randomList.append (l.pop())
+            e  = e - 1
+        x = int(random(0, 4))
+        instrlist = ['je mag geen links of rechts zeggen', 'je mag geen coordinaten gebruiken', 'je mag geen ja of nee zeggen','je mag geen omhoog of omlaag gebruiken']
+        textSize(30)
+        instr = instrlist.pop(x)
+        Save = True
+    background(backgroundImg)
     image(instrImg, (width // 2) -300 , 30)
-    d = d + 1
-    l = [525, 150, 275 , 400]
-    e = 4
-    x = int(random(0, 4))
-    f = x
-    while e > 0:
-        if f > 0:
-            x = int(random(0, len(l)))
-            fill(0)
-            circle(width / 2 - 0, l.pop(x), 60)
-            f = f - 1
-        else:
-            noFill()
-            circle(width / 2 - 0, l.pop(), 60)
-        e  = e - 1
-    l = [525, 150, 275 , 400]
-    e = 4
-    x = int(random(0, 4))
-    f = x
-    while e > 0:
-        if f > 0:
-            x = int(random(0, len(l)))
-            fill(0)
-            circle(width / 2 + 130, l.pop(x), 60)
-            f = f - 1
-        else:
-            noFill()
-            circle(width / 2 + 130, l.pop(), 60)
-        e  = e - 1
-    l = [525, 150, 275 , 400 ]
-    e = 4
-    x = int(random(0, 4))
-    f = x
-    while e > 0:
-        if f > 0:
-            x = int(random(0, len(l)))
-            fill(0)
-            circle(width / 2 + 260, l.pop(x), 60)
-            f = f - 1
-        else:
-            noFill()
-            circle(width / 2 + 260, l.pop(), 60)
-        e  = e - 1
-    l = [525, 150, 275 , 400]
-    e = 4
-    x = int(random(0, 4))
-    f = x
-    while e > 0:
-        if f > 0:
-            x = int(random(0, len(l)))
-            fill(0)
-            circle(width / 2 - 125, l.pop(x), 60)
-            f = f - 1
-        else:
-            noFill()
-            circle(width / 2 - 125, l.pop(), 60)
-        e  = e - 1
-    x = int(random(0, 4))
-    instrlist = ['je mag geen links of rechts zeggen', 'je mag geen coordinaten gebruiken', 'je mag geen ja of nee zeggen','je mag geen omhoog of omlaag gebruiken']
+    f = 0
+    o = 0
     textSize(30)
-    text(instrlist.pop(x), width / 1.95 ,height / 1.3 )
+    while f < 31:
+        if o < 16:
+            x = fillOrNoFill[o]
+        o = o + 1
+        if x == 0:
+            fill(0)
+        if x == 1:
+            noFill()
+        circle(randomList[f], randomList[f+1], 60)
+        text(instr, width / 1.95 ,height / 1.3 )
+        f += 2
+    timerFunc()
     
-    
+        
+# Draws a timer on the screen that counts down to 0
 def timerFunc():
     global timer, d, currentScreen
-    d = 0
     textSize(200)
-    fill(255)   
-    background(backgroundImg)
-    text(timer, width/2, height/2)
+    fill(0)   
     time.sleep(1)
-    if timer == 1 or timer == 'De tijd is op!':
+    if timer == 0 or timer == 'De tijd is op!':
         timer = 'De tijd is op!'
+        background(backgroundImg)
+        text(timer, width /2, height/2)
     else:
+        text(timer, width /1.2, height/2)
         timer = timer - 1
     
+# Draws the hoofdmenu
 def hoofdmenu():
     global font, font2, imgLogo, d, currentScreen
     currentScreen = 'hoofdmenu'
     d = 0
-    fill(218,165,32)    
-     
     background(backgroundImg)
         
-    rectMode(CENTER)
-    rect(340,340,465,60) 
+    fill(218,165,32)
     stroke(0,25,0)
-    
     rectMode(CENTER)
+    
+    rect(340,340,465,60) 
     rect(340,490,465,60)
-    
-    rectMode(CENTER)
     rect(340,640,465,60)
     
     textSize(100)
@@ -176,20 +195,13 @@ def hoofdmenu():
     textAlign(CENTER)
     text("Hoofdmenu",width/2,120)
    
-    textSize(50)
+    textSize(43)
     fill(0,0,0)
+    textAlign(LEFT)
     
-    textAlign(RIGHT)
-    text("Randomizer instructiekaarten",570,350)
-    
-    textSize(50)
-    fill(0,0,0)
-    
-    textAlign(CENTER)
-    text("Handleiding",325,500)
-    
-    textAlign(CENTER)
-    text("Stopwatch", 200, 650)
+    text("instructiekaarten",110,350)
+    text("Droomkaarten",110,500)
+    text("Stopwatch", 110, 650)
     
 
     
@@ -200,8 +212,10 @@ def hoofdmenu():
     
     if mousePressed == True and mouseX > 105 and mouseX < 575 and mouseY > 459 and mouseY < 521:
         circle(20,20,20)
-    if mousePressed == True and mouseX > 105 and mouseX < 575 and mouseY > 609 and mouseY < 671: 
-        circle(20,20,20)    
+    if mousePressed == True and mouseX > 105 and mouseX < 575 and mouseY > 609 and mouseY < 671 and d == 0: 
+        d = 1
+        currentScreen = 'timer'
+        background(backgroundImg)  
     
 def startmenu():
     global img, img2, img3, img4, img5, currentScreen
@@ -215,17 +229,15 @@ def startmenu():
         hoofdmenu()
     else:
         fill(255)   # Black
-        loop()   
 
 def clock():
     noSmooth()
     textSize(50)
     fill(255)
-    textAlign(RIGHT)    
+    textAlign(RIGHT, BOTTOM)    
     t = time.localtime()
     current_time = time.strftime("%H:%M", t)
     text(current_time, width-20, height-20)
-    textAlign(CENTER)
     
     
 def keyPressed():    
@@ -238,7 +250,7 @@ def keyPressed():
     if str(key) == 'r':
         currentScreen = 'random'
     if str(key) == 'm':
-        currentScreen = 'mainmenu'
+        currentScreen = 'hoofdmenu'
     if str(key) == 's':
         currentScreen = 'start'
     
@@ -246,15 +258,20 @@ def mouseReleased():
     global d
     d = 0 
     
-def startButton(buttonCoordX, buttonCoordY, buttonSizeX, buttonSizeY, textInput):
+def mainMenuButton():
     global currentScreen
+    buttonCoordX = 50
+    buttonCoordY = 50
+    buttonSizeX = 0.1*width
+    buttonSizeY = 0.05*height
     rectMode(CORNER)
     fill(218,165,32)
+    stroke(0,25,0)
     rect(buttonCoordX, buttonCoordY, buttonSizeX, buttonSizeY)
     textAlign(CENTER, CENTER)
     fill(0)
     textSize(buttonSizeY*0.6)
-    text(textInput, (buttonCoordX*2+buttonSizeX)/2, (buttonCoordY*2-textDescent()+buttonSizeY)/2) 
+    text('Menu', (buttonCoordX*2+buttonSizeX)/2, (buttonCoordY*2-textDescent()+buttonSizeY)/2) 
     if (mousePressed == True and (buttonCoordX < mouseX < buttonCoordX+buttonSizeX) and (buttonCoordY < mouseY < buttonCoordY+buttonSizeY)):
-        currentScreen = 'start'
+        currentScreen = 'hoofdmenu'
         
