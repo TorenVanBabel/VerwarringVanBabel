@@ -1,5 +1,6 @@
 from datetime import time, datetime
 import time
+import functions
 
 def setup():
     # Sets required global variables
@@ -140,7 +141,7 @@ def instructie():
                 randomList.append (l.pop())
             e  = e - 1
         x = int(random(0, 4))
-        instrlist = ['je mag geen links of rechts zeggen', 'je mag geen coordinaten gebruiken', 'je mag geen ja of nee zeggen','je mag geen omhoog of omlaag gebruiken']
+        instrlist = ['je mag geen links of rechts zeggen', 'je mag geen coordinaten gebruiken', 'je mag geen ja of nee zeggen','je mag geen omhoog, omlaag, \n naar boven of beneden gebruiken']
         textSize(30)
         instr = instrlist.pop(x)
         Save = True
@@ -266,7 +267,7 @@ def mouseReleased():
     
     
 def mainMenuButton():
-    global currentScreen
+    global currentScreen, Save
     buttonCoordX = 50
     buttonCoordY = 50
     buttonSizeX = 0.1*width
@@ -281,6 +282,7 @@ def mainMenuButton():
     text('Menu', (buttonCoordX*2+buttonSizeX)/2, (buttonCoordY*2-textDescent()+buttonSizeY)/2) 
     if (mousePressed == True and (buttonCoordX < mouseX < buttonCoordX+buttonSizeX) and (buttonCoordY < mouseY < buttonCoordY+buttonSizeY)):
         currentScreen = 'hoofdmenu'
+        Save = False
         
 
 def difficultyButtons():
