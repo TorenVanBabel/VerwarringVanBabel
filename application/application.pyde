@@ -4,9 +4,10 @@ import functions
 
 def setup():
     # Sets required global variables
-    global currentScreen, timerStart, secondsPassed, backgroundImg, regularFont, d, instrImg, img, Save, img2, img3, img4, img5
+    global currentScreen, timerDifficulty, timerStart, secondsPassed, backgroundImg, regularFont, d, instrImg, img, Save, img2, img3, img4, img5
     currentScreen = 'start'
     timerStart = datetime.now()
+    timerDifficulty = 30
     secondsPassed = 0
     d = 0
     Save = False
@@ -43,6 +44,7 @@ def draw():
     # Draws hoofdmenu    
     if currentScreen == 'hoofdmenu':
         hoofdmenu()
+        difficultyButtons()
     
     # Draws timer screen
     elif currentScreen == 'timer':
@@ -164,16 +166,16 @@ def instructie():
         
 # Draws a timer on the screen that counts down to 0
 def timerFunc(placement):
-    global timerStart, timePassed, d, currentScreen
+    global timerStart, timePassed, d, currentScreen, timerDifficulty
     textSize(200)
     fill(0)
     timePassed = (datetime.now() - timerStart).seconds
-    if timePassed > 10 or timePassed == 'De tijd is op!':
+    if timePassed > timerDifficulty or timePassed == 'De tijd is op!':
         timePassed = 'De tijd is op!'
         background(backgroundImg)
         text(timePassed, width /2, height/2)
     else:
-        text(10 - timePassed, placement, height/2)
+        text(timerDifficulty - timePassed, placement, height/2)
 
     
 # Draws the hoofdmenu
@@ -263,6 +265,7 @@ def mouseReleased():
     global d
     d = 0 
     
+    
 def mainMenuButton():
     global currentScreen
     buttonCoordX = 50
@@ -279,4 +282,27 @@ def mainMenuButton():
     text('Menu', (buttonCoordX*2+buttonSizeX)/2, (buttonCoordY*2-textDescent()+buttonSizeY)/2) 
     if (mousePressed == True and (buttonCoordX < mouseX < buttonCoordX+buttonSizeX) and (buttonCoordY < mouseY < buttonCoordY+buttonSizeY)):
         currentScreen = 'hoofdmenu'
+        
+
+def difficultyButtons():
+    global currentScreen, timerDifficulty
+    rectMode(CORNER)
+    fill(218,165,32)
+    stroke(0,25,0)
+    rect(width*0.2, height*0.75, width*0.1, height*0.05)
+    rect(width*0.45, height*0.75, width*0.1, height*0.05)
+    rect(width*0.7, height*0.75, width*0.1, height*0.05)
+    textAlign(CENTER, CENTER)
+    fill(0)
+    textSize(height*0.05*0.6)
+    text('Makkelijk', (width*0.2*2+width*0.1)/2, (height*0.75*2-textDescent()+height*0.05)/2)
+    text('Normaal', (width*0.45*2+width*0.1)/2, (height*0.75*2-textDescent()+height*0.05)/2)
+    text('Moeilijk', (width*0.7*2+width*0.1)/2, (height*0.75*2-textDescent()+height*0.05)/2) 
+    if (mousePressed == True and (width*0.2 < mouseX < width*0.3) and (height*0.75 < mouseY < height*0.8)):
+        timerDifficulty = 40
+    if (mousePressed == True and (width*0.45 < mouseX < width*0.55) and (height*0.75 < mouseY < height*0.8)):
+        timerDifficulty = 30
+    if (mousePressed == True and (width*0.7 < mouseX < width*0.8) and (height*0.75 < mouseY < height*0.8)):
+        timerDifficulty = 20
+        
         
