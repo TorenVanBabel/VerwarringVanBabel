@@ -1,6 +1,5 @@
 from datetime import time, datetime
 import time
-import functions
 
 def setup():
     # Sets required global variables
