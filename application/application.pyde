@@ -4,7 +4,7 @@ import functions
 
 def setup():
     # Sets required global variables
-    global currentScreen, timerDifficulty, timerStart, secondsPassed, backgroundImg, regularFont, d, instrImg, img, Save, img2, img3, img4, img5
+    global currentScreen, timerDifficulty, timerStart, secondsPassed, backgroundImg, regularFont, d, instrImg, img, Save, img2, img3, img4, img5, img6, img7, img8, img9
     currentScreen = 'start'
     timerStart = datetime.now()
     timerDifficulty = 30
@@ -18,6 +18,12 @@ def setup():
     img3 = loadImage("logo.png")
     img4 = loadImage("buttonstart.png")
     img5 = loadImage("buttonstarthigh.png")
+    
+    # Hoofdmenu afbeeldingen
+    img6 = loadImage('InstructieAchter.jpeg')
+    img7 = loadImage('InstructieAchter2.jpeg')
+    img8 = loadImage('continentkaartAchter.jpeg')
+    img9 = loadImage('Babelspel.jpeg')
 
     # Loads static image for random card generation
     instrImg = loadImage('instructie.jpeg')
@@ -180,33 +186,23 @@ def timerFunc(placement):
     
 # Draws the hoofdmenu
 def hoofdmenu():
-    global font, font2, imgLogo, d, currentScreen, timerStart
+    global font, imgLogo, d, currentScreen, timerStart, img6, img7, img8, img9
     currentScreen = 'hoofdmenu'
     d = 0
     background(backgroundImg)
-        
-    fill(218,165,32)
-    stroke(0,25,0)
-    rectMode(CENTER)
-    
-    rect(340,340,465,60) 
-    rect(340,490,465,60)
-    rect(340,640,465,60)
-    
+
     textSize(100)
     fill(0,0,0)
     
     textAlign(CENTER)
     text("Hoofdmenu",width/2,120)
+        
+    image(img6,140,250,350,550)
+    image(img7,550,250,350,550)
+    image(img8,960,250,350,550)
+    image(img9,1370,250,350,550)
    
-    textSize(43)
-    fill(0,0,0)
-    textAlign(LEFT)
-    
-    text("instructiekaarten",110,350)
-    text("Droomkaarten",110,500)
-    text("Stopwatch", 110, 650)
-    
+
 
     
     if mousePressed == True and mouseX > 105 and mouseX < 575 and mouseY > 309 and mouseY < 371 and d == 0:
