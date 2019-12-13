@@ -207,15 +207,15 @@ def hoofdmenu():
 
 
     
-    if mousePressed == True and mouseX > 105 and mouseX < 575 and mouseY > 309 and mouseY < 371 and d == 0:
+    if mousePressed == True and mouseX > 139 and mouseX < 491 and mouseY > 249 and mouseY < 801 and d == 0:
         d = 1
         currentScreen = 'startcards'
         timerStart = datetime.now()
         background(backgroundImg)
     
-    if mousePressed == True and mouseX > 105 and mouseX < 575 and mouseY > 459 and mouseY < 521:
+    if mousePressed == True and mouseX > 800 and mouseX < 900 and mouseY > 249 and mouseY < 801 and d == 0:
         circle(20,20,20)
-    if mousePressed == True and mouseX > 105 and mouseX < 575 and mouseY > 609 and mouseY < 671 and d == 0: 
+    if mousePressed == True and mouseX > 800 and mouseX < 900 and mouseY > 249 and mouseY < 801 and d == 0: 
         d = 1
         currentScreen = 'timer'
         timerStart = datetime.now()
@@ -310,6 +310,7 @@ def startCards():
         background(backgroundImg)
         currentScreen = 'random'
     else:
+        background(backgroundImg)
         image(img6, (width // 2) -300 , 30)
     
         
