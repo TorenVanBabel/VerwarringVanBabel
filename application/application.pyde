@@ -70,7 +70,9 @@ def draw():
     # Draws the random screen
     elif currentScreen == 'random' :
         instructie()
-    
+        
+    elif currentScreen == 'startcards':
+        startCards()
     # Draws clock in bottom right on every screen
     clock()
     
@@ -207,7 +209,7 @@ def hoofdmenu():
     
     if mousePressed == True and mouseX > 105 and mouseX < 575 and mouseY > 309 and mouseY < 371 and d == 0:
         d = 1
-        currentScreen = 'random'
+        currentScreen = 'startcards'
         timerStart = datetime.now()
         background(backgroundImg)
     
@@ -302,4 +304,12 @@ def difficultyButtons():
     if (mousePressed == True and (width*0.7 < mouseX < width*0.8) and (height*0.75 < mouseY < height*0.8)):
         timerDifficulty = 20
         
+def startCards():
+    global img6, currentScreen
+    if mousePressed == True and d == 0:
+        background(backgroundImg)
+        currentScreen = 'random'
+    else:
+        image(img6, (width // 2) -300 , 30)
+    
         
