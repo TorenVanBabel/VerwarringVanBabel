@@ -4,7 +4,10 @@ import functions
 
 def setup():
     # Sets required global variables
-    global currentScreen, timerDifficulty, timerStart, secondsPassed, backgroundImg, regularFont, d, instrImg, img, Save, img2, img3, img4, img5
+    global currentScreen, timerDifficulty, timerStart, secondsPassed, backgroundImg, regularFont, d, instrImg, img, Save, img2, img3, img4, img5, playersList, allowedCharacters, currentPlayer
+    playersList = ['', '', '', '', '', '', '']
+    currentPlayer = 0
+    allowedCharacters = list('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890')
     currentScreen = 'start'
     timerStart = datetime.now()
     timerDifficulty = 30
@@ -33,37 +36,7 @@ def setup():
     textAlign(CENTER, CENTER)
     background(backgroundImg)
     
-'''
-def setup():
-    global b,img
-    size(400,400)    
-    img = loadImage('achtergrond.jpg')
-    background(img)
-    b = 50
-    fullScreen()
-    
 
-def draw():
-    global message,img
-    message =' '
-    image(img,300,400)
-    
-    
-
-def keyTyped():
-    global message,d,s,b
-    
-    print(message)
-    
-    print keyPressed
-    if key == BACKSPACE: 
-        pass
-    else:
-        h=150
-        message=message + key
-        text(message,b,h)
-        b=b+textWidth(message)
-'''
    
 def draw():    
     global d, currentScreen, Save, randomList, fillOrNoFill
@@ -102,6 +75,10 @@ def draw():
     # Draws button back to main menu where needed
     if False == (currentScreen == 'start' or currentScreen == 'hoofdmenu'):
         mainMenuButton()
+    
+    inputNames()
+    showNames()
+    
     
 # Generates a new random card and shows it on the screen    
 def instructie():
@@ -291,6 +268,8 @@ def keyPressed():
         currentScreen = 'hoofdmenu'
     if str(key) == 's':
         currentScreen = 'start'
+    if str(key) == 'i':
+        currentScreen = 'inputNames'
     
 def mouseReleased():
     global d
@@ -338,3 +317,23 @@ def difficultyButtons():
         timerDifficulty = 20
         
         
+def inputNames():
+    global currentPlayer
+    background(backgroundImg)
+    text(playersList[currentPlayer], width/2, height/2)
+    
+        
+def keyReleased():
+    global currentPlayer, playerList
+    if currentScreen == 'inputNames':
+        if key in allowedCharacters and len(playersList[currentPlayer]) <= 10:
+            playersList[currentPlayer] += key
+        elif key == BACKSPACE:                        
+            playersList[currentPlayer] = playersList[currentPlayer][:-1]
+        elif key == ENTER:
+            currentPlayer += 1
+            
+    
+def showNames():
+    for x in range(0,7):
+        text(playersList[x],width * 0.7, (height * x * 0.05))
