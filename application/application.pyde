@@ -27,7 +27,10 @@ def setup():
 
     # Loads static image for random card generation
     instrImg = loadImage('instructie.jpeg')
-
+    
+    # Loads static image for droom card function
+    droomImg = loadImage('droom.jpeg')
+    
     # Sets the default visual settings (fullscreen/font)
     fullScreen()
     backgroundImg = loadImage('startscherm1.jpg')
@@ -41,7 +44,7 @@ def setup():
 
    
 def draw():    
-    global d, currentScreen, Save, randomList, fillOrNoFill
+    global d, currentScreen, Save, randomList, fillOrNoFill, verwarring
 
     # Draws start screen
     if currentScreen == 'start':
@@ -71,8 +74,22 @@ def draw():
     elif currentScreen == 'random' :
         instructie()
         
-    elif currentScreen == 'startcards':
-        startCards()
+    # Displays back of an instructie card without verwarring
+    elif currentScreen == 'instructieBack':
+        verwarring = False
+        instructieBack()
+        
+     # Displays back of an instructie card with verwarring   
+    elif currentScreen == 'instructieBackV':
+        verwarring = True
+        instructieBackV()   
+    
+    elif currentScreen == 'droomCards':
+        droomCards()  
+        
+        
+        
+        
     # Draws clock in bottom right on every screen
     clock()
     
@@ -82,7 +99,7 @@ def draw():
     
 # Generates a new random card and shows it on the screen    
 def instructie():
-    global d , instrImg, timerStart, Save, randomList, fillOrNoFill, instr
+    global d , instrImg, timerStart, Save, randomList, fillOrNoFill, instr, verwarring
     if Save != True:
         textSize(50)
         d = d + 1
@@ -167,11 +184,24 @@ def instructie():
         if x == 1:
             noFill()
         circle(randomList[f], randomList[f+1], 60)
-        text(instr, width / 1.95 ,height / 1.3 )
         f += 2
+        
+    if verwarring == True:
+        text(instr, width / 1.95 ,height / 1.3 )
     timerFunc(width/1.2)
     
-        
+
+
+def droom():
+    global droomImage, d
+    background(backgroundImg)
+    image(instrImg, (width // 2) -300 , 30)
+    timerFunc(width/1.2)
+
+
+
+
+
 # Draws a timer on the screen that counts down to 0
 def timerFunc(placement):
     global timerStart, timePassed, d, currentScreen, timerDifficulty
@@ -190,7 +220,6 @@ def timerFunc(placement):
 def hoofdmenu():
     global font, imgLogo, d, currentScreen, timerStart, img6, img7, img8, img9
     currentScreen = 'hoofdmenu'
-    d = 0
     background(backgroundImg)
 
     textSize(100)
@@ -209,26 +238,34 @@ def hoofdmenu():
     
     if mousePressed == True and mouseX > 139 and mouseX < 491 and mouseY > 249 and mouseY < 801 and d == 0:
         d = 1
-        currentScreen = 'startcards'
+        currentScreen = 'instructieBackV'
         timerStart = datetime.now()
         background(backgroundImg)
     
     if mousePressed == True and mouseX > 549 and mouseX < 901 and mouseY > 249 and mouseY < 801 and d == 0:
-        circle(20,20,20)
+        d = 1
+        currentScreen = 'instructieBack'
+        timerStart = datetime.now()
+        background(backgroundImg)
     if mousePressed == True and mouseX > 959 and mouseX < 1311 and mouseY > 249 and mouseY < 801 and d == 0: 
-        circle(20,20,20)
+        d = 1
+        currentScreen = 'droomCards'
+        timerStart = datetime.now()
+        background(backgroundImg)
     if mousePressed == True and mouseX > 1369 and mouseX < 1721 and mouseY > 249 and mouseY < 801 and d == 0:
         circle(20,20,20)
     
 def startmenu():
-    global img, img2, img3, img4, img5, currentScreen
+    global img, img2, img3, img4, img5, currentScreen, d
     image(backgroundImg, 0, 0, width, height)
     image(img2,280,10,720,576)
     image(img3,720,200,150,170)
     image(img4,420, 390, 500, 350)
     
-    if (mousePressed == True and mouseX > 500 and mouseX < 820 and mouseY > 500 and mouseY < 600):
+    if mouseX > 500 and mouseX < 820 and mouseY > 500 and mouseY < 600 :
         image(img5,420, 390, 500, 350)
+    if (mousePressed == True and mouseX > 500 and mouseX < 820 and mouseY > 500 and mouseY < 600 and d == 0):
+        d = 1
         hoofdmenu()
     else:
         fill(255)   # Black
@@ -303,13 +340,31 @@ def difficultyButtons():
     if (mousePressed == True and (width*0.7 < mouseX < width*0.8) and (height*0.75 < mouseY < height*0.8)):
         timerDifficulty = 20
         
-def startCards():
-    global img6, currentScreen
+def instructieBackV():
+    global img6, currentScreen, d
     if mousePressed == True and d == 0:
         background(backgroundImg)
         currentScreen = 'random'
     else:
         background(backgroundImg)
         image(img6, (width // 2) -300 , 30)
+
+def instructieBack():
+    global img7, currentScreen, d
+    if mousePressed == True and d == 0:
+        background(backgroundImg)
+        currentScreen = 'random'
+    else:
+        background(backgroundImg)
+        image(img7, (width // 2) -300 , 30)
+        
+def droomCards():
+    global img8, currentScreen, d
+    if mousePressed == True and d == 0:
+        background(backgroundImg)
+        currentScreen = 'droomCards'
+    else:
+        background(backgroundImg)
+        image(img8, (width // 2) -300 , 30)
     
         
