@@ -4,7 +4,7 @@ import functions
 
 def setup():
     # Sets required global variables
-    global currentScreen, timerDifficulty, timerStart, secondsPassed, backgroundImg, regularFont, d, instrImg, img, Save, img2, img3, img4, img5, img6, img7, img8, img9
+    global currentScreen, timerDifficulty, timerStart, secondsPassed, backgroundImg, regularFont, d, instrImg, droomImg, img, Save, img2, img3, img4, img5, img6, img7, img8, img9
     currentScreen = 'start'
     timerStart = datetime.now()
     timerDifficulty = 30
@@ -83,9 +83,12 @@ def draw():
     elif currentScreen == 'instructieBackV':
         verwarring = True
         instructieBackV()   
-    
+    elif currentScreen == 'droomBack':
+        droomBack()
     elif currentScreen == 'droomCards':
         droomCards()  
+    elif currentScreen == 'babelen':
+        babelen()
         
         
         
@@ -192,10 +195,15 @@ def instructie():
     
 
 
-def droom():
-    global droomImage, d
+def droomCards():
+    global droomImg, d
     background(backgroundImg)
-    image(instrImg, (width // 2) -300 , 30)
+    image(droomImg, (width // 2) -300 , 30)
+    x = int(random(0, 4))
+    droomList = ['filler','filler','filler','filler']
+    textSize(30)
+    droom = droomList.pop(x)
+    text(droom, width / 1.9 ,height / 2 )
     timerFunc(width/1.2)
 
 
@@ -249,11 +257,16 @@ def hoofdmenu():
         background(backgroundImg)
     if mousePressed == True and mouseX > 959 and mouseX < 1311 and mouseY > 249 and mouseY < 801 and d == 0: 
         d = 1
-        currentScreen = 'droomCards'
+        currentScreen = 'droomBack'
         timerStart = datetime.now()
         background(backgroundImg)
     if mousePressed == True and mouseX > 1369 and mouseX < 1721 and mouseY > 249 and mouseY < 801 and d == 0:
-        circle(20,20,20)
+        d = 1
+        currentScreen = 'babelen'
+        timerStart = datetime.now()
+        background(backgroundImg)
+    if mousePressed == True:
+        d = 1
     
 def startmenu():
     global img, img2, img3, img4, img5, currentScreen, d
@@ -294,7 +307,7 @@ def keyPressed():
         currentScreen = 'hoofdmenu'
     if str(key) == 's':
         currentScreen = 'start'
-    
+
 def mouseReleased():
     global d
     d = 0 
@@ -358,7 +371,7 @@ def instructieBack():
         background(backgroundImg)
         image(img7, (width // 2) -300 , 30)
         
-def droomCards():
+def droomBack():
     global img8, currentScreen, d
     if mousePressed == True and d == 0:
         background(backgroundImg)
@@ -366,5 +379,10 @@ def droomCards():
     else:
         background(backgroundImg)
         image(img8, (width // 2) -300 , 30)
+
+def babelen():
+    global img9, currentScreen, d
+    background(backgroundImg)
+    image(img9, (width // 2) -300 , 30)
     
         
