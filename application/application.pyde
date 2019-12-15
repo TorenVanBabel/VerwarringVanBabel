@@ -213,13 +213,12 @@ def hoofdmenu():
         timerStart = datetime.now()
         background(backgroundImg)
     
-    if mousePressed == True and mouseX > 800 and mouseX < 900 and mouseY > 249 and mouseY < 801 and d == 0:
+    if mousePressed == True and mouseX > 549 and mouseX < 901 and mouseY > 249 and mouseY < 801 and d == 0:
         circle(20,20,20)
-    if mousePressed == True and mouseX > 800 and mouseX < 900 and mouseY > 249 and mouseY < 801 and d == 0: 
-        d = 1
-        currentScreen = 'timer'
-        timerStart = datetime.now()
-        background(backgroundImg)  
+    if mousePressed == True and mouseX > 959 and mouseX < 1311 and mouseY > 249 and mouseY < 801 and d == 0: 
+        circle(20,20,20)
+    if mousePressed == True and mouseX > 1369 and mouseX < 1721 and mouseY > 249 and mouseY < 801 and d == 0:
+        circle(20,20,20)
     
 def startmenu():
     global img, img2, img3, img4, img5, currentScreen
