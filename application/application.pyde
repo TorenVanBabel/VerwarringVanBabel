@@ -101,10 +101,10 @@ def draw():
     # Draws clock in bottom right on every screen
     clock()
     
-    '''# Draws button back to main menu where needed
+    # Draws button back to main menu where needed
     if False == (currentScreen == 'start' or currentScreen == 'hoofdmenu'):
         mainMenuButton()
-    '''
+    
     
     if False == (currentScreen == 'inputNames' or currentScreen == 'start'):
         showNames()
@@ -254,17 +254,6 @@ def hoofdmenu():
     textAlign(CENTER)
     text("Hoofdmenu",width/2,120)
 
-
-    
-    textAlign(CENTER)
-    textSize(30)
-    fill(0,0,0)
-    text("Klik op de kaart die je moet pakken", 280, 200)
-    
-    textAlign(CENTER)
-    textSize(30)
-    fill(0,0,0)
-    text("Kies de moeilijkheidsgraad voor het spel", 320, 870)
         
     image(img6,140,250,350,550)
     image(img7,550,250,350,550)
