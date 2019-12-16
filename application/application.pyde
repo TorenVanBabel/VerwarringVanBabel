@@ -248,6 +248,24 @@ def hoofdmenu():
     
     textAlign(CENTER)
     text("Hoofdmenu",width/2,120)
+<<<<<<< HEAD
+=======
+    
+    textAlign(CENTER)
+    textSize(30)
+    fill(0,0,0)
+    text("Klik op de kaart die je moet pakken", 280, 200)
+    
+    textAlign(CENTER)
+    textSize(30)
+    fill(0,0,0)
+    text("Kies de moeilijkheidsgraad voor het spel", 320, 870)
+        
+    image(img6,140,250,350,550)
+    image(img7,550,250,350,550)
+    image(img8,960,250,350,550)
+    image(img9,1370,250,350,550)
+>>>>>>> b9811b4b8c5a9036ac2864382491c82f2ba87968
    
     textSize(43)
     fill(0,0,0)
@@ -387,20 +405,20 @@ def difficultyButtons():
     rectMode(CORNER)
     fill(218,165,32)
     stroke(0,25,0)
-    rect(width*0.2, height*0.75, width*0.1, height*0.05)
-    rect(width*0.45, height*0.75, width*0.1, height*0.05)
-    rect(width*0.7, height*0.75, width*0.1, height*0.05)
+    rect(width*0.2, height*0.85, width*0.1, height*0.05)
+    rect(width*0.45, height*0.85, width*0.1, height*0.05)
+    rect(width*0.7, height*0.85, width*0.1, height*0.05)
     textAlign(CENTER, CENTER)
     fill(0)
     textSize(height*0.05*0.6)
-    text('Makkelijk', (width*0.2*2+width*0.1)/2, (height*0.75*2-textDescent()+height*0.05)/2)
-    text('Normaal', (width*0.45*2+width*0.1)/2, (height*0.75*2-textDescent()+height*0.05)/2)
-    text('Moeilijk', (width*0.7*2+width*0.1)/2, (height*0.75*2-textDescent()+height*0.05)/2) 
-    if (mousePressed == True and (width*0.2 < mouseX < width*0.3) and (height*0.75 < mouseY < height*0.8)):
+    text('Makkelijk', (width*0.2*2+width*0.1)/2, (height*0.85*2-textDescent()+height*0.05)/2)
+    text('Normaal', (width*0.45*2+width*0.1)/2, (height*0.85*2-textDescent()+height*0.05)/2)
+    text('Moeilijk', (width*0.7*2+width*0.1)/2, (height*0.85*2-textDescent()+height*0.05)/2) 
+    if (mousePressed == True and (width*0.2 < mouseX < width*0.3) and (height*0.85 < mouseY < height*0.9)):
         timerDifficulty = 40
-    if (mousePressed == True and (width*0.45 < mouseX < width*0.55) and (height*0.75 < mouseY < height*0.8)):
+    if (mousePressed == True and (width*0.45 < mouseX < width*0.55) and (height*0.85 < mouseY < height*0.9)):
         timerDifficulty = 30
-    if (mousePressed == True and (width*0.7 < mouseX < width*0.8) and (height*0.75 < mouseY < height*0.8)):
+    if (mousePressed == True and (width*0.7 < mouseX < width*0.8) and (height*0.85 < mouseY < height*0.9)):
         timerDifficulty = 20
 
 
