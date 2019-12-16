@@ -472,13 +472,13 @@ def babelen():
     
         
 def keyReleased():
-    global currentPlayer, playerList, currentScreen
+    global currentPlayer, currentScreen
     if currentScreen == 'inputNames':
         if key in allowedCharacters and len(playersList[currentPlayer][0]) <= 10:
             playersList[currentPlayer][0] += key
         elif key == BACKSPACE:                        
             playersList[currentPlayer][0] = playersList[currentPlayer][0][:-1]
-        elif key == ENTER:
+        elif key == ENTER and playersList[currentPlayer][0] != '':
             if currentPlayer == 6:
                 currentScreen = 'hoofdmenu'
             else:
