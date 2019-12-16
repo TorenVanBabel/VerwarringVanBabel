@@ -96,10 +96,10 @@ def draw():
     # Draws clock in bottom right on every screen
     clock()
     
-    # Draws button back to main menu where needed
+    '''# Draws button back to main menu where needed
     if False == (currentScreen == 'start' or currentScreen == 'hoofdmenu'):
         mainMenuButton()
-    
+    '''
     
     if False == (currentScreen == 'inputNames' or currentScreen == 'start'):
         showNames()
@@ -340,8 +340,10 @@ def keyPressed():
     '''
     
 def mouseReleased():
-    global d
+    global d, currentScreen
     d = 0 
+    if (currentScreen == 'inputNames' and (width*0.375 < mouseX < width*0.625) and (height/2*1.3 < mouseY < height/2*1.3+0.05*height) and playersList[2][0] != ''):
+        currentScreen = 'hoofdmenu'
     
     
 def mainMenuButton():
@@ -362,6 +364,23 @@ def mainMenuButton():
         currentScreen = 'hoofdmenu'
         Save = False
         
+        
+def mainMenuButtonNames():
+    global currentScreen, Save
+    buttonCoordX = width*0.375
+    buttonCoordY = height/2*1.3
+    buttonSizeX = 0.25*width
+    buttonSizeY = 0.05*height
+    rectMode(CORNER)
+    fill(218,165,32)
+    stroke(0,25,0)
+    rect(buttonCoordX, buttonCoordY, buttonSizeX, buttonSizeY)
+    textAlign(CENTER, CENTER)
+    fill(0)
+    textSize(buttonSizeY*0.6)
+    text('Finish inputting names', width/2, (buttonCoordY*2+buttonSizeY)/2-textDescent()) 
+    
+
 
 def difficultyButtons():
     global currentScreen, timerDifficulty
@@ -388,9 +407,14 @@ def difficultyButtons():
 def inputNames():
     global currentPlayer
     background(backgroundImg)
+    textAlign(CENTER, CENTER)
+    textSize(60)
+    fill(0)
     text('please input name of player ' + str(currentPlayer + 1) + ' (' + playersList[currentPlayer][1] + ')', width/2, height/2 * 0.8) 
     text(playersList[currentPlayer][0], width/2, height/2)
-    
+    mainMenuButtonNames()
+
+        
     
 def instructieBackV():
     global img6, currentScreen, d
