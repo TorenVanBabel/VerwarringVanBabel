@@ -203,7 +203,7 @@ def instructie():
         f += 2
         
     if verwarring == True:
-        text(instr, width / 1.95 ,height / 1.3 )
+        text(instr, width / 2.75 ,height / 1.4 )
     timerFunc(width/1.2)
     
 
@@ -273,9 +273,8 @@ def hoofdmenu():
         timerStart = datetime.now()
         background(backgroundImg)
     
-    if mousePressed == True and mouseX > 105 and mouseX < 575 and mouseY > 459 and mouseY < 521:
-        circle(20,20,20)
-    if mousePressed == True and mouseX > 105 and mouseX < 575 and mouseY > 609 and mouseY < 671 and d == 0: 
+
+    if mousePressed == True and mouseX > 105 and mouseX < 575 and mouseY > 249 and mouseY < 801 and d == 0: 
         currentScreen = 'instructieBackV'
         timerStart = datetime.now()
         background(backgroundImg)
@@ -480,7 +479,7 @@ def showNames():
     textAlign(LEFT, TOP)
     text('Players:', width * 0.8, height * 0)
     text('Coins:', width * 0.9, height * 0)
-    
+    fill(0)
     for x in range(0,7):
         if playersList[x][0] != '':
             text(playersList[x][0],width * 0.8, (height * x * 0.04) + (height * 0.04))
