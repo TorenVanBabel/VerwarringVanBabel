@@ -4,7 +4,12 @@ import functions
 
 def setup():
     # Sets required global variables
-    global currentScreen, timerDifficulty, timerStart, secondsPassed, backgroundImg, regularFont, d, instrImg, droomImg, img, Save, img2, img3, img4, img5, img6, img7, img8, img9
+    global currentScreen, timerDifficulty, timerStart, secondsPassed, regularFont, d, playersList, allowedCharacters, currentPlayer, verwarring
+    global backgroundImg, instrImg, droomImg, img, Save, img2, img3, img4, img5, img6, img7, img8, img9
+    playersList = [['', 'Antartica', 0], ['', 'Europe', 0], ['', 'North America', 0], ['', 'South America', 0], ['', 'Asia', 0], ['', 'Australia', 0], ['', 'Africa', 0]]
+    currentPlayer = 0
+    allowedCharacters = list('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890')
+    verwarring = False
     currentScreen = 'start'
     timerStart = datetime.now()
     timerDifficulty = 30
@@ -18,12 +23,6 @@ def setup():
     img3 = loadImage("logo.png")
     img4 = loadImage("buttonstart.png")
     img5 = loadImage("buttonstarthigh.png")
-    
-    # Hoofdmenu afbeeldingen
-    img6 = loadImage('InstructieAchter.jpeg')
-    img7 = loadImage('InstructieAchter2.jpeg')
-    img8 = loadImage('continentkaartAchter.jpeg')
-    img9 = loadImage('Babelspel.jpeg')
 
     # Loads static image for random card generation
     instrImg = loadImage('instructie.jpeg')
@@ -41,6 +40,7 @@ def setup():
     fill(0)
     textAlign(CENTER, CENTER)
     background(backgroundImg)
+    
 
    
 def draw():    
@@ -73,6 +73,9 @@ def draw():
     # Draws the random screen
     elif currentScreen == 'random' :
         instructie()
+    
+    elif currentScreen == 'inputNames':
+        inputNames()
         
     # Displays back of an instructie card without verwarring
     elif currentScreen == 'instructieBack':
@@ -90,15 +93,17 @@ def draw():
     elif currentScreen == 'babelen':
         babelen()
         
-        
-        
-        
     # Draws clock in bottom right on every screen
     clock()
     
-    # Draws button back to main menu where needed
+    '''# Draws button back to main menu where needed
     if False == (currentScreen == 'start' or currentScreen == 'hoofdmenu'):
         mainMenuButton()
+    '''
+    
+    if False == (currentScreen == 'inputNames' or currentScreen == 'start'):
+        showNames()
+    
     
 # Generates a new random card and shows it on the screen    
 def instructie():
@@ -229,15 +234,25 @@ def timerFunc(placement):
     
 # Draws the hoofdmenu
 def hoofdmenu():
-    global font, imgLogo, d, currentScreen, timerStart, img6, img7, img8, img9
+    global font, font2, imgLogo, d, currentScreen, timerStart
     currentScreen = 'hoofdmenu'
     background(backgroundImg)
-
+        
+    fill(218,165,32)
+    stroke(0,25,0)
+    rectMode(CENTER)
+    
+    rect(340,340,465,60) 
+    rect(340,490,465,60)
+    rect(340,640,465,60)
+    
     textSize(100)
     fill(0,0,0)
     
     textAlign(CENTER)
     text("Hoofdmenu",width/2,120)
+<<<<<<< HEAD
+=======
     
     textAlign(CENTER)
     textSize(30)
@@ -253,12 +268,27 @@ def hoofdmenu():
     image(img7,550,250,350,550)
     image(img8,960,250,350,550)
     image(img9,1370,250,350,550)
+>>>>>>> b9811b4b8c5a9036ac2864382491c82f2ba87968
    
-
+    textSize(43)
+    fill(0,0,0)
+    textAlign(LEFT)
+    
+    text("instructiekaarten",110,350)
+    text("Droomkaarten",110,500)
+    text("Stopwatch", 110, 650)
+    
 
     
-    if mousePressed == True and mouseX > 139 and mouseX < 491 and mouseY > 249 and mouseY < 801 and d == 0:
+    if mousePressed == True and mouseX > 105 and mouseX < 575 and mouseY > 309 and mouseY < 371 and d == 0:
         d = 1
+        currentScreen = 'random'
+        timerStart = datetime.now()
+        background(backgroundImg)
+    
+    if mousePressed == True and mouseX > 105 and mouseX < 575 and mouseY > 459 and mouseY < 521:
+        circle(20,20,20)
+    if mousePressed == True and mouseX > 105 and mouseX < 575 and mouseY > 609 and mouseY < 671 and d == 0: 
         currentScreen = 'instructieBackV'
         timerStart = datetime.now()
         background(backgroundImg)
@@ -288,14 +318,18 @@ def startmenu():
     image(img3,720,200,150,170)
     image(img4,420, 390, 500, 350)
     
-    if mouseX > 500 and mouseX < 820 and mouseY > 500 and mouseY < 600 :
+    if mouseX > 500 and mouseX < 820 and mouseY > 500 and mouseY < 600:
+        d = 1
         image(img5,420, 390, 500, 350)
+        if mousePressed == True:
+            currentScreen = 'inputNames'
+'''
     if (mousePressed == True and mouseX > 500 and mouseX < 820 and mouseY > 500 and mouseY < 600 and d == 0):
         d = 1
         hoofdmenu()
     else:
         fill(255)   # Black
-
+'''
 def clock():
     noSmooth()
     textSize(50)
@@ -310,6 +344,7 @@ def keyPressed():
     global currentScreen, d, timerStart
     d = 0
     print(keyCode)
+    '''
     if str(key) == 't':
         currentScreen = 'timer'
         timerStart = datetime.now()
@@ -320,10 +355,16 @@ def keyPressed():
         currentScreen = 'hoofdmenu'
     if str(key) == 's':
         currentScreen = 'start'
-
+<<<<<<< HEAD
+    if str(key) == 'i':
+        currentScreen = 'inputNames'
+    '''
+    
 def mouseReleased():
-    global d
+    global d, currentScreen
     d = 0 
+    if (currentScreen == 'inputNames' and (width*0.375 < mouseX < width*0.625) and (height/2*1.3 < mouseY < height/2*1.3+0.05*height) and playersList[2][0] != ''):
+        currentScreen = 'hoofdmenu'
     
     
 def mainMenuButton():
@@ -344,6 +385,23 @@ def mainMenuButton():
         currentScreen = 'hoofdmenu'
         Save = False
         
+        
+def mainMenuButtonNames():
+    global currentScreen, Save
+    buttonCoordX = width*0.375
+    buttonCoordY = height/2*1.3
+    buttonSizeX = 0.25*width
+    buttonSizeY = 0.05*height
+    rectMode(CORNER)
+    fill(218,165,32)
+    stroke(0,25,0)
+    rect(buttonCoordX, buttonCoordY, buttonSizeX, buttonSizeY)
+    textAlign(CENTER, CENTER)
+    fill(0)
+    textSize(buttonSizeY*0.6)
+    text('Finish inputting names', width/2, (buttonCoordY*2+buttonSizeY)/2-textDescent()) 
+    
+
 
 def difficultyButtons():
     global currentScreen, timerDifficulty
@@ -365,7 +423,20 @@ def difficultyButtons():
         timerDifficulty = 30
     if (mousePressed == True and (width*0.7 < mouseX < width*0.8) and (height*0.85 < mouseY < height*0.9)):
         timerDifficulty = 20
+
+
+def inputNames():
+    global currentPlayer
+    background(backgroundImg)
+    textAlign(CENTER, CENTER)
+    textSize(60)
+    fill(0)
+    text('please input name of player ' + str(currentPlayer + 1) + ' (' + playersList[currentPlayer][1] + ')', width/2, height/2 * 0.8) 
+    text(playersList[currentPlayer][0], width/2, height/2)
+    mainMenuButtonNames()
+
         
+    
 def instructieBackV():
     global img6, currentScreen, d
     if mousePressed == True and d == 0:
@@ -401,4 +472,31 @@ def babelen():
     background(backgroundImg)
     image(img9, (width // 2) -300 , 30)
     
+        
+def keyReleased():
+    global currentPlayer, playerList, currentScreen
+    if currentScreen == 'inputNames':
+        if key in allowedCharacters and len(playersList[currentPlayer][0]) <= 10:
+            playersList[currentPlayer][0] += key
+        elif key == BACKSPACE:                        
+            playersList[currentPlayer][0] = playersList[currentPlayer][0][:-1]
+        elif key == ENTER:
+            if currentPlayer == 6:
+                currentScreen = 'hoofdmenu'
+            else:
+                currentPlayer += 1
+            
+    
+def showNames():
+    textSize(30)
+    
+    textAlign(LEFT, TOP)
+    text('Players:', width * 0.8, height * 0)
+    text('Coins:', width * 0.9, height * 0)
+    
+    for x in range(0,7):
+        if playersList[x][0] != '':
+            text(playersList[x][0],width * 0.8, (height * x * 0.04) + (height * 0.04))
+            text(str(playersList[x][2]), width * 0.9, ((height * x * 0.04) + height * 0.04))
+
         
