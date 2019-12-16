@@ -102,7 +102,7 @@ def draw():
     clock()
     
     # Draws button back to main menu where needed
-    if False == (currentScreen == 'start' or currentScreen == 'hoofdmenu'):
+    if False == (currentScreen == 'start' or currentScreen == 'hoofdmenu' or currentScreen == 'inputNames'):
         mainMenuButton()
     
     
@@ -232,7 +232,7 @@ def timerFunc(placement):
     if timePassed > timerDifficulty or timePassed == 'De tijd is op!':
         timePassed = 'De tijd is op!'
         background(backgroundImg)
-        text(timePassed, width /2, height/2)
+        currentScreen = 'hoofdmenu'
     else:
         text(timerDifficulty - timePassed, placement, height/2)
 
@@ -252,7 +252,7 @@ def hoofdmenu():
     fill(0,0,0)
     
     textAlign(CENTER)
-    text("Hoofdmenu",width/2,120)
+    text("kies een kaart",width/2,120)
 
         
     image(img6,140,250,350,550)
@@ -385,7 +385,7 @@ def mainMenuButtonNames():
     textAlign(CENTER, CENTER)
     fill(0)
     textSize(buttonSizeY*0.6)
-    text('Finish inputting names', width/2, (buttonCoordY*2+buttonSizeY)/2-textDescent()) 
+    text('Klaar', width/2, (buttonCoordY*2+buttonSizeY)/2-textDescent()) 
     
 
 
@@ -417,27 +417,27 @@ def inputNames():
     textAlign(CENTER, CENTER)
     textSize(60)
     fill(0)
-    text('please input name of player ' + str(currentPlayer + 1) + ' (' + playersList[currentPlayer][1] + ')', width/2, height/2 * 0.8) 
+    text('Speler ' + str(currentPlayer + 1) + ' input je naam'+ ' (' + playersList[currentPlayer][1] + ')', width/2, height/2 * 0.8) 
     text(playersList[currentPlayer][0], width/2, height/2)
     mainMenuButtonNames()
 
         
     
 def instructieBackV():
-    global img6, currentScreen, d
+    global img6, currentScreen, d, timerStart
     if mousePressed == True and d == 0:
         background(backgroundImg)
-        instructie()
+        timerStart = datetime.now()
         currentScreen = 'random'
     else:
         background(backgroundImg)
         image(img6, (width // 2) -300 , 30)
 
 def instructieBack():
-    global img7, currentScreen, d
+    global img7, currentScreen, d, timerStart
     if mousePressed == True and d == 0:
         background(backgroundImg)
-        instructie()
+        timerStart = datetime.now()
         currentScreen = 'random'
         
     else:
@@ -445,9 +445,10 @@ def instructieBack():
         image(img7, (width // 2) -300 , 30)
         
 def droomBack():
-    global img8, currentScreen, d
+    global img8, currentScreen, d, timerStart
     if mousePressed == True and d == 0:
         background(backgroundImg)
+        timerStart = datetime.now()
         currentScreen = 'droomCards'
     else:
         background(backgroundImg)
