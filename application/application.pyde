@@ -108,7 +108,7 @@ def instructie():
         d = d + 1
         l = [525, 150, 275 , 400]
         e = 4
-        x = int(random(0, 4))
+        x = int(random(0, 5))
         f = x
         randomList = []
         fillOrNoFill= []
@@ -125,7 +125,7 @@ def instructie():
             e  = e - 1
         l = [525, 150, 275 , 400]
         e = 4
-        x = int(random(0, 4))
+        x = int(random(0, 5))
         f = x
         while e > 0:
             randomList.append (width / 2 + 130)
@@ -140,7 +140,7 @@ def instructie():
             e  = e - 1
         l = [525, 150, 275 , 400 ]
         e = 4
-        x = int(random(0, 4))
+        x = int(random(0, 5))
         f = x
         while e > 0:
             randomList.append (width / 2 + 260)
@@ -155,7 +155,7 @@ def instructie():
             e  = e - 1
         l = [525, 150, 275 , 400]
         e = 4
-        x = int(random(0, 4))
+        x = int(random(0, 5))
         f = x
         while e > 0:
             randomList.append (width / 2 - 125)
@@ -173,6 +173,9 @@ def instructie():
         textSize(30)
         instr = instrlist.pop(x)
         Save = True
+        fill(0)
+        
+    timerFunc(width/1.2)
     background(backgroundImg)
     image(instrImg, (width // 2) -300 , 30)
     f = 0
@@ -367,6 +370,7 @@ def instructieBackV():
     global img6, currentScreen, d
     if mousePressed == True and d == 0:
         background(backgroundImg)
+        instructie()
         currentScreen = 'random'
     else:
         background(backgroundImg)
@@ -376,7 +380,9 @@ def instructieBack():
     global img7, currentScreen, d
     if mousePressed == True and d == 0:
         background(backgroundImg)
+        instructie()
         currentScreen = 'random'
+        
     else:
         background(backgroundImg)
         image(img7, (width // 2) -300 , 30)
