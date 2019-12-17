@@ -5,7 +5,7 @@ def setup():
     # Sets required global variables
     global currentScreen, timerDifficulty, timerStart, secondsPassed, regularFont, d, playersList, allowedCharacters, currentPlayer, verwarring
     global backgroundImg, instrImg, droomImg, img, Save, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, punten
-    playersList = [['', 'Antarctica', 0], ['', 'Europa', 0], ['', 'Noord Amerika', 0], ['', 'Zuid Amerika', 0], ['', u'Azi\u00EB', 0], ['', u'Australi\u00EB', 0], ['', 'Afrika', 0]]
+    playersList = [['', 'Antarctica', 0], ['', 'Europa', 0], ['', 'Noord-Amerika', 0], ['', 'Zuid-Amerika', 0], ['', u'Azi\u00EB', 0], ['', u'Australi\u00EB', 0], ['', 'Afrika', 0]]
 
     currentPlayer = 0
     allowedCharacters = list('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890')
@@ -240,8 +240,8 @@ def showNames():
     textSize(30)
     fill(0)
     textAlign(LEFT, TOP)
-    text('Players:', width * 0.82, height * 0.25)
-    text('Coins:', width * 0.92, height * 0.25)
+    text('Spelers:', width * 0.82, height * 0.25)
+    text('Munten:', width * 0.92, height * 0.25)
     for x in range(0,7):
         if playersList[x][0] != '':
             text(playersList[x][0],width * 0.82, (height * x * 0.04) + (height * 0.3))
