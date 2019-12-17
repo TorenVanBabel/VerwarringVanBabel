@@ -117,13 +117,13 @@ def draw():
 def startmenu():
     global img, img2, img3, img4, img5, currentScreen, d
     image(backgroundImg, 0, 0, width, height)
-    image(img2,280,10,720,576)
-    image(img3,720,200,150,170)
-    image(img4,420, 390, 500, 350)
+    image(img2,570,80,720,576)
+    image(img3,1020,300,150,170)
+    image(img4,700, 450, 500, 350)
     
-    if mouseX > 500 and mouseX < 820 and mouseY > 500 and mouseY < 600:
+    if mouseX > 780 and mouseX < 1100 and mouseY > 560 and mouseY < 660:
         d = 1
-        image(img5,420, 390, 500, 350)
+        image(img5,700, 450, 500, 350)
         if mousePressed == True:
             currentScreen = 'inputNames'
 
@@ -178,10 +178,10 @@ def hoofdmenu():
     text("Klik op de kleur van het vakje waar je op staat",435,220)
 
 
-    image(img6,140,250,350,550)
-    image(img7,550,250,350,550)
-    image(img8,960,250,350,550)
-    image(img9,1370,250,350,550)
+    image(img6,30,250,350,550)
+    image(img7,410,250,350,550)
+    image(img8,790,250,350,550)
+    image(img9,1170,250,350,550)
    
     textSize(43)
     fill(0,0,0)
@@ -197,7 +197,10 @@ def hoofdmenu():
     if mousePressed == True and mouseX > 105 and mouseX < 575 and mouseY > 459 and mouseY < 521:
         circle(20,20,20)
     if mousePressed == True and mouseX > 29 and mouseX < 381 and mouseY > 249 and mouseY < 801 and d == 0: 
-        circle(20,20,20)
+        d = 1
+        currentScreen = 'instructieBackV'
+        timerStart = datetime.now()
+        background(backgroundImg)
     if mousePressed == True and mouseX > 409 and mouseX < 761 and mouseY > 249 and mouseY < 801 and d == 0:
         d = 1
         currentScreen = 'instructieBack'
