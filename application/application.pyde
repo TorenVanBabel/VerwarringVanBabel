@@ -231,12 +231,12 @@ def showNames():
     textSize(30)
     fill(0)
     textAlign(LEFT, TOP)
-    text('Players:', width * 0.8, height * 0)
-    text('Coins:', width * 0.9, height * 0)
+    text('Players:', width * 0.82, height * 0.25)
+    text('Coins:', width * 0.92, height * 0.25)
     for x in range(0,7):
         if playersList[x][0] != '':
-            text(playersList[x][0],width * 0.8, (height * x * 0.04) + (height * 0.04))
-            text(str(playersList[x][2]), width * 0.9, ((height * x * 0.04) + height * 0.04))    
+            text(playersList[x][0],width * 0.82, (height * x * 0.04) + (height * 0.3))
+            text(str(playersList[x][2]), width * 0.92, (height * x * 0.04) + (height * 0.3))    
 
 
 def mainMenuButton():
