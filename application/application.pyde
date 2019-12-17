@@ -156,9 +156,14 @@ def mainMenuButtonNames():
     buttonSizeX = 0.25*width
     buttonSizeY = 0.05*height
     rectMode(CORNER)
-    fill(218,165,32)
+    if playersList[2][0] != '':
+        fill(218,165,32)
+    else:
+        fill(200)
     stroke(0,25,0)
     rect(buttonCoordX, buttonCoordY, buttonSizeX, buttonSizeY)
+    
+    
     textAlign(CENTER, CENTER)
     fill(0)
     textSize(buttonSizeY*0.6)
