@@ -54,9 +54,10 @@ def setup():
 
    
 def draw():    
-    global d, currentScreen, Save, randomList, fillOrNoFill, verwarring
-    # Draws clock in bottom right on every screen
-    clock()
+    global d, currentScreen, Save, randomList, fillOrNoFill, verwarring, addedCoins
+    
+    if currentScreen != 'GoodOrBad':
+        addedCoins = False
     
     # Draws start screen
     if currentScreen == 'start':
@@ -64,7 +65,6 @@ def draw():
     
     # Draws hoofdmenu    
     elif currentScreen == 'hoofdmenu':
-        addedCoins = False
         hoofdmenu()
         difficultyButtons()
     
@@ -123,6 +123,9 @@ def draw():
     #Draws names from the players on the screen where needed
     if False == (currentScreen == 'inputNames' or currentScreen == 'start'):
         showNames()
+        
+    # Draws clock in bottom right on every screen
+    clock()
     
 def startmenu():
     global img, img2, img3, img4, img5, currentScreen, d
@@ -299,7 +302,9 @@ def GoedOfFoutClick():
         fill(200)
         print('good')
         text('Yes!\nJe krijgt een munt',width/ 2,100)
-        punten = int(punten) + int(b)
+        if addedCoins == False:
+            playersList[currentPlayer][2] = int(playersList[currentPlayer][2]) + int(b)
+            addedCoins = True
         fill(220,150,0)
         rect(1600,100,300,110)
         print (b)
@@ -335,7 +340,7 @@ def difficultyButtons():
     if (mousePressed == True and (width*0.45 < mouseX < width*0.55) and (height*0.85 < mouseY < height*0.9)):
         timerDifficulty = 30
     if (mousePressed == True and (width*0.7 < mouseX < width*0.8) and (height*0.85 < mouseY < height*0.9)):
-        timerDifficulty = 20
+        timerDifficulty = 2
 
     
 def instructieBackV():
