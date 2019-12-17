@@ -1,6 +1,5 @@
 from datetime import time, datetime
 import time
-import functions
 
 def setup():
     # Sets required global variables
@@ -152,7 +151,7 @@ def mainMenuButtonNames():
     fill(0)
     textSize(buttonSizeY*0.6)
     text('Klaar', width/2, (buttonCoordY*2+buttonSizeY)/2-textDescent()) 
-    if (mousePressed == True and (buttonCoordX < mouseX < buttonCoordX+buttonSizeX) and (buttonCoordY < mouseY < buttonCoordY+buttonSizeY)):
+    if (mousePressed == True and (buttonCoordX < mouseX < buttonCoordX+buttonSizeX) and (buttonCoordY < mouseY < buttonCoordY+buttonSizeY) and playersList[2][0] != ''):
         d = 1
         currentScreen = 'hoofdmenu'
         Save = False    
@@ -176,6 +175,7 @@ def hoofdmenu():
     fill(0,0,0)
     
     textAlign(CENTER)
+    textSize(40)
     text("Klik op de kleur van het vakje waar je op staat",435,220)
 
 
@@ -450,7 +450,7 @@ def keyReleased():
             playersList[currentPlayer][0] += key
         elif key == BACKSPACE:                        
             playersList[currentPlayer][0] = playersList[currentPlayer][0][:-1]
-        elif key == ENTER:
+        elif key == ENTER and playersList[currentPlayer][0] != '':
             if currentPlayer == 6:
                 currentScreen = 'hoofdmenu'
             else:
