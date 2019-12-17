@@ -17,6 +17,9 @@ def setup():
     regularFont = createFont('Felix Titling', 70)
     textFont(regularFont)
     b = 0
+    textAlign(CENTER)
+    textSize(50)
+    text('hoe heb je de opdracht afgerond?',width/2,400)
 
     
     
@@ -60,19 +63,19 @@ def PuntenOpSoming():
     b = (random.choice(l))
     textSize(40)
     text(str(punten),1700,100,100,100)
-    
+    d=0
     if mousePressed == True and mouseX > 380 and mouseX < 780 and mouseY >550 and mouseY<750:
         print('good')
         #text('Yes!\nJe krijgt een munt',width/2,100)
         punten = int(punten) + int(b)
-        fill(200,150,0)
+        fill(220,150,0)
         rect(1600,100,300,110)
         print (b)
         fill(0)
         text(b+'+',1750,180)
         print(punten)
         
-        
+    
         
         
         
