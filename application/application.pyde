@@ -357,10 +357,11 @@ def instructieBack():
         image(img7, (width // 2) -300 , 30)
         
 def droomBack():
-    global img8, currentScreen, d, timerStart
+    global img8, currentScreen, d, timerStart, Save 
     if mousePressed == True and d == 0:
         background(backgroundImg)
         timerStart = datetime.now()
+        Save = False
         currentScreen = 'droomCards'
     else:
         background(backgroundImg)
@@ -469,17 +470,20 @@ def instructie():
     timerFunc(width/1.2)        
 
 def droomCards():
-    global droomImg, d
+    global droomImg, d, Save, droom
     fill(0)
     textAlign(CENTER, CENTER)
     background(backgroundImg)
     image(droomImg, (width // 2) -300 , 30)
-    x = int(random(0, 4))
-    droomList = ['Aarde','Aarde','Aarde','Aarde']
-    textSize(60)
-    droom = droomList.pop(x)
-    text(droom, width / 1.9 ,height / 2 )
-    timerFunc(width/1.2)
+    if Save == False:
+        x = int(random(0, 4))
+        droomList = ['Aarde','Aarde','Aarde','Aarde']
+        textSize(60)
+        droom = droomList.pop(x)
+        Save = True
+    if Save == True:
+        text(droom, width / 1.9 ,height / 2 )
+        timerFunc(width/1.2)
 
 # Draws a timer on the screen that counts down to 0
 def timerFunc(placement):
