@@ -174,8 +174,7 @@ def hoofdmenu():
     fill(0,0,0)
     
     textAlign(CENTER)
-    textSize(40)
-    text("Klik op de kleur van het vakje waar je op staat",435,220)
+    text("Klik op de kleur van het vakje waar je op staat",width/2,220)
 
 
     image(img6,140,250,350,550)
