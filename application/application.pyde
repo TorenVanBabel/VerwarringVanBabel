@@ -5,7 +5,8 @@ def setup():
     # Sets required global variables
     global currentScreen, timerDifficulty, timerStart, secondsPassed, regularFont, d, playersList, allowedCharacters, currentPlayer, verwarring, addedCoins
     global backgroundImg, instrImg, droomImg, img, Save, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, punten
-    playersList = [['', 'Antarctica', 0], ['', 'Europa', 0], ['', 'Noord Amerika', 0], ['', 'Zuid Amerika', 0], ['', u'Azi\u00EB', 0], ['', u'Australi\u00EB', 0], ['', 'Afrika', 0]]
+
+    playersList = [['', 'Antarctica', 0], ['', 'Europa', 0], ['', 'Noord-Amerika', 0], ['', 'Zuid-Amerika', 0], ['', u'Azi\u00EB', 0], ['', u'Australi\u00EB', 0], ['', 'Afrika', 0]]
 
     currentPlayer = 0
     allowedCharacters = list('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890')
@@ -245,8 +246,8 @@ def showNames():
     textSize(30)
     fill(0)
     textAlign(LEFT, TOP)
-    text('Players:', width * 0.82, height * 0.25)
-    text('Coins:', width * 0.92, height * 0.25)
+    text('Spelers:', width * 0.82, height * 0.25)
+    text('Munten:', width * 0.92, height * 0.25)
     for x in range(0,7):
         if playersList[x][0] != '':
             text(playersList[x][0],width * 0.82, (height * x * 0.04) + (height * 0.3))
@@ -366,10 +367,11 @@ def instructieBack():
         image(img7, (width // 2) -300 , 30)
         
 def droomBack():
-    global img8, currentScreen, d, timerStart
+    global img8, currentScreen, d, timerStart, Save 
     if mousePressed == True and d == 0:
         background(backgroundImg)
         timerStart = datetime.now()
+        Save = False
         currentScreen = 'droomCards'
     else:
         background(backgroundImg)
@@ -478,17 +480,22 @@ def instructie():
     timerFunc(width*0.17)        
 
 def droomCards():
-    global droomImg, d
+    global droomImg, d, Save, droom
     fill(0)
     textAlign(CENTER, CENTER)
     background(backgroundImg)
     image(droomImg, (width // 2) -300 , 30)
-    x = int(random(0, 4))
-    droomList = ['Aarde','Lucht','Water','Vuur']
-    textSize(60)
-    droom = droomList.pop(x)
-    text(droom, width / 1.9 ,height / 2 )
-    timerFunc(width*0.17)
+
+    if Save == False:
+        x = int(random(0, 4))
+        droomList = ['Aarde','Aarde','Aarde','Aarde']
+        textSize(60)
+        droom = droomList.pop(x)
+        Save = True
+    if Save == True:
+        text(droom, width / 1.9 ,height / 2 )
+        timerFunc(width/1.2)
+
 
 # Draws a timer on the screen that counts down to 0
 def timerFunc(placement):
