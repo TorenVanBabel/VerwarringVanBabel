@@ -1,10 +1,11 @@
 from datetime import time, datetime
 import time
 
+
 def setup():
     # Sets required global variables
     global currentScreen, timerDifficulty, timerStart, secondsPassed, regularFont, d, playersList, allowedCharacters, currentPlayer, verwarring
-    global backgroundImg, instrImg, droomImg, img, Save, img2, img3, img4, img5, img6, img7, img8, img9
+    global backgroundImg, instrImg, droomImg, img, Save, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, punten
     playersList = [['', 'Antarctica', 0], ['', 'Europe', 0], ['', 'North America', 0], ['', 'South America', 0], ['', 'Asia', 0], ['', 'Australia', 0], ['', 'Africa', 0]]
     currentPlayer = 0
     allowedCharacters = list('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890')
@@ -28,6 +29,10 @@ def setup():
     img8 = loadImage("continentkaartAchter.jpeg")
     img9 = loadImage("Babelspel.jpeg")
 
+    #Loads stuf good or bad
+    img10 = loadImage('TextBalkGoed.png')
+    img11 = loadImage('TextBalkFout.png')
+    punten = 0
     # Loads static image for random card generation
     instrImg = loadImage('instructie.jpeg')
     
@@ -105,6 +110,9 @@ def draw():
     elif currentScreen == 'babelen':
         babelen()
         
+    elif currentScreen == 'GoodOrBad':
+        GoedOfFoutClick()
+    
     
     # Draws button back to main menu where needed
     if False == (currentScreen == 'start' or currentScreen == 'hoofdmenu' or currentScreen == 'inputNames'):
@@ -174,8 +182,7 @@ def hoofdmenu():
     fill(0,0,0)
     
     textAlign(CENTER)
-    textSize(40)
-    text("Klik op de kleur van het vakje waar je op staat",435,220)
+    text("Klik op de kleur van het vakje waar je op staat",width/2,220)
 
 
     image(img6,30,250,350,550)
@@ -249,6 +256,51 @@ def mainMenuButton():
     if (mousePressed == True and (buttonCoordX < mouseX < buttonCoordX+buttonSizeX) and (buttonCoordY < mouseY < buttonCoordY+buttonSizeY)):
         currentScreen = 'hoofdmenu'
         Save = False
+        
+def GoedOfFoutClick():
+    global goed,fout,img10,img11, b, punten,d, backgroundImg, Save
+    background(backgroundImg)
+    image(img10,330,500,500,300)
+    image(img11,1100,510,500,290)
+    fill(0)
+    stroke(100,100,100)
+    textAlign(CENTER)
+    textSize(80)
+    l = ['5','10','15','20','25','50']
+    textSize(40)
+    text(str(punten),1700,100,100,100)
+    if Save == True:
+        print('good')
+        text('Yes!\nJe krijgt een munt',width/ 2,100)
+        punten = int(punten) + int(b)
+        fill(220,150,0)
+        rect(1600,100,300,110)
+        print (b)
+        fill(0)
+        text(b+'+',1750,180)
+        print(punten)
+    elif mousePressed == True and mouseX > 380 and mouseX < 780 and mouseY > 550 and mouseY < 750 and d == 0:
+        d = 1
+        b = int(random(0,5))
+        b = l[b]
+        fill(200)
+        print('good')
+        text('Yes!\nJe krijgt een munt',width/ 2,100)
+        punten = int(punten) + int(b)
+        fill(220,150,0)
+        rect(1600,100,300,110)
+        print (b)
+        fill(0)
+        text(b+'+',1750,180)
+        print(punten)
+        Save = True
+        
+        
+    elif mousePressed == True and mouseX > 1050 and  mouseX  < 1450 and mouseY  > 550 and mouseY < 750 and d == 0:
+        d = 1
+        text('Jammer volgende Ronde beter',width/2,900)
+    else:
+        pass        
         
 
 def difficultyButtons():
@@ -421,7 +473,7 @@ def droomCards():
 
 # Draws a timer on the screen that counts down to 0
 def timerFunc(placement):
-    global timerStart, timePassed, d, currentScreen, timerDifficulty
+    global timerStart, timePassed, d, currentScreen, timerDifficulty, Save
     textSize(200)
     fill(0)
     textAlign(CENTER, CENTER)
@@ -429,7 +481,8 @@ def timerFunc(placement):
     if timePassed > timerDifficulty or timePassed == 'De tijd is op!':
         timePassed = 'De tijd is op!'
         background(backgroundImg)
-        currentScreen = 'hoofdmenu'
+        Save = False
+        currentScreen = 'GoodOrBad'
     else:
         text(timerDifficulty - timePassed, placement, height/2)
 
