@@ -255,7 +255,7 @@ def mainMenuButton():
         Save = False
         
 def GoedOfFoutClick():
-    global goed,fout,img10,img11, b, punten,d, backgroundImg
+    global goed,fout,img10,img11, b, punten,d, backgroundImg, Save
     background(backgroundImg)
     image(img10,330,500,500,300)
     image(img11,1100,510,500,290)
@@ -264,13 +264,22 @@ def GoedOfFoutClick():
     textAlign(CENTER)
     textSize(80)
     l = ['5','10','15','20','25','50']
-    b = int(random(0,5))
-    b = l[b]
     textSize(40)
     text(str(punten),1700,100,100,100)
-    
-    if mousePressed == True and mouseX > 380 and mouseX < 780 and mouseY > 550 and mouseY < 750 and d == 0:
+    if Save == True:
+        print('good')
+        text('Yes!\nJe krijgt een munt',width/ 2,100)
+        punten = int(punten) + int(b)
+        fill(220,150,0)
+        rect(1600,100,300,110)
+        print (b)
+        fill(0)
+        text(b+'+',1750,180)
+        print(punten)
+    elif mousePressed == True and mouseX > 380 and mouseX < 780 and mouseY > 550 and mouseY < 750 and d == 0:
         d = 1
+        b = int(random(0,5))
+        b = l[b]
         fill(200)
         print('good')
         text('Yes!\nJe krijgt een munt',width/ 2,100)
@@ -281,7 +290,7 @@ def GoedOfFoutClick():
         fill(0)
         text(b+'+',1750,180)
         print(punten)
-        
+        Save = True
         
         
     elif mousePressed == True and mouseX > 1050 and  mouseX  < 1450 and mouseY  > 550 and mouseY < 750 and d == 0:
@@ -461,7 +470,7 @@ def droomCards():
 
 # Draws a timer on the screen that counts down to 0
 def timerFunc(placement):
-    global timerStart, timePassed, d, currentScreen, timerDifficulty
+    global timerStart, timePassed, d, currentScreen, timerDifficulty, Save
     textSize(200)
     fill(0)
     textAlign(CENTER, CENTER)
@@ -469,6 +478,7 @@ def timerFunc(placement):
     if timePassed > timerDifficulty or timePassed == 'De tijd is op!':
         timePassed = 'De tijd is op!'
         background(backgroundImg)
+        Save = False
         currentScreen = 'GoodOrBad'
     else:
         text(timerDifficulty - timePassed, placement, height/2)
