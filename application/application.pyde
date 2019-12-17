@@ -494,7 +494,7 @@ def droomCards():
         Save = True
     if Save == True:
         text(droom, width / 1.9 ,height / 2 )
-        timerFunc(width/1.2)
+        timerFunc(width*0.17)
 
 
 # Draws a timer on the screen that counts down to 0
