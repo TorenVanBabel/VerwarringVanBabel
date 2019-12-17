@@ -1,12 +1,12 @@
 from datetime import time, datetime
 import time
 
-
 def setup():
     # Sets required global variables
     global currentScreen, timerDifficulty, timerStart, secondsPassed, regularFont, d, playersList, allowedCharacters, currentPlayer, verwarring
     global backgroundImg, instrImg, droomImg, img, Save, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, punten
-    playersList = [['', 'Antarctica', 0], ['', 'Europe', 0], ['', 'North America', 0], ['', 'South America', 0], ['', 'Asia', 0], ['', 'Australia', 0], ['', 'Africa', 0]]
+    playersList = [['', 'Antarctica', 0], ['', 'Europa', 0], ['', 'Noord Amerika', 0], ['', 'Zuid Amerika', 0], ['', u'Azi\u00EB', 0], ['', u'Australi\u00EB', 0], ['', 'Afrika', 0]]
+
     currentPlayer = 0
     allowedCharacters = list('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890')
     verwarring = False
@@ -138,11 +138,15 @@ def startmenu():
 def inputNames():
     global currentPlayer
     background(backgroundImg)
+    rectMode(CENTER)
+    fill(255)
+    rect(width/2, height*0.55, width*0.35, height*0.075)
+    
     textAlign(CENTER, CENTER)
     textSize(60)
     fill(0)
     text('Speler ' + str(currentPlayer + 1) + ' input je naam'+ ' (' + playersList[currentPlayer][1] + ')', width/2, height/2 * 0.8) 
-    text(playersList[currentPlayer][0], width/2, height/2)
+    text(playersList[currentPlayer][0], width/2, height*0.54)
     mainMenuButtonNames()
 
 def mainMenuButtonNames():
@@ -152,9 +156,14 @@ def mainMenuButtonNames():
     buttonSizeX = 0.25*width
     buttonSizeY = 0.05*height
     rectMode(CORNER)
-    fill(218,165,32)
+    if playersList[2][0] != '':
+        fill(218,165,32)
+    else:
+        fill(200)
     stroke(0,25,0)
     rect(buttonCoordX, buttonCoordY, buttonSizeX, buttonSizeY)
+    
+    
     textAlign(CENTER, CENTER)
     fill(0)
     textSize(buttonSizeY*0.6)
@@ -335,6 +344,7 @@ def instructieBackV():
         background(backgroundImg)
         image(img6, (width // 2) -300 , 30)
 
+
 def instructieBack():
     global img7, currentScreen, d, timerStart
     if mousePressed == True and d == 0:
@@ -514,21 +524,7 @@ def keyPressed():
     global currentScreen, d, timerStart
     d = 0
     print(keyCode)
-    '''
-    if str(key) == 't':
-        currentScreen = 'timer'
-        timerStart = datetime.now()
-    if str(key) == 'r':
-        currentScreen = 'random'
-        timerStart = datetime.now()
-    if str(key) == 'm':
-        currentScreen = 'hoofdmenu'
-    if str(key) == 's':
-        currentScreen = 'start'
-<<<<<<< HEAD
-    if str(key) == 'i':
-        currentScreen = 'inputNames'
-    '''
+
     
 def mouseReleased():
     global d, currentScreen
