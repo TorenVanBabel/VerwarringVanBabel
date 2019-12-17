@@ -3,7 +3,7 @@ import time
 
 def setup():
     # Sets required global variables
-    global currentScreen, timerDifficulty, timerStart, secondsPassed, regularFont, d, playersList, allowedCharacters, currentPlayer, verwarring
+    global currentScreen, timerDifficulty, timerStart, secondsPassed, regularFont, d, playersList, allowedCharacters, currentPlayer, verwarring, addedCoins
     global backgroundImg, instrImg, droomImg, img, Save, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, punten
     playersList = [['', 'Antarctica', 0], ['', 'Europa', 0], ['', 'Noord Amerika', 0], ['', 'Zuid Amerika', 0], ['', u'Azi\u00EB', 0], ['', u'Australi\u00EB', 0], ['', 'Afrika', 0]]
 
@@ -13,6 +13,7 @@ def setup():
     currentScreen = 'start'
     timerStart = datetime.now()
     timerDifficulty = 30
+    addedCoins = False
     secondsPassed = 0
     d = 0
     Save = False
@@ -63,13 +64,14 @@ def draw():
     
     # Draws hoofdmenu    
     elif currentScreen == 'hoofdmenu':
+        addedCoins = False
         hoofdmenu()
         difficultyButtons()
     
     # Draws timer screen
     elif currentScreen == 'timer':
         background(backgroundImg)
-        timerFunc(width/2)
+        timerFunc(width*0.17)
             
     # Draws the cards screen
     elif currentScreen == 'card':
@@ -267,7 +269,7 @@ def mainMenuButton():
         Save = False
         
 def GoedOfFoutClick():
-    global goed,fout,img10,img11, b, punten,d, backgroundImg, Save
+    global goed,fout,img10,img11, b, punten,d, backgroundImg, Save, addedCoins
     background(backgroundImg)
     image(img10,330,500,500,300)
     image(img11,1100,510,500,290)
@@ -281,13 +283,15 @@ def GoedOfFoutClick():
     if Save == True:
         print('good')
         text('Yes!\nJe krijgt een munt',width/ 2,100)
-        punten = int(punten) + int(b)
+        if addedCoins == False:
+            playersList[currentPlayer][2] = int(playersList[currentPlayer][2]) + int(b)
+            addedCoins = True
         fill(220,150,0)
         rect(1600,100,300,110)
         print (b)
         fill(0)
         text(b+'+',1750,180)
-        print(punten)
+        print(playersList[currentPlayer][2])
     elif mousePressed == True and mouseX > 380 and mouseX < 780 and mouseY > 550 and mouseY < 750 and d == 0:
         d = 1
         b = int(random(0,5))
@@ -446,7 +450,7 @@ def instructie():
         Save = True
         fill(0)
         
-    timerFunc(width/1.2)
+    timerFunc(width*0.17)
     background(backgroundImg)
     image(instrImg, (width // 2) -300 , 30)
     f = 0
@@ -466,7 +470,7 @@ def instructie():
     if verwarring == True:
         textAlign(LEFT, CENTER)
         text(instr, width / 2.75 ,height / 1.4 )
-    timerFunc(width/1.2)        
+    timerFunc(width*0.17)        
 
 def droomCards():
     global droomImg, d
@@ -475,17 +479,17 @@ def droomCards():
     background(backgroundImg)
     image(droomImg, (width // 2) -300 , 30)
     x = int(random(0, 4))
-    droomList = ['Aarde','Aarde','Aarde','Aarde']
+    droomList = ['Aarde','Lucht','Water','Vuur']
     textSize(60)
     droom = droomList.pop(x)
     text(droom, width / 1.9 ,height / 2 )
-    timerFunc(width/1.2)
+    timerFunc(width*0.17)
 
 # Draws a timer on the screen that counts down to 0
 def timerFunc(placement):
     global timerStart, timePassed, d, currentScreen, timerDifficulty, Save
     textSize(200)
-    fill(0)
+    fill(255)
     textAlign(CENTER, CENTER)
     timePassed = (datetime.now() - timerStart).seconds
     if timePassed > timerDifficulty or timePassed == 'De tijd is op!':
