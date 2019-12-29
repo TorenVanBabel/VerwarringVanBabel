@@ -3,7 +3,7 @@ import time
 
 def setup():
     # Sets required global variables
-    global currentScreen, timerDifficulty, timerStart, secondsPassed, regularFont, d, playersList, allowedCharacters, currentPlayer, verwarring, addedCoins
+    global currentScreen, timerDifficulty, timerStart, secondsPassed, regularFont, d, playersList, allowedCharacters, currentPlayer, verwarring, addedCoins, Higlight
     global backgroundImg, instrImg, droomImg, img, Save, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, punten
 
     playersList = [['', 'Antarctica', 0], ['', 'Europa', 0], ['', 'Noord-Amerika', 0], ['', 'Zuid-Amerika', 0], ['', u'Azi\u00EB', 0], ['', u'Australi\u00EB', 0], ['', 'Afrika', 0]]
@@ -17,6 +17,7 @@ def setup():
     addedCoins = False
     secondsPassed = 0
     d = 0
+    Higlight = 0
     Save = False
 
     # Startscherm afbeeldingen en highlight button
@@ -63,11 +64,10 @@ def draw():
     # Draws start screen
     if currentScreen == 'start':
         startmenu()
-    
+        difficultyButtons()
     # Draws hoofdmenu    
     elif currentScreen == 'hoofdmenu':
         hoofdmenu()
-        difficultyButtons()
     
     # Draws timer screen
     elif currentScreen == 'timer':
@@ -129,7 +129,7 @@ def draw():
     clock()
     
 def startmenu():
-    global img, img2, img3, img4, img5, currentScreen, d
+    global img, img2, img3, img4, img5, currentScreen, d, Higlight
     image(backgroundImg, 0, 0, width, height)
     image(img2,570,80,720,576)
     image(img3,1020,300,150,170)
@@ -138,7 +138,7 @@ def startmenu():
     if mouseX > 780 and mouseX < 1100 and mouseY > 560 and mouseY < 660:
         d = 1
         image(img5,700, 450, 500, 350)
-        if mousePressed == True:
+        if mousePressed == True and Higlight != 0:
             currentScreen = 'inputNames'
 
 def inputNames():
@@ -215,9 +215,6 @@ def hoofdmenu():
         timerStart = datetime.now()
         background(backgroundImg)
     
-
-    if mousePressed == True and mouseX > 105 and mouseX < 575 and mouseY > 459 and mouseY < 521:
-        circle(20,20,20)
     if mousePressed == True and mouseX > 29 and mouseX < 381 and mouseY > 249 and mouseY < 801 and d == 0: 
         d = 1
         currentScreen = 'instructieBackV'
@@ -238,8 +235,7 @@ def hoofdmenu():
         currentScreen = 'babelen'
         timerStart = datetime.now()
         background(backgroundImg)
-    if mousePressed == True:
-        d = 1
+
     
 
 def showNames():
@@ -323,7 +319,7 @@ def GoedOfFoutClick():
         
 
 def difficultyButtons():
-    global currentScreen, timerDifficulty
+    global currentScreen, timerDifficulty, Higlight
     rectMode(CORNER)
     fill(218,165,32)
     stroke(0,25,0)
@@ -336,12 +332,48 @@ def difficultyButtons():
     text('Makkelijk', (width*0.2*2+width*0.1)/2, (height*0.85*2-textDescent()+height*0.05)/2)
     text('Normaal', (width*0.45*2+width*0.1)/2, (height*0.85*2-textDescent()+height*0.05)/2)
     text('Moeilijk', (width*0.7*2+width*0.1)/2, (height*0.85*2-textDescent()+height*0.05)/2) 
+    if Higlight == 1:
+        fill(218,165,32)
+        stroke(255)
+        rect(width*0.2, height*0.85, width*0.1, height*0.05)
+        textAlign(CENTER, CENTER)
+        fill(255)
+        textSize(height*0.05*0.6)
+        text('Makkelijk', (width*0.2*2+width*0.1)/2, (height*0.85*2-textDescent()+height*0.05)/2)
+        fill(218,165,32)
+        stroke(0,25,0)
+    if Higlight == 2:
+        fill(218,165,32)
+        stroke(255)
+        rect(width*0.45, height*0.85, width*0.1, height*0.05)
+        textAlign(CENTER, CENTER)
+        fill(255)
+        textSize(height*0.05*0.6)
+        text('Normaal', (width*0.45*2+width*0.1)/2, (height*0.85*2-textDescent()+height*0.05)/2)
+        fill(218,165,32)
+        stroke(0,25,0)
+    if Higlight == 3:
+        fill(218,165,32)
+        stroke(255)
+        rect(width*0.7, height*0.85, width*0.1, height*0.05)
+        textAlign(CENTER, CENTER)
+        fill(255)
+        textSize(height*0.05*0.6)
+        text('Moeilijk', (width*0.7*2+width*0.1)/2, (height*0.85*2-textDescent()+height*0.05)/2) 
+        fill(218,165,32)
+        stroke(0,25,0)
+
+
+
     if (mousePressed == True and (width*0.2 < mouseX < width*0.3) and (height*0.85 < mouseY < height*0.9)):
         timerDifficulty = 40
+        Higlight = 1
     if (mousePressed == True and (width*0.45 < mouseX < width*0.55) and (height*0.85 < mouseY < height*0.9)):
         timerDifficulty = 30
+        Higlight = 2
     if (mousePressed == True and (width*0.7 < mouseX < width*0.8) and (height*0.85 < mouseY < height*0.9)):
-        timerDifficulty = 2
+        timerDifficulty = 20
+        Higlight = 3
 
     
 def instructieBackV():
