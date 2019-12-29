@@ -244,6 +244,10 @@ def hoofdmenu():
     text('Vakje zonder spel', width*0.03, height*0.85,)
     
 def showNames():
+    rectMode(CORNER)
+    fill(218,165,32)
+    stroke(0,25,0)
+    rect(width*0.81, height*0.25, width*0.185, height*0.35)
     textSize(30)
     fill(0)
     textAlign(LEFT, TOP)
