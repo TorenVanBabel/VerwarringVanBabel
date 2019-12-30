@@ -4,7 +4,7 @@ import time
 def setup():
     # Sets required global variables
     global currentScreen, timerDifficulty, timerStart, secondsPassed, regularFont, d, playersList, allowedCharacters, currentPlayer, verwarring, addedCoins, Higlight
-    global backgroundImg, instrImg, droomImg, img, Save, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, punten, ground10, ground15, ground20, landkaart
+    global backgroundImg, instrImg, droomImg, img, Save, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, punten, ground10, ground15, ground20, ground50, landkaart
 
     playersList = [['', 'Antarctica', 0], ['', 'Europa', 0], ['', 'Noord-Amerika', 0], ['', 'Zuid-Amerika', 0], ['', u'Azi\u00EB', 0], ['', u'Australi\u00EB', 0], ['', 'Afrika', 0]]
 
@@ -46,6 +46,7 @@ def setup():
     ground10 = loadImage('Grondstuk10.png')
     ground15 = loadImage('Grondstuk15.png')
     ground20 = loadImage('Grondstuk20.png')
+    ground50 = loadImage('50.png')
     landkaart = loadImage('landkaart2.png')
     # Sets the default visual settings (fullscreen/font)
     fullScreen()
@@ -587,11 +588,19 @@ def timerFunc(placement):
         text(timerDifficulty - timePassed, placement, height/2)
 
 def worldMap():
-    global img10,backgroundImg,ground10, ground15, ground20, landkaart
+    global img10,backgroundImg,ground10, ground15, ground20, ground50, landkaart
     background(backgroundImg)
     image(landkaart, -12, -8, width*0.82, height)
-    image(ground10, width * 0.3 , height* 0.3)
-    
+    image(ground20, width * 0.3 , height* 0.3)
+    image(ground20, width * 0.31 , height* 0.3)
+    image(ground20, width * 0.32 , height* 0.3)
+    image(ground20, width * 0.33 , height* 0.3)
+    image(ground20, width * 0.34 , height* 0.3)
+    image(ground20, width * 0.35 , height* 0.3)
+    image(ground20, width * 0.36 , height* 0.3)
+    image(ground20, width * 0.37 , height* 0.3)
+    image(ground20, width * 0.38 , height* 0.3)
+    image(ground20, width * 0.39 , height* 0.3)
 
 def clock():
     noSmooth()
