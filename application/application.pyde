@@ -42,6 +42,10 @@ def setup():
     # Loads static image for droom card function
     droomImg = loadImage('droom.jpeg')
     
+    # Loads static images for buying contintents
+    ground1 = loadImage('Grondstuk10.png')
+    
+    
     # Sets the default visual settings (fullscreen/font)
     fullScreen()
     backgroundImg = loadImage('startscherm1.jpg')
@@ -256,7 +260,7 @@ def showNames():
     for x in range(0,7):
         if playersList[x][0] != '':
             text(playersList[x][0],width * 0.82, (height * x * 0.04) + (height * 0.3))
-            text(str(playersList[x][2]), width * 0.92, (height * x * 0.04) + (height * 0.3))    
+            text(str(playersList[x][2]), width * 0.93, (height * x * 0.04) + (height * 0.3))    
 
 
 def mainMenuButton():
@@ -278,10 +282,10 @@ def mainMenuButton():
         Save = False
         
 def GoedOfFoutClick():
-    global goed,fout,img10,img11, b, punten,d, backgroundImg, Save, addedCoins
+    global goed,fout,img10,img11, b, punten,d, backgroundImg, Save, addedCoins, currentScreen
     background(backgroundImg)
-    image(img10,330,500,500,300)
-    image(img11,1100,510,500,290)
+    image(img10,280,500,500,300)
+    image(img11,1050,510,500,290)
     fill(0)
     stroke(100,100,100)
     textAlign(CENTER)
@@ -301,6 +305,7 @@ def GoedOfFoutClick():
         fill(0)
         text(b+'+',1750,180)
         print(playersList[currentPlayer][2])
+        currentScreen = 'hoofdmenu'
     elif mousePressed == True and mouseX > 380 and mouseX < 780 and mouseY > 550 and mouseY < 750 and d == 0:
         d = 1
         b = int(random(0,5))
@@ -322,7 +327,7 @@ def GoedOfFoutClick():
         
     elif mousePressed == True and mouseX > 1050 and  mouseX  < 1450 and mouseY  > 550 and mouseY < 750 and d == 0:
         d = 1
-        text('Jammer volgende Ronde beter',width/2,900)
+        currentScreen = 'hoofdmenu'
     else:
         pass        
         
@@ -381,7 +386,7 @@ def difficultyButtons():
         timerDifficulty = 30
         Higlight = 2
     if (mousePressed == True and (width*0.7 < mouseX < width*0.8) and (height*0.85 < mouseY < height*0.9)):
-        timerDifficulty = 20
+        timerDifficulty = 2
         Higlight = 3
 
     
