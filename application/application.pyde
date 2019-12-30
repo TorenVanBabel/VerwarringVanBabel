@@ -242,11 +242,36 @@ def hoofdmenu():
 
     rectMode(CORNER)
     fill(218,165,32)
-    stroke(0,25,0)
-    rect(width*0.015, height*0.80, width*0.775, height*0.07)
+    rect(width*0.015, height*0.80, width*0.38, height*0.07)
     fill(0)
-    text('Vakje zonder spel', width*0.03, height*0.85,)
+    if mouseX > width*0.015 and mouseX < width*0.38 + width *0.015 and mouseY > height*0.8 and mouseY < height * 0.07 + height * 0.8:
+        fill(218,165,32)
+        stroke(255)
+        rect(width*0.015, height*0.80, width*0.38, height*0.07)
+        fill(255)
+        stroke(0)
+    text('Volgende Speler ', width*0.03, height*0.85,)
+    fill(0)
+    circle(width*0.347, height*0.835, 50)
+    if mousePressed == True and mouseX > width*0.015 and mouseX < width*0.38 + width *0.015 and mouseY > height*0.8 and mouseY < height * 0.07 + height * 0.8 and d == 0:
+        d = 0
+        
+    fill(218,165,32)
+    rect(width*0.41, height*0.80, width*0.38, height*0.07)
+    fill(0)
+    if mouseX > width*0.41 and mouseX < width*0.38 + width *0.41 and mouseY > height*0.8 and mouseY < height * 0.07 + height * 0.8:
+        fill(218,165,32)
+        stroke(255)
+        rect(width*0.41, height*0.80, width*0.38, height*0.07)
+        fill(255)
+        stroke(0)
+    text('Wereld kaart ', width*0.42, height*0.85,)
+    fill(0)
+    circle(width*0.347, height*0.835, 50)
+    if mousePressed == True and mouseX > width*0.41 and mouseX < width*0.38 + width *0.41 and mouseY > height*0.8 and mouseY < height * 0.07 + height * 0.8 and d == 0:
+        d = 0
     
+        
 def showNames():
     rectMode(CORNER)
     fill(218,165,32)
