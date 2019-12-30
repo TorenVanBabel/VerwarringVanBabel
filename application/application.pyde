@@ -4,7 +4,7 @@ import time
 def setup():
     # Sets required global variables
     global currentScreen, timerDifficulty, timerStart, secondsPassed, regularFont, d, playersList, allowedCharacters, currentPlayer, verwarring, addedCoins, Higlight
-    global backgroundImg, instrImg, droomImg, img, Save, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, punten
+    global backgroundImg, instrImg, droomImg, img, Save, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, punten, ground10, ground15, ground20, landkaart
 
     playersList = [['', 'Antarctica', 0], ['', 'Europa', 0], ['', 'Noord-Amerika', 0], ['', 'Zuid-Amerika', 0], ['', u'Azi\u00EB', 0], ['', u'Australi\u00EB', 0], ['', 'Afrika', 0]]
 
@@ -43,9 +43,10 @@ def setup():
     droomImg = loadImage('droom.jpeg')
     
     # Loads static images for buying contintents
-    ground1 = loadImage('Grondstuk10.png')
-    
-    
+    ground10 = loadImage('Grondstuk10.png')
+    ground15 = loadImage('Grondstuk15.png')
+    ground20 = loadImage('Grondstuk20.png')
+    landkaart = loadImage('landkaart2.png')
     # Sets the default visual settings (fullscreen/font)
     fullScreen()
     backgroundImg = loadImage('startscherm1.jpg')
@@ -120,7 +121,9 @@ def draw():
     elif currentScreen == 'GoodOrBad':
         GoedOfFoutClick()
     
-    
+    elif currentScreen == 'worldMap':
+        worldMap()
+        
     # Draws button back to main menu where needed
     if False == (currentScreen == 'start' or currentScreen == 'hoofdmenu' or currentScreen == 'inputNames'):
         mainMenuButton()
@@ -270,7 +273,7 @@ def hoofdmenu():
     circle(width*0.347, height*0.835, 50)
     if mousePressed == True and mouseX > width*0.41 and mouseX < width*0.38 + width *0.41 and mouseY > height*0.8 and mouseY < height * 0.07 + height * 0.8 and d == 0:
         d = 0
-    
+        currentScreen = 'worldMap'
         
 def showNames():
     rectMode(CORNER)
@@ -583,6 +586,12 @@ def timerFunc(placement):
     else:
         text(timerDifficulty - timePassed, placement, height/2)
 
+def worldMap():
+    global img10,backgroundImg,ground10, ground15, ground20, landkaart
+    background(backgroundImg)
+    image(landkaart, -12, -8, width*0.82, height)
+    image(ground10, width * 0.3 , height* 0.3)
+    
 
 def clock():
     noSmooth()
