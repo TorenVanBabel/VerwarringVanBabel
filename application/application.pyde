@@ -46,7 +46,7 @@ def setup():
     ground10 = loadImage('Grondstuk10.png')
     ground15 = loadImage('Grondstuk15.png')
     ground20 = loadImage('Grondstuk20.png')
-    ground50 = loadImage('50.png')
+    ground50 = loadImage('50.jpeg')
     landkaart = loadImage('landkaart2.png')
     # Sets the default visual settings (fullscreen/font)
     fullScreen()
@@ -591,17 +591,48 @@ def worldMap():
     global img10,backgroundImg,ground10, ground15, ground20, ground50, landkaart
     background(backgroundImg)
     image(landkaart, -12, -8, width*0.82, height)
-    image(ground20, width * 0.3 , height* 0.3)
-    image(ground20, width * 0.31 , height* 0.3)
-    image(ground20, width * 0.32 , height* 0.3)
-    image(ground20, width * 0.33 , height* 0.3)
-    image(ground20, width * 0.34 , height* 0.3)
-    image(ground20, width * 0.35 , height* 0.3)
-    image(ground20, width * 0.36 , height* 0.3)
-    image(ground20, width * 0.37 , height* 0.3)
-    image(ground20, width * 0.38 , height* 0.3)
-    image(ground20, width * 0.39 , height* 0.3)
-
+    #Europe
+    image(ground20, width * 0.28, height* 0.33)
+    image(ground20, width * 0.30 , height* 0.3)
+    image(ground15, width * 0.32 , height* 0.20)
+    image(ground20, width * 0.33 , height* 0.28)
+    image(ground20, width * 0.35 , height* 0.35)
+    image(ground50, width * 0.36 , height* 0.3)
+    image(ground20, width * 0.37 , height* 0.18)
+    image(ground15, width * 0.38 , height* 0.25)
+    image(ground20, width * 0.41 , height* 0.2)
+    
+    #Asia
+    image(ground20, width * 0.46, height* 0.33)
+    image(ground20, width * 0.50 , height* 0.3)
+    image(ground15, width * 0.49 , height* 0.20)
+    image(ground20, width * 0.54 , height* 0.28)
+    image(ground20, width * 0.41 , height* 0.43)
+    image(ground50, width * 0.51 , height* 0.42)
+    image(ground20, width * 0.56 , height* 0.22)
+    image(ground15, width * 0.47 , height* 0.4)
+    image(ground20, width * 0.44 , height* 0.28)
+    
+    #Noord-Amerika
+    image(ground20, width * 0.1, height* 0.33)
+    image(ground20, width * 0.5 , height* 0.3)
+    image(ground15, width * 0.9 , height* 0.20)
+    image(ground20, width * 0.19 , height* 0.25)
+    image(ground20, width * 0.14 , height* 0.35)
+    image(ground50, width * 0.20, height* 0.14)
+    image(ground20, width * 0.16 , height* 0.18)
+    image(ground15, width * 0.09 , height* 0.44)
+    image(ground20, width * 0.06 , height* 0.17)
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 def clock():
     noSmooth()
     textSize(50)
