@@ -615,8 +615,8 @@ def worldMap():
     
     #Noord-Amerika
     image(ground20, width * 0.1, height* 0.33)
-    image(ground20, width * 0.5 , height* 0.3)
-    image(ground15, width * 0.9 , height* 0.20)
+    image(ground20, width * 0.08 , height* 0.37)
+    image(ground15, width * 0.08 , height* 0.26)
     image(ground20, width * 0.19 , height* 0.25)
     image(ground20, width * 0.14 , height* 0.35)
     image(ground50, width * 0.20, height* 0.14)
@@ -624,7 +624,40 @@ def worldMap():
     image(ground15, width * 0.09 , height* 0.44)
     image(ground20, width * 0.06 , height* 0.17)
     
+    #Zuid-Amerika
+    image(ground20, width * 0.17, height* 0.73)
+    image(ground20, width * 0.17 , height* 0.6)
+    image(ground15, width * 0.15 , height* 0.86)
+    image(ground20, width * 0.16 , height* 0.65)
+    image(ground20, width * 0.14 , height* 0.75)
+    image(ground50, width * 0.20, height* 0.64)
+    image(ground20, width * 0.16 , height* 0.78)
+    image(ground15, width * 0.13 , height* 0.56)
+    image(ground20, width * 0.12 , height* 0.63)
     
+    #Afrika
+    image(ground20, width * 0.4, height* 0.73)
+    image(ground20, width * 0.4 , height* 0.6)
+    image(ground15, width * 0.4 , height* 0.86)
+    image(ground20, width * 0.4 , height* 0.65)
+    image(ground20, width * 0.4 , height* 0.75)
+    image(ground50, width * 0.4, height* 0.64)
+    image(ground20, width * 0.4 , height* 0.68)
+    image(ground15, width * 0.4 , height* 0.56)
+    image(ground20, width * 0.4 , height* 0.63)                                
+    
+    
+    
+    #Australie
+    image(ground20, width * 0.63, height* 0.7)
+    image(ground20, width * 0.61 , height* 0.67)
+    image(ground15, width * 0.68 , height* 0.57)
+    image(ground20, width * 0.64 , height* 0.64)
+    image(ground20, width * 0.72 , height* 0.72)
+    image(ground50, width * 0.72 , height* 0.6)
+    image(ground20, width * 0.69 , height* 0.64)
+    image(ground15, width * 0.69 , height* 0.74)
+    image(ground20, width * 0.7 , height* 0.68)
     
     
     
