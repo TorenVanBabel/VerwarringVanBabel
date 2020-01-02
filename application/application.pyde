@@ -294,7 +294,7 @@ def showNames():
 
 def mainMenuButton():
     global currentScreen, Save
-    buttonCoordX = 50
+    buttonCoordX = width *0.85
     buttonCoordY = 50
     buttonSizeX = 0.1*width
     buttonSizeY = 0.05*height
@@ -636,17 +636,26 @@ def worldMap():
     image(ground20, width * 0.12 , height* 0.63)
     
     #Afrika
-    image(ground20, width * 0.4, height* 0.73)
+    image(ground20, width * 0.39, height* 0.71)
     image(ground20, width * 0.4 , height* 0.6)
-    image(ground15, width * 0.4 , height* 0.86)
-    image(ground20, width * 0.4 , height* 0.65)
-    image(ground20, width * 0.4 , height* 0.75)
-    image(ground50, width * 0.4, height* 0.64)
-    image(ground20, width * 0.4 , height* 0.68)
-    image(ground15, width * 0.4 , height* 0.56)
-    image(ground20, width * 0.4 , height* 0.63)                                
+    image(ground15, width * 0.3 , height* 0.42)
+    image(ground20, width * 0.37 , height* 0.39)
+    image(ground20, width * 0.36 , height* 0.75)
+    image(ground50, width * 0.28, height* 0.50)
+    image(ground20, width * 0.35 , height* 0.58)
+    image(ground15, width * 0.42 , height* 0.53)
+    image(ground20, width * 0.38 , height* 0.49)                                
     
-    
+    #antartica
+    image(ground20, width * 0.39, height* 0.81)
+    image(ground20, width * 0.49 , height* 0.78)
+    image(ground15, width * 0.27 , height* 0.83)
+    image(ground20, width * 0.22 , height* 0.89)
+    image(ground20, width * 0.36 , height* 0.85)
+    image(ground50, width * 0.64, height* 0.80)
+    image(ground20, width * 0.60 , height* 0.9)
+    image(ground15, width * 0.54 , height* 0.86)
+    image(ground20, width * 0.45 , height* 0.89)  
     
     #Australie
     image(ground20, width * 0.63, height* 0.7)
