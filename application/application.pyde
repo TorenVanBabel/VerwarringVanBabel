@@ -3,11 +3,11 @@ import time
 
 def setup():
     # Sets required global variables
-    global currentScreen, timerDifficulty, timerStart, secondsPassed, regularFont, d, playersList, allowedCharacters, currentPlayer, verwarring, addedCoins, Higlight
+    global currentScreen, timerDifficulty, timerStart, secondsPassed, regularFont, d, playersList, allowedCharacters, currentPlayer, verwarring, addedCoins, Higlight, fillOrNoFill
     global backgroundImg, instrImg, droomImg, img, Save, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, punten, ground10, ground15, ground20, ground50, landkaart
-    global Europe, NorthAmerika, SouthAmerika, Africa, Asia, Antartica, Australia, playersTurn
+    global Europe, NorthAmerika, SouthAmerika, Africa, Asia, Antartica, Australia, playersTurn, PlayerCount
     playersList = [['', 'Antarctica', 0], ['', 'Europa', 0], ['', 'Noord-Amerika', 0], ['', 'Zuid-Amerika', 0], ['', u'Azi\u00EB', 0], ['', u'Australi\u00EB', 0], ['', 'Afrika', 0]]
-
+    fillOrNoFill = ''
     currentPlayer = 0
     allowedCharacters = list('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890')
     verwarring = False
@@ -21,6 +21,7 @@ def setup():
     Save = False
     #looks which players turn it is
     
+    PlayerCount = 6 
     playersTurn = 0
     #makes empty list for every continet
     Europe = [0,0,0,0,0,0,0,0,0]
@@ -200,7 +201,7 @@ def mainMenuButtonNames():
 
 # Draws the hoofdmenu
 def hoofdmenu():
-    global font, font2, imgLogo, d, currentScreen, timerStart, img6,img7, img8, img9
+    global font, font2, imgLogo, d, currentScreen, timerStart, img6,img7, img8, img9, playersTurn, playersLists, PlayerCount
     currentScreen = 'hoofdmenu'
     background(backgroundImg)
         
@@ -269,7 +270,11 @@ def hoofdmenu():
     fill(0)
     circle(width*0.347, height*0.835, 50)
     if mousePressed == True and mouseX > width*0.015 and mouseX < width*0.38 + width *0.015 and mouseY > height*0.8 and mouseY < height * 0.07 + height * 0.8 and d == 0:
-        d = 0
+        if playersTurn == PlayerCount:
+            playersTurn == 0
+        else:
+            playersTurn += 1   
+        d = 1
         
     fill(218,165,32)
     rect(width*0.41, height*0.80, width*0.38, height*0.07)
@@ -325,7 +330,7 @@ def mainMenuButton():
         Save = False
         
 def GoedOfFoutClick():
-    global goed,fout,img10,img11, b, punten,d, backgroundImg, Save, addedCoins, currentScreen, playersTurn
+    global goed,fout,img10,img11, b, punten,d, backgroundImg, Save, addedCoins, currentScreen, playersTurn, PlayerCount
     background(backgroundImg)
     image(img10,280,500,500,300)
     image(img11,1050,510,500,290)
@@ -375,7 +380,7 @@ def GoedOfFoutClick():
         currentScreen = 'hoofdmenu'
 
     if currentScreen == 'hoofdmenu':
-        if playersTurn == len(playersList[2]):
+        if playersTurn == PlayerCount: 
             playersTurn == 0
         else:
             playersTurn += 1   
@@ -1064,7 +1069,7 @@ def clock():
     
 
 def keyReleased():
-    global currentPlayer, playerList, currentScreen
+    global currentPlayer, playerList, currentScreen, PlayerCount
     if currentScreen == 'inputNames':
         if key in allowedCharacters and len(playersList[currentPlayer][0]) <= 10:
             playersList[currentPlayer][0] += key
@@ -1075,6 +1080,7 @@ def keyReleased():
                 currentScreen = 'hoofdmenu'
             else:
                 currentPlayer += 1
+        
             
 def keyPressed():    
     global currentScreen, d, timerStart
