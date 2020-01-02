@@ -654,6 +654,8 @@ def worldMap():
         Europe.insert(8, 1) 
     else:
         image(ground20, width * 0.41 , height* 0.2)
+        
+        
     
     #Asia
     if mousePressed == True and mouseX > width * 0.46 and mouseX < width * 0.46+ 29 and mouseY > height* 0.33 and mouseY < height* 0.33 + 29 or Asia[0] == 1:
@@ -709,67 +711,330 @@ def worldMap():
         Asia.insert(8, 1) 
     else:
         image(ground20, width * 0.44 , height* 0.28)
-
-
-
-
-
+    
+    
+    
     
     #Noord-Amerika
-    image(ground20, width * 0.1, height* 0.33)
-    image(ground20, width * 0.08 , height* 0.37)
-    image(ground15, width * 0.08 , height* 0.26)
-    image(ground20, width * 0.19 , height* 0.25)
-    image(ground20, width * 0.14 , height* 0.35)
-    image(ground50, width * 0.20, height* 0.14)
-    image(ground20, width * 0.16 , height* 0.18)
-    image(ground15, width * 0.09 , height* 0.44)
-    image(ground20, width * 0.06 , height* 0.17)
+    if mousePressed == True and mouseX > width * 0.17  and mouseX < width * 0.17 + 29 and mouseY > height* 0.73 and mouseY < height* 0.73 + 29 or NorthAmerika[0] == 1:
+        NorthAmerika.pop(0)
+        NorthAmerika.insert(0, 1) 
+    else:
+          image(ground20, width * 0.17, height* 0.73)
+
     
-    #Zuid-Amerika
-    image(ground20, width * 0.17, height* 0.73)
-    image(ground20, width * 0.17 , height* 0.6)
-    image(ground15, width * 0.15 , height* 0.86)
-    image(ground20, width * 0.16 , height* 0.65)
-    image(ground20, width * 0.14 , height* 0.75)
-    image(ground50, width * 0.20, height* 0.64)
-    image(ground20, width * 0.16 , height* 0.78)
-    image(ground15, width * 0.13 , height* 0.56)
-    image(ground20, width * 0.12 , height* 0.63)
+    if mousePressed == True and mouseX > width * 0.17 and mouseX < width * 0.17 + 29 and mouseY > height * 0.6 and mouseY < height* 0.6 + 29 or NorthAmerika[1] == 1:
+        NorthAmerika.pop(1)
+        NorthAmerika.insert(1, 1) 
+    else:
+        image(ground20, width * 0.17 , height* 0.6)
+
+
+    if mousePressed == True and mouseX >width * 0.12 and mouseX <width * 0.12 + 29 and mouseY > height* 0.63 and mouseY <height* 0.63 + 29 or NorthAmerika[2] == 1:
+        NorthAmerika.pop(2)
+        NorthAmerika.insert(2, 1) 
+    else:
+        image(ground20, width * 0.12 , height* 0.63)
+
     
-    #Afrika
-    image(ground20, width * 0.39, height* 0.71)
-    image(ground20, width * 0.4 , height* 0.6)
-    image(ground15, width * 0.3 , height* 0.42)
-    image(ground20, width * 0.37 , height* 0.39)
-    image(ground20, width * 0.36 , height* 0.75)
-    image(ground50, width * 0.28, height* 0.50)
-    image(ground20, width * 0.35 , height* 0.58)
-    image(ground15, width * 0.42 , height* 0.53)
-    image(ground20, width * 0.38 , height* 0.49)                                
+    if mousePressed == True and mouseX >width * 0.15 and mouseX < width * 0.15 + 29 and mouseY > height* 0.86 and mouseY <height* 0.86 + 29 or NorthAmerika[3] == 1:
+        NorthAmerika.pop(3)
+        NorthAmerika.insert(3, 1) 
+    else:
+        image(ground15, width * 0.15 , height* 0.86)
+
+    
+    
+    if mousePressed == True and mouseX >width * 0.16  and mouseX < width * 0.16 + 29 and mouseY > height* 0.65 and mouseY <height* 0.65 + 29 or NorthAmerika[4] == 1:
+        NorthAmerika.pop(4)
+        NorthAmerika.insert(4, 1) 
+    else:    
+        image(ground20, width * 0.16 , height* 0.65)
+
+
+    if mousePressed == True and mouseX >width * 0.14 and mouseX < width * 0.14+ 29 and mouseY > height* 0.75 and mouseY <height* 0.75 + 29 or NorthAmerika[5] == 1:
+        NorthAmerika.pop(5)
+        NorthAmerika.insert(5, 1) 
+    else:
+        image(ground20, width * 0.14 , height* 0.75)
+    
+    if mousePressed == True and mouseX >width * 0.2 and mouseX < width * 0.2 + 29 and mouseY > height* 0.64 and mouseY <height* 0.64 + 29 or NorthAmerika[6] == 1:
+        NorthAmerika.pop(6)
+        NorthAmerika.insert(6, 1) 
+    else:
+        image(ground50, width * 0.20, height* 0.64)
+
+    
+    if mousePressed == True and mouseX >width * 0.16 and mouseX < width * 0.16 + 29 and mouseY > height* 0.78 and mouseY <height* 0.78 + 29 or NorthAmerika[7] == 1:
+        NorthAmerika.pop(7)
+        NorthAmerika.insert(7, 1) 
+    else:
+        image(ground20, width * 0.16 , height* 0.78)
+    
+    
+    if mousePressed == True and mouseX >width * 0.13 and mouseX < width * 0.13 + 29 and mouseY > height* 0.56 and mouseY <height* 0.56 + 29 or NorthAmerika[8] == 1:
+        NorthAmerika.pop(8)
+        NorthAmerika.insert(8, 1) 
+    else:
+        image(ground15, width * 0.13 , height* 0.56)
+
+    
+
+
+    #Africa
+    if mousePressed == True and mouseX > width * 0.39 and mouseX < width * 0.39 + 29 and mouseY > height* 0.71 and mouseY < height* 0.71 + 29 or Africa[0] == 1:
+        Africa.pop(0)
+        Africa.insert(0, 1) 
+    else:
+        image(ground20, width * 0.39, height* 0.71)
+
+    
+    
+    if mousePressed == True and mouseX > width * 0.4 and mouseX < width * 0.4 + 29 and mouseY > height * 0.6 and mouseY < height* 0.6 + 29 or Africa[1] == 1:
+        Africa.pop(1)
+        Africa.insert(1, 1) 
+    else:
+        image(ground20, width * 0.4 , height* 0.6)
+
+
+    if mousePressed == True and mouseX >width * 0.3 and mouseX <width * 0.3 + 29 and mouseY > height* 0.42 and mouseY <height* 0.42 + 29 or Africa[2] == 1:
+        Africa.pop(2)
+        Africa.insert(2, 1) 
+    else:
+        image(ground15, width * 0.3 , height* 0.42)
+
+    
+    if mousePressed == True and mouseX >width * 0.37 and mouseX < width * 0.37 + 29 and mouseY > height* 0.39 and mouseY <height* 0.39 + 29 or Africa[3] == 1:
+        Africa.pop(3)
+        Africa.insert(3, 1) 
+    else:
+         image(ground20, width * 0.37 , height* 0.39)
+    
+    
+    if mousePressed == True and mouseX >width * 0.36 and mouseX < width * 0.36 + 29 and mouseY > height* 0.75 and mouseY <height* 0.75 + 29 or Africa[4] == 1:
+        Africa.pop(4)
+        Africa.insert(4, 1) 
+    else:    
+        image(ground20, width * 0.36 , height* 0.75)
+
+
+    if mousePressed == True and mouseX >width * 0.28 and mouseX < width * 0.28 + 29 and mouseY > height* 0.5 and mouseY <height* 0.5 + 29 or Africa[5] == 1:
+        Africa.pop(5)
+        Africa.insert(5, 1) 
+    else:
+        image(ground50, width * 0.28, height* 0.50)
+    
+    if mousePressed == True and mouseX >width * 0.35 and mouseX < width * 0.35 + 29 and mouseY > height* 0.58 and mouseY <height* 0.58 + 29 or Africa[6] == 1:
+        Africa.pop(6)
+        Africa.insert(6, 1) 
+    else:
+        image(ground20, width * 0.35 , height* 0.58)
+
+    
+    if mousePressed == True and mouseX >width * 0.42 and mouseX < width * 0.42 + 29 and mouseY > height* 0.53 and mouseY <height* 0.53 + 29 or Africa[7] == 1:
+        Africa.pop(7)
+        Africa.insert(7, 1) 
+    else:
+        image(ground15, width * 0.42 , height* 0.53)
+
+    
+    if mousePressed == True and mouseX >width * 0.38 and mouseX < width * 0.38 + 29 and mouseY > height* 0.49 and mouseY <height* 0.49 + 29 or Africa[8] == 1:
+        Africa.pop(8)
+        Africa.insert(8, 1) 
+    else:
+        image(ground20, width * 0.38 , height* 0.49)
+    
+    
+
+    
+    #SouthAmerika
+    if mousePressed == True and mouseX > width * 0.1 and mouseX < width * 0.1 + 29 and mouseY > height* 0.33 and mouseY < height* 0.33 + 29 or SouthAmerika[0] == 1:
+        SouthAmerika.pop(0)
+        SouthAmerika.insert(0, 1) 
+    else:
+         image(ground20, width * 0.1, height* 0.33)
+    
+    
+    if mousePressed == True and mouseX > width * 0.08 and mouseX < width * 0.08 + 29 and mouseY > height * 0.37 and mouseY < height* 0.37 + 29 or SouthAmerika[1] == 1:
+        SouthAmerika.pop(1)
+        SouthAmerika.insert(1, 1) 
+    else:
+        image(ground20, width * 0.08 , height* 0.37)
+
+    if mousePressed == True and mouseX >width * 0.08 and mouseX <width * 0.08 + 29 and mouseY > height* 0.26 and mouseY <height* 0.26 + 29 or SouthAmerika[2] == 1:
+        SouthAmerika.pop(2)
+        SouthAmerika.insert(2, 1) 
+    else:
+        image(ground15, width * 0.08 , height* 0.26)
+
+    
+    if mousePressed == True and mouseX >width * 0.19 and mouseX < width * 0.19 + 29 and mouseY > height* 0.25 and mouseY <height* 0.25 + 29 or SouthAmerika[3] == 1:
+        SouthAmerika.pop(3)
+        SouthAmerika.insert(3, 1) 
+    else:
+        image(ground20, width * 0.19 , height* 0.25)
+    
+    
+    if mousePressed == True and mouseX >width * 0.14 and mouseX < width * 0.14 + 29 and mouseY > height* 0.35 and mouseY <height* 0.35 + 29 or SouthAmerika[4] == 1:
+        SouthAmerika.pop(4)
+        SouthAmerika.insert(4, 1) 
+    else:    
+        image(ground20, width * 0.14 , height* 0.35)
+
+
+    if mousePressed == True and mouseX >width * 0.2 and mouseX < width * 0.2 + 29 and mouseY > height* 0.14 and mouseY <height* 0.14 + 29 or SouthAmerika[5] == 1:
+        SouthAmerika.pop(5)
+        SouthAmerika.insert(5, 1) 
+    else:
+        image(ground50, width * 0.20, height* 0.14)
+    
+    if mousePressed == True and mouseX >width * 0.16 and mouseX < width * 0.16 + 29 and mouseY > height* 0.18 and mouseY <height* 0.18 + 29 or SouthAmerika[6] == 1:
+        SouthAmerika.pop(6)
+        SouthAmerika.insert(6, 1) 
+    else:
+        image(ground20, width * 0.16 , height* 0.18)
+    
+    if mousePressed == True and mouseX >width * 0.09 and mouseX < width * 0.09 + 29 and mouseY > height* 0.44 and mouseY <height* 0.44 + 29 or SouthAmerika[7] == 1:
+        SouthAmerika.pop(7)
+        SouthAmerika.insert(7, 1) 
+    else:
+        image(ground15, width * 0.09 , height* 0.44)
+    
+    if mousePressed == True and mouseX >width * 0.06 and mouseX < width * 0.06 + 29 and mouseY > height* 0.17 and mouseY <height* 0.17 + 29 or SouthAmerika[8] == 1:
+        SouthAmerika.pop(8)
+        SouthAmerika.insert(8, 1) 
+    else:
+        image(ground20, width * 0.06 , height* 0.17)
+                                
     
     #antartica
-    image(ground20, width * 0.39, height* 0.81)
-    image(ground20, width * 0.49 , height* 0.78)
-    image(ground15, width * 0.27 , height* 0.83)
-    image(ground20, width * 0.22 , height* 0.89)
-    image(ground20, width * 0.36 , height* 0.85)
-    image(ground50, width * 0.64, height* 0.80)
-    image(ground20, width * 0.60 , height* 0.9)
-    image(ground15, width * 0.54 , height* 0.86)
-    image(ground20, width * 0.45 , height* 0.89)  
+    if mousePressed == True and mouseX > width * 0.39 and mouseX < width * 0.39 + 29 and mouseY > height* 0.81 and mouseY < height* 0.81 + 29 or Antartica[0] == 1:
+        Antartica.pop(0)
+        Antartica.insert(0, 1) 
+    else:
+         image(ground20, width * 0.39, height* 0.81)
+     
+    
+    
+    if mousePressed == True and mouseX > width * 0.49 and mouseX < width * 0.49 + 29 and mouseY > height * 0.78 and mouseY < height* 0.78 + 29 or Antartica[1] == 1:
+        Antartica.pop(1)
+        Antartica.insert(1, 1) 
+    else:
+        image(ground20, width * 0.49 , height* 0.78)
+
+    if mousePressed == True and mouseX >width * 0.27 and mouseX <width * 0.27 + 29 and mouseY > height* 0.83 and mouseY <height* 0.83 + 29 or Antartica[2] == 1:
+        Antartica.pop(2)
+        Antartica.insert(2, 1) 
+    else:
+        image(ground15, width * 0.27 , height* 0.83)
+   
+
+    
+    if mousePressed == True and mouseX >width * 0.22 and mouseX < width * 0.22 + 29 and mouseY > height* 0.89 and mouseY <height* 0.89 + 29 or Antartica[3] == 1:
+        Antartica.pop(3)
+        Antartica.insert(3, 1) 
+    else:
+        image(ground20, width * 0.22 , height* 0.89)
+
+    
+    
+    if mousePressed == True and mouseX >width * 0.36 and mouseX < width * 0.36 + 29 and mouseY > height* 0.85 and mouseY <height* 0.85 + 29 or Antartica[4] == 1:
+        Antartica.pop(4)
+        Antartica.insert(4, 1) 
+    else:    
+        image(ground20, width * 0.36 , height* 0.85)
+
+
+    if mousePressed == True and mouseX >width * 0.64 and mouseX < width * 0.64 + 29 and mouseY > height* 0.8 and mouseY <height* 0.8 + 29 or Antartica[5] == 1:
+        Antartica.pop(5)
+        Antartica.insert(5, 1) 
+    else:
+        image(ground50, width * 0.64, height* 0.80)
+    
+    if mousePressed == True and mouseX >width * 0.6 and mouseX < width * 0.6 + 29 and mouseY > height* 0.9 and mouseY <height* 0.9 + 29 or Antartica[6] == 1:
+        Antartica.pop(6)
+        Antartica.insert(6, 1) 
+    else:
+         image(ground20, width * 0.60 , height* 0.9)
+ 
+    
+    if mousePressed == True and mouseX >width * 0.54 and mouseX < width * 0.54 + 29 and mouseY > height* 0.86 and mouseY <height* 0.86 + 29 or Antartica[7] == 1:
+        Antartica.pop(7)
+        Antartica.insert(7, 1) 
+    else:
+        image(ground15, width * 0.54 , height* 0.86)
+
+    
+    if mousePressed == True and mouseX >width * 0.45 and mouseX < width * 0.45 + 29 and mouseY > height* 0.89 and mouseY <height* 0.89+ 29 or Antartica[8] == 1:
+        Antartica.pop(8)
+        Antartica.insert(8, 1) 
+    else:
+        image(ground20, width * 0.45 , height* 0.89)
+  
     
     #Australie
-    image(ground20, width * 0.63, height* 0.7)
-    image(ground20, width * 0.61 , height* 0.67)
-    image(ground15, width * 0.68 , height* 0.57)
-    image(ground20, width * 0.64 , height* 0.64)
-    image(ground20, width * 0.72 , height* 0.72)
-    image(ground50, width * 0.72 , height* 0.6)
-    image(ground20, width * 0.69 , height* 0.64)
-    image(ground15, width * 0.69 , height* 0.74)
-    image(ground20, width * 0.7 , height* 0.68)
+    if mousePressed == True and mouseX > width * 0.63 and mouseX < width * 0.63 + 29 and mouseY > height* 0.7 and mouseY < height* 0.7 + 29 or Australia[0] == 1:
+        Australia.pop(0)
+        Australia.insert(0, 1) 
+    else:
+        image(ground20, width * 0.63, height* 0.7)
     
+    
+    if mousePressed == True and mouseX > width * 0.61 and mouseX < width * 0.61 + 29 and mouseY > height * 0.67 and mouseY < height* 0.67 + 29 or Australia[1] == 1:
+        Australia.pop(1)
+        Australia.insert(1, 1) 
+    else:
+        image(ground20, width * 0.61 , height* 0.67)
+
+    if mousePressed == True and mouseX >width * 0.68 and mouseX <width * 0.68 + 29 and mouseY > height* 0.57 and mouseY <height* 0.57 + 29 or Australia[2] == 1:
+        Australia.pop(2)
+        Australia.insert(2, 1) 
+    else:
+        image(ground15, width * 0.68 , height* 0.57)
+
+    
+    if mousePressed == True and mouseX >width * 0.64 and mouseX < width * 0.64 + 29 and mouseY > height* 0.64 and mouseY <height* 0.64 + 29 or Australia[3] == 1:
+        Australia.pop(3)
+        Australia.insert(3, 1) 
+    else:
+        image(ground20, width * 0.64 , height* 0.64)
+
+    
+    
+    if mousePressed == True and mouseX >width * 0.72 and mouseX < width * 0.72 + 29 and mouseY > height* 0.72 and mouseY <height* 0.72 + 29 or Australia[4] == 1:
+        Australia.pop(4)
+        Australia.insert(4, 1) 
+    else:    
+        image(ground20, width * 0.72 , height* 0.72)
+
+
+    if mousePressed == True and mouseX >width * 0.72 and mouseX < width * 0.72 + 29 and mouseY > height* 0.6 and mouseY <height* 0.6 + 29 or Australia[5] == 1:
+        Australia.pop(5)
+        Australia.insert(5, 1) 
+    else:
+        image(ground50, width * 0.72 , height* 0.6)
+    
+    if mousePressed == True and mouseX >width * 0.69 and mouseX < width * 0.69 + 29 and mouseY > height* 0.64 and mouseY <height* 0.64 + 29 or Australia[6] == 1:
+        Australia.pop(6)
+        Australia.insert(6, 1) 
+    else:
+         image(ground20, width * 0.69 , height* 0.64)
+
+ 
+    
+    if mousePressed == True and mouseX >width * 0.69 and mouseX < width * 0.69 + 29 and mouseY > height* 0.74 and mouseY <height* 0.74 + 29 or Australia[7] == 1:
+        Australia.pop(7)
+        Australia.insert(7, 1) 
+    else:
+        image(ground15, width * 0.69 , height* 0.74)
+
+    
+    if mousePressed == True and mouseX >width * 0.7 and mouseX < width * 0.7 + 29 and mouseY > height* 0.68 and mouseY <height* 0.68+ 29 or Australia[8] == 1:
+        Australia.pop(8)
+        Australia.insert(8, 1) 
+    else:
+        image(ground20, width * 0.7 , height* 0.68)
+
     
     
     
@@ -803,8 +1068,7 @@ def keyReleased():
 def keyPressed():    
     global currentScreen, d, timerStart
     d = 0
-    print(keyCode)
-
+    print(keyCode) 
     
 def mouseReleased():
     global d, currentScreen
