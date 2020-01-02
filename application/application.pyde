@@ -5,7 +5,7 @@ def setup():
     # Sets required global variables
     global currentScreen, timerDifficulty, timerStart, secondsPassed, regularFont, d, playersList, allowedCharacters, currentPlayer, verwarring, addedCoins, Higlight
     global backgroundImg, instrImg, droomImg, img, Save, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, punten, ground10, ground15, ground20, ground50, landkaart
-    global Europe, NorthAmerika, SouthAmerika, Africa, Asia, Antartica, Australia
+    global Europe, NorthAmerika, SouthAmerika, Africa, Asia, Antartica, Australia, playersTurn
     playersList = [['', 'Antarctica', 0], ['', 'Europa', 0], ['', 'Noord-Amerika', 0], ['', 'Zuid-Amerika', 0], ['', u'Azi\u00EB', 0], ['', u'Australi\u00EB', 0], ['', 'Afrika', 0]]
 
     currentPlayer = 0
@@ -19,7 +19,9 @@ def setup():
     d = 0
     Higlight = 0
     Save = False
+    #looks which players turn it is
     
+    playersTurn = 0
     #makes empty list for every continet
     Europe = [0,0,0,0,0,0,0,0,0]
     NorthAmerika = [0,0,0,0,0,0,0,0,0]
@@ -286,6 +288,7 @@ def hoofdmenu():
         currentScreen = 'worldMap'
         
 def showNames():
+    global playersTurn
     rectMode(CORNER)
     fill(218,165,32)
     stroke(0,25,0)
@@ -297,9 +300,11 @@ def showNames():
     text('Munten:', width * 0.92, height * 0.25)
     for x in range(0,7):
         if playersList[x][0] != '':
+            if playersTurn == x:
+                fill(255)
             text(playersList[x][0],width * 0.82, (height * x * 0.04) + (height * 0.3))
             text(str(playersList[x][2]), width * 0.93, (height * x * 0.04) + (height * 0.3))    
-
+            fill(0)
 
 def mainMenuButton():
     global currentScreen, Save
@@ -320,7 +325,7 @@ def mainMenuButton():
         Save = False
         
 def GoedOfFoutClick():
-    global goed,fout,img10,img11, b, punten,d, backgroundImg, Save, addedCoins, currentScreen
+    global goed,fout,img10,img11, b, punten,d, backgroundImg, Save, addedCoins, currentScreen, playersTurn
     background(backgroundImg)
     image(img10,280,500,500,300)
     image(img11,1050,510,500,290)
@@ -335,7 +340,7 @@ def GoedOfFoutClick():
         print('good')
         text('Yes!\nJe krijgt een munt',width/ 2,100)
         if addedCoins == False:
-            playersList[currentPlayer][2] = int(playersList[currentPlayer][2]) + int(b)
+            playersList[playersTurn][2] = int(playersList[playersTurn][2]) + int(b)
             addedCoins = True
         fill(220,150,0)
         rect(1600,100,300,110)
@@ -344,6 +349,8 @@ def GoedOfFoutClick():
         text(b+'+',1750,180)
         print(playersList[currentPlayer][2])
         currentScreen = 'hoofdmenu'
+        
+        
     elif mousePressed == True and mouseX > 380 and mouseX < 780 and mouseY > 550 and mouseY < 750 and d == 0:
         d = 1
         b = int(random(0,5))
@@ -352,7 +359,7 @@ def GoedOfFoutClick():
         print('good')
         text('Yes!\nJe krijgt een munt',width/ 2,100)
         if addedCoins == False:
-            playersList[currentPlayer][2] = int(playersList[currentPlayer][2]) + int(b)
+            playersList[playersTurn][2] = int(playersList[playersTurn][2]) + int(b)
             addedCoins = True
         fill(220,150,0)
         rect(1600,100,300,110)
@@ -366,8 +373,12 @@ def GoedOfFoutClick():
     elif mousePressed == True and mouseX > 1050 and  mouseX  < 1450 and mouseY  > 550 and mouseY < 750 and d == 0:
         d = 1
         currentScreen = 'hoofdmenu'
-    else:
-        pass        
+
+    if currentScreen == 'hoofdmenu':
+        if playersTurn == len(playersList[2]):
+            playersTurn == 0
+        else:
+            playersTurn += 1   
         
 
 def difficultyButtons():
