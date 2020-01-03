@@ -176,7 +176,7 @@ def inputNames():
     mainMenuButtonNames()
 
 def mainMenuButtonNames():
-    global currentScreen, Save, d, PlayerCount
+    global currentScreen, Save, d, PlayerCount, currentPlayer
     buttonCoordX = width*0.375
     buttonCoordY = height/2*1.3
     buttonSizeX = 0.25*width
@@ -195,6 +195,8 @@ def mainMenuButtonNames():
     textSize(buttonSizeY*0.6)
     text('Klaar', width/2, (buttonCoordY*2+buttonSizeY)/2-textDescent()) 
     if (mousePressed == True and (buttonCoordX < mouseX < buttonCoordX+buttonSizeX) and (buttonCoordY < mouseY < buttonCoordY+buttonSizeY) and playersList[2][0] != ''):
+        if playersList[currentPlayer][0] != '':
+            PlayerCount += 1
         d = 1
         currentScreen = 'hoofdmenu'
         Save = False    
