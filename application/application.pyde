@@ -6,7 +6,7 @@ def setup():
     global currentScreen, timerDifficulty, timerStart, secondsPassed, regularFont, d, playersList, allowedCharacters, currentPlayer, verwarring, addedCoins, Higlight, fillOrNoFill
     global backgroundImg, instrImg, droomImg, img, Save, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, punten, ground10, ground15, ground20, ground50, landkaart
     global Europe, NorthAmerika, SouthAmerika, Africa, Asia, Antartica, Australia, playersTurn, PlayerCount
-    playersList = [['', 'Antarctica', 500], ['', 'Europa', 500], ['', 'Noord-Amerika', 500], ['', 'Zuid-Amerika', 500], ['', u'Azi\u00EB', 500], ['', u'Australi\u00EB', 500], ['', 'Afrika', 500]]
+    playersList = [['', 'Antarctica', 500], ['', 'Europa', 500], ['', 'Zuid-Amerika', 500], ['', 'Noord-Amerika', 500], ['', u'Azi\u00EB', 500], ['', u'Australi\u00EB', 500], ['', 'Afrika', 500]]
     fillOrNoFill = ''
     currentPlayer = 0
     allowedCharacters = list('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890')
@@ -647,7 +647,7 @@ def europe():
         image(ground20, width * 0.28, height* 0.33)
     
     if mousePressed == True and mouseX > width * 0.30 and mouseX < width * 0.30 + 29 and mouseY > height * 0.3 and mouseY < height* 0.3 + 29 or Europe[1] == 1:
-        if Europe[0] == 0 and (int(playersList[playersTurn][2]) - int(20)) >= 0:
+        if Europe[1] == 0 and (int(playersList[playersTurn][2]) - int(20)) >= 0:
             playersList[playersTurn][2] = int(playersList[playersTurn][2]) - int(20)
             Europe.pop(1)
             Europe.insert(1, 1) 
@@ -657,7 +657,7 @@ def europe():
         image(ground20, width * 0.30 , height* 0.3)
     
     if mousePressed == True and mouseX >width * 0.32 and mouseX <width * 0.32 + 29 and mouseY > height* 0.20 and mouseY <height* 0.20 + 29 or Europe[2] == 1:
-        if Europe[0] == 0 and (int(playersList[playersTurn][2]) - int(15)) >= 0:
+        if Europe[2] == 0 and (int(playersList[playersTurn][2]) - int(15)) >= 0:
             playersList[playersTurn][2] = int(playersList[playersTurn][2]) - int(15)
             Europe.pop(2)
             Europe.insert(2, 1) 
@@ -942,64 +942,101 @@ def africa():
     image(landkaart, -12, -8, width*0.82, height)
     #Africa
     if mousePressed == True and mouseX > width * 0.39 and mouseX < width * 0.39 + 29 and mouseY > height* 0.71 and mouseY < height* 0.71 + 29 or Africa[0] == 1:
-        Africa.pop(0)
-        Africa.insert(0, 1) 
+        if Africa[0] == 0 and (int(playersList[playersTurn][2]) - int(20)) >= 0:
+            playersList[playersTurn][2] = int(playersList[playersTurn][2]) - int(20)
+            Africa.pop(0)
+            Africa.insert(0, 1) 
+        if Africa[0] != 1:
+            image(ground20, width * 0.39, height * 0.71)
     else:
         image(ground20, width * 0.39, height* 0.71)
 
     
     
     if mousePressed == True and mouseX > width * 0.4 and mouseX < width * 0.4 + 29 and mouseY > height * 0.6 and mouseY < height* 0.6 + 29 or Africa[1] == 1:
-        Africa.pop(1)
-        Africa.insert(1, 1) 
+        if Africa[1] == 0 and (int(playersList[playersTurn][2]) - int(20)) >= 0:
+            playersList[playersTurn][2] = int(playersList[playersTurn][2]) - int(20)
+            Africa.pop(1)
+            Africa.insert(1, 1)
+        if Africa[1] != 1:
+            image(ground20, width * 0.4, height * 0.6)
+        
     else:
         image(ground20, width * 0.4 , height* 0.6)
 
 
     if mousePressed == True and mouseX >width * 0.3 and mouseX <width * 0.3 + 29 and mouseY > height* 0.42 and mouseY <height* 0.42 + 29 or Africa[2] == 1:
-        Africa.pop(2)
-        Africa.insert(2, 1) 
+        if Africa[2] == 0 and (int(playersList[playersTurn][2]) - int(15)) >= 0:
+            playersList[playersTurn][2] = int(playersList[playersTurn][2]) - int(15)
+            Africa.pop(2)
+            Africa.insert(2, 1) 
+        if Africa[2] != 1:
+            image(ground15, width * 0.3, height * 0.42)
     else:
         image(ground15, width * 0.3 , height* 0.42)
 
     
     if mousePressed == True and mouseX >width * 0.37 and mouseX < width * 0.37 + 29 and mouseY > height* 0.39 and mouseY <height* 0.39 + 29 or Africa[3] == 1:
-        Africa.pop(3)
-        Africa.insert(3, 1) 
+        if Africa[3] == 0 and (int(playersList[playersTurn][2]) - int(20)) >= 0:
+            playersList[playersTurn][2] = int(playersList[playersTurn][2]) - int(20)
+            Africa.pop(3)
+            Africa.insert(3, 1) 
+        if Africa[3] != 1:
+            image(ground20, width * 0.37, height * 0.39)
     else:
          image(ground20, width * 0.37 , height* 0.39)
     
     
     if mousePressed == True and mouseX >width * 0.36 and mouseX < width * 0.36 + 29 and mouseY > height* 0.75 and mouseY <height* 0.75 + 29 or Africa[4] == 1:
-        Africa.pop(4)
-        Africa.insert(4, 1) 
+        if Africa[4] == 0 and (int(playersList[playersTurn][2]) - int(20)) >= 0:
+            playersList[playersTurn][2] = int(playersList[playersTurn][2]) - int(20)
+            Africa.pop(4)
+            Africa.insert(4, 1)
+        if Africa[4] != 1:
+            image(ground20, width * 0.36, height * 0.75) 
     else:    
         image(ground20, width * 0.36 , height* 0.75)
 
 
     if mousePressed == True and mouseX >width * 0.28 and mouseX < width * 0.28 + 29 and mouseY > height* 0.5 and mouseY <height* 0.5 + 29 or Africa[5] == 1:
-        Africa.pop(5)
-        Africa.insert(5, 1) 
+        if Africa[5] == 0 and (int(playersList[playersTurn][2]) - int(50)) >= 0:
+            playersList[playersTurn][2] = int(playersList[playersTurn][2]) - int(50)
+            Africa.pop(5)
+            Africa.insert(5, 1) 
+        if Africa[5] != 1:
+            image(ground50, width * 0.28, height * 0.50)
     else:
         image(ground50, width * 0.28, height* 0.50)
     
     if mousePressed == True and mouseX >width * 0.35 and mouseX < width * 0.35 + 29 and mouseY > height* 0.58 and mouseY <height* 0.58 + 29 or Africa[6] == 1:
-        Africa.pop(6)
-        Africa.insert(6, 1) 
+        if Africa[6] == 0 and (int(playersList[playersTurn][2]) - int(20)) >= 0:
+            playersList[playersTurn][2] = int(playersList[playersTurn][2]) - int(20)
+            Africa.pop(6)
+            Africa.insert(6, 1) 
+        if Africa[6] != 1:
+            image(ground20, width * 0.35, height * 0.58)
     else:
         image(ground20, width * 0.35 , height* 0.58)
 
     
     if mousePressed == True and mouseX >width * 0.42 and mouseX < width * 0.42 + 29 and mouseY > height* 0.53 and mouseY <height* 0.53 + 29 or Africa[7] == 1:
-        Africa.pop(7)
-        Africa.insert(7, 1) 
+        if Africa[7] == 0 and (int(playersList[playersTurn][2]) - int(15)) >= 0:
+            playersList[playersTurn][2] = int(playersList[playersTurn][2]) - int(15)
+            Africa.pop(7)
+            Africa.insert(7, 1) 
+        if Africa[7] != 1:
+            image(ground15, width * 0.42, height * 0.53)
     else:
         image(ground15, width * 0.42 , height* 0.53)
 
     
     if mousePressed == True and mouseX >width * 0.38 and mouseX < width * 0.38 + 29 and mouseY > height* 0.49 and mouseY <height* 0.49 + 29 or Africa[8] == 1:
-        Africa.pop(8)
-        Africa.insert(8, 1) 
+        if Africa[8] == 0 and (int(playersList[playersTurn][2]) - int(20)) >= 0:
+            playersList[playersTurn][2] = int(playersList[playersTurn][2]) - int(20)
+            Africa.pop(8)
+            Africa.insert(8, 1) 
+        if Africa[8] != 1:
+            image(ground20, width * 0.38, height * 0.49)
     else:
         image(ground20, width * 0.38 , height* 0.49)
     
@@ -1013,60 +1050,96 @@ def northAmerika():
     image(landkaart, -12, -8, width*0.82, height)
     #North-Amerika
     if mousePressed == True and mouseX > width * 0.1 and mouseX < width * 0.1 + 29 and mouseY > height* 0.33 and mouseY < height* 0.33 + 29 or NorthAmerika[0] == 1:
-        NorthAmerika.pop(0)
-        NorthAmerika.insert(0, 1) 
+        if NorthAmerika[0] == 0 and (int(playersList[playersTurn][2]) - int(20)) >= 0:
+            playersList[playersTurn][2] = int(playersList[playersTurn][2]) - int(20)
+            NorthAmerika.pop(0)
+            NorthAmerika.insert(0, 1) 
+        if NorthAmerika[0] != 1:
+            image(ground20, width * 0.1, height * 0.33)
     else:
          image(ground20, width * 0.1, height* 0.33)
     
     
     if mousePressed == True and mouseX > width * 0.08 and mouseX < width * 0.08 + 29 and mouseY > height * 0.37 and mouseY < height* 0.37 + 29 or NorthAmerika[1] == 1:
-        NorthAmerika.pop(1)
-        NorthAmerika.insert(1, 1) 
+        if NorthAmerika[1] == 0 and (int(playersList[playersTurn][2]) - int(20)) >= 0:
+            playersList[playersTurn][2] = int(playersList[playersTurn][2]) - int(20)
+            NorthAmerika.pop(1)
+            NorthAmerika.insert(1, 1) 
+        if NorthAmerika[1] != 1:
+            image(ground20, width * 0.08, height * 0.37)
     else:
         image(ground20, width * 0.08 , height* 0.37)
 
     if mousePressed == True and mouseX >width * 0.08 and mouseX <width * 0.08 + 29 and mouseY > height* 0.26 and mouseY <height* 0.26 + 29 or NorthAmerika[2] == 1:
-        NorthAmerika.pop(2)
-        NorthAmerika.insert(2, 1) 
+        if NorthAmerika[2] == 0 and (int(playersList[playersTurn][2]) - int(15)) >= 0:
+            playersList[playersTurn][2] = int(playersList[playersTurn][2]) - int(15)
+            NorthAmerika.pop(2)
+            NorthAmerika.insert(2, 1) 
+        if NorthAmerika[2] != 1:
+            image(ground20, width * 0.08, height * 0.26)
     else:
         image(ground15, width * 0.08 , height* 0.26)
 
     
     if mousePressed == True and mouseX >width * 0.19 and mouseX < width * 0.19 + 29 and mouseY > height* 0.25 and mouseY <height* 0.25 + 29 or NorthAmerika[3] == 1:
-        NorthAmerika.pop(3)
-        NorthAmerika.insert(3, 1) 
+        if NorthAmerika[3] == 0 and (int(playersList[playersTurn][2]) - int(20)) >= 0:
+            playersList[playersTurn][2] = int(playersList[playersTurn][2]) - int(20)
+            NorthAmerika.pop(3)
+            NorthAmerika.insert(3, 1) 
+        if NorthAmerika[3] != 1:
+            image(ground20, width * 0.19, height * 0.25)
     else:
         image(ground20, width * 0.19 , height* 0.25)
     
     
     if mousePressed == True and mouseX >width * 0.14 and mouseX < width * 0.14 + 29 and mouseY > height* 0.35 and mouseY <height* 0.35 + 29 or NorthAmerika[4] == 1:
-        NorthAmerika.pop(4)
-        NorthAmerika.insert(4, 1) 
+        if NorthAmerika[4] == 0 and (int(playersList[playersTurn][2]) - int(20)) >= 0:
+            playersList[playersTurn][2] = int(playersList[playersTurn][2]) - int(20)
+            NorthAmerika.pop(4)
+            NorthAmerika.insert(4, 1) 
+        if NorthAmerika[4] != 1:
+            image(ground20, width * 0.14, height * 0.35)
     else:    
         image(ground20, width * 0.14 , height* 0.35)
 
 
     if mousePressed == True and mouseX >width * 0.2 and mouseX < width * 0.2 + 29 and mouseY > height* 0.14 and mouseY <height* 0.14 + 29 or NorthAmerika[5] == 1:
-        NorthAmerika.pop(5)
-        NorthAmerika.insert(5, 1) 
+        if NorthAmerika[5] == 0 and (int(playersList[playersTurn][2]) - int(50)) >= 0:
+            playersList[playersTurn][2] = int(playersList[playersTurn][2]) - int(50)
+            NorthAmerika.pop(5)
+            NorthAmerika.insert(5, 1) 
+        if NorthAmerika[5] != 1:
+            image(ground50, width * 0.20, height * 0.14)
     else:
         image(ground50, width * 0.20, height* 0.14)
     
     if mousePressed == True and mouseX >width * 0.16 and mouseX < width * 0.16 + 29 and mouseY > height* 0.18 and mouseY <height* 0.18 + 29 or NorthAmerika[6] == 1:
-        NorthAmerika.pop(6)
-        NorthAmerika.insert(6, 1) 
+        if NorthAmerika[6] == 0 and (int(playersList[playersTurn][2]) - int(20)) >= 0:
+            playersList[playersTurn][2] = int(playersList[playersTurn][2]) - int(20)
+            NorthAmerika.pop(6)
+            NorthAmerika.insert(6, 1) 
+        if NorthAmerika[6] != 1:
+            image(ground20, width * 0.16, height * 0.18)
     else:
         image(ground20, width * 0.16 , height* 0.18)
     
     if mousePressed == True and mouseX >width * 0.09 and mouseX < width * 0.09 + 29 and mouseY > height* 0.44 and mouseY <height* 0.44 + 29 or NorthAmerika[7] == 1:
-        NorthAmerika.pop(7)
-        NorthAmerika.insert(7, 1) 
+        if NorthAmerika[7] == 0 and (int(playersList[playersTurn][2]) - int(15)) >= 0:
+            playersList[playersTurn][2] = int(playersList[playersTurn][2]) - int(15)
+            NorthAmerika.pop(7)
+            NorthAmerika.insert(7, 1) 
+        if NorthAmerika[7] != 1:
+            image(ground15, width * 0.09, height * 0.44)
     else:
         image(ground15, width * 0.09 , height* 0.44)
     
     if mousePressed == True and mouseX >width * 0.06 and mouseX < width * 0.06 + 29 and mouseY > height* 0.17 and mouseY <height* 0.17 + 29 or NorthAmerika[8] == 1:
-        NorthAmerika.pop(8)
-        NorthAmerika.insert(8, 1) 
+        if NorthAmerika[8] == 0 and (int(playersList[playersTurn][2]) - int(20)) >= 0:
+            playersList[playersTurn][2] = int(playersList[playersTurn][2]) - int(20)
+            NorthAmerika.pop(8)
+            NorthAmerika.insert(8, 1) 
+        if NorthAmerika[8] != 1:
+            image(ground20, width * 0.06, height * 0.17)
     else:
         image(ground20, width * 0.06 , height* 0.17)
                                 
@@ -1084,7 +1157,6 @@ def antartica():
     else:
          image(ground20, width * 0.39, height* 0.81)
      
-    
     
     if mousePressed == True and mouseX > width * 0.49 and mouseX < width * 0.49 + 29 and mouseY > height * 0.78 and mouseY < height* 0.78 + 29 or Antartica[1] == 1:
         Antartica.pop(1)
