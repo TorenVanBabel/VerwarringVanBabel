@@ -449,7 +449,7 @@ def difficultyButtons():
     
 def instructieBackV():
     global img6, currentScreen, d, timerStart
-    if mousePressed == True and d == 2:
+    if mousePressed == True and d == 0:
         background(backgroundImg)
         timerStart = datetime.now()
         currentScreen = 'random'
