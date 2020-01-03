@@ -171,7 +171,7 @@ def inputNames():
     textAlign(CENTER, CENTER)
     textSize(60)
     fill(0)
-    text('Speler ' + str(currentPlayer + 1) + ' input je naam'+ ' (' + playersList[currentPlayer][1] + ')', width/2, height/2 * 0.8) 
+    text('Naam speler ' + str(currentPlayer + 1) +  ' (' + playersList[currentPlayer][1] + ')', width/2, height/2 * 0.8) 
     text(playersList[currentPlayer][0], width/2, height*0.54)
     mainMenuButtonNames()
 
@@ -266,7 +266,7 @@ def hoofdmenu():
         rect(width*0.015, height*0.80, width*0.38, height*0.07)
         fill(255)
         stroke(0)
-    text('Volgende Speler ', width*0.03, height*0.85,)
+    text('Volgende speler ', width*0.03, height*0.85,)
     fill(0)
     circle(width*0.347, height*0.835, 50)
     if mousePressed == True and mouseX > width*0.015 and mouseX < width*0.38 + width *0.015 and mouseY > height*0.8 and mouseY < height * 0.07 + height * 0.8 and d == 0:
@@ -285,7 +285,7 @@ def hoofdmenu():
         rect(width*0.41, height*0.80, width*0.38, height*0.07)
         fill(255)
         stroke(0)
-    text('Wereld kaart ', width*0.42, height*0.85,)
+    text('Wereldkaart ', width*0.42, height*0.85,)
     fill(0)
     circle(width*0.347, height*0.835, 50)
     if mousePressed == True and mouseX > width*0.41 and mouseX < width*0.38 + width *0.41 and mouseY > height*0.8 and mouseY < height * 0.07 + height * 0.8 and d == 0:
@@ -551,7 +551,7 @@ def instructie():
                 randomList.append (l.pop())
             e  = e - 1
         x = int(random(0, 4))
-        instrlist = ['je mag geen links of rechts zeggen', 'je mag geen coordinaten gebruiken', 'je mag geen ja of nee zeggen','je mag geen omhoog, omlaag, \n naar boven of beneden gebruiken']
+        instrlist = ['Je mag geen links of rechts zeggen', u'Je mag geen co\u00F6rdinaten gebruiken', 'Je mag geen ja of nee zeggen','Je mag geen omhoog, omlaag, \n naar boven of beneden gebruiken']
         textSize(30)
         instr = instrlist.pop(x)
         Save = True
