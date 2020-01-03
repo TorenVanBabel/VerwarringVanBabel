@@ -616,19 +616,19 @@ def timerFunc(placement):
 def worldMap():
     global playersTurn
     if playersTurn == 0:
-        europe()
+        antartica()
     if playersTurn == 1:
-        northAmerika()
+        europe()                        
     if playersTurn == 2:
-        southAmerika()
+        northAmerika()              
     if playersTurn == 3:
-        africa()
+        southAmerika() 
     if playersTurn == 4:
         asia()
     if playersTurn == 5:
-        antartica()
-    if playersTurn == 6:
         australia()
+    if playersTurn == 6:
+        africa()
     
 def europe():
     global BackgroundImg, ground10, ground15, ground20, ground50, landkaart , Europe, playersTurn, PlayersList
