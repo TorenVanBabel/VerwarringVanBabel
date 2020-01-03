@@ -446,13 +446,52 @@ def difficultyButtons():
     
 def instructieBackV():
     global img6, currentScreen, d, timerStart
-    if mousePressed == True and d == 0:
+    if mousePressed == True and d == 2:
         background(backgroundImg)
         timerStart = datetime.now()
         currentScreen = 'random'
     else:
         background(backgroundImg)
         image(img6, (width // 2) -300 , 30)
+        fill(218,165,32)
+        rect(width*0.03, height*0.46, width*0.2, height*0.036)
+        fill(0)
+        if mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.46 and mouseY < height * 0.036 + height * 0.46:
+            fill(218,165,32)
+            stroke(255)
+            rect(width*0.03, height*0.46, width*0.2, height*0.036)
+            fill(255)
+            stroke(0)
+        fill(0)
+        if mousePressed == True and mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.495 and mouseY < height * 0.036 + height * 0.495 and d == 0:
+            d = 0
+        fill(218,165,32)
+        rect(width*0.03, height*0.497, width*0.2, height*0.036)
+        fill(0)
+        if mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.495 and mouseY < height * 0.035 + height * 0.495:
+            fill(218,165,32)
+            stroke(255)
+            rect(width*0.03, height*0.497, width*0.2, height*0.036)
+            fill(255)
+            stroke(0)
+        fill(0)
+        if mousePressed == True and mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.495 and mouseY < height * 0.035 + height * 0.495 and d == 0:
+            d = 0
+            
+        
+        global playersTurn
+        fill(0)
+        rectMode(CORNER)
+        fill(218,165,32)
+        stroke(0,25,0)
+        rect(width*0.81, height*0.25, width*0.185, height*0.35)
+        textSize(30)
+        fill(0)
+        textAlign(LEFT, TOP)
+        for x in range(0,7):
+            if playersList[x][0] != '':
+                text(playersList[x][0],width * 0.05, (height * x * 0.04) + (height * 0.3))    
+
 
 
 def instructieBack():
