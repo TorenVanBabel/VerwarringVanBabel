@@ -6,7 +6,7 @@ def setup():
     global currentScreen, timerDifficulty, timerStart, secondsPassed, regularFont, d, playersList, allowedCharacters, currentPlayer, verwarring, addedCoins, Higlight, fillOrNoFill
     global backgroundImg, instrImg, droomImg, img, Save, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, punten, ground10, ground15, ground20, ground50, landkaart
     global Europe, NorthAmerika, SouthAmerika, Africa, Asia, Antartica, Australia, playersTurn, PlayerCount
-    playersList = [['', 'Antarctica', 0], ['', 'Europa', 0], ['', 'Noord-Amerika', 0], ['', 'Zuid-Amerika', 0], ['', u'Azi\u00EB', 0], ['', u'Australi\u00EB', 0], ['', 'Afrika', 0]]
+    playersList = [['', 'Antarctica', 500], ['', 'Europa', 500], ['', 'Noord-Amerika', 500], ['', 'Zuid-Amerika', 500], ['', u'Azi\u00EB', 500], ['', u'Australi\u00EB', 500], ['', 'Afrika', 500]]
     fillOrNoFill = ''
     currentPlayer = 0
     allowedCharacters = list('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890')
@@ -620,9 +620,9 @@ def worldMap():
     if playersTurn == 1:
         europe()                        
     if playersTurn == 2:
-        northAmerika()              
+        southAmerika()              
     if playersTurn == 3:
-        southAmerika() 
+        northAmerika() 
     if playersTurn == 4:
         asia()
     if playersTurn == 5:
@@ -736,128 +736,198 @@ def asia():
     image(landkaart, -12, -8, width*0.82, height)
     #Asia
     if mousePressed == True and mouseX > width * 0.46 and mouseX < width * 0.46+ 29 and mouseY > height* 0.33 and mouseY < height* 0.33 + 29 or Asia[0] == 1:
-        Asia.pop(0)
-        Asia.insert(0, 1) 
+        if Asia[0] == 0 and (int(playersList[playersTurn][2]) - int(20)) >= 0:
+            playersList[playersTurn][2] = int(playersList[playersTurn][2]) - int(20)
+            Asia.pop(0)
+            Asia.insert(0, 1)
+        if  Asia[0] != 1:
+            image(ground20, width * 0.46, height* 0.33) 
     else:
          image(ground20, width * 0.46, height* 0.33)
     
     if mousePressed == True and mouseX > width * 0.50 and mouseX < width * 0.50 + 29 and mouseY > height * 0.3 and mouseY < height* 0.3 + 29 or Asia[1] == 1:
-        Asia.pop(1)
-        Asia.insert(1, 1) 
+        if Asia[1] == 0 and (int(playersList[playersTurn][2]) - int(20)) >= 0:
+            playersList[playersTurn][2] = int(playersList[playersTurn][2]) - int(20)
+            Asia.pop(1)
+            Asia.insert(1, 1) 
+        if  Asia[1] != 1:
+            image(ground20, width * 0.50, height* 0.3) 
     else:
         image(ground20, width * 0.50 , height* 0.3)
     
     if mousePressed == True and mouseX >width * 0.49 and mouseX <width * 0.49 + 29 and mouseY > height* 0.20 and mouseY <height* 0.20 + 29 or Asia[2] == 1:
-        Asia.pop(2)
-        Asia.insert(2, 1) 
+        if Asia[2] == 0 and (int(playersList[playersTurn][2]) - int(15)) >= 0:
+            playersList[playersTurn][2] = int(playersList[playersTurn][2]) - int(15)
+            Asia.pop(2)
+            Asia.insert(2, 1) 
+        if  Asia[2] != 1:
+            image(ground15, width * 0.49, height* 0.20) 
+            
     else:
         image(ground15, width * 0.49 , height* 0.20)
     
     if mousePressed == True and mouseX >width * 0.54 and mouseX < width * 0.54 + 29 and mouseY > height* 0.28 and mouseY <height* 0.28 + 29 or Asia[3] == 1:
-        Asia.pop(3)
-        Asia.insert(3, 1) 
+        if Asia[3] == 0 and (int(playersList[playersTurn][2]) - int(20)) >= 0:
+            playersList[playersTurn][2] = int(playersList[playersTurn][2]) - int(20)
+            Asia.pop(3)
+            Asia.insert(3, 1) 
+        if  Asia[3] != 1:
+            image(ground15, width * 0.54, height* 0.28) 
+            
     else:
         image(ground20, width * 0.54 , height* 0.28)
     
     if mousePressed == True and mouseX >width * 0.41 and mouseX < width * 0.41 + 29 and mouseY > height* 0.43 and mouseY <height* 0.43 + 29 or Asia[4] == 1:
-        Asia.pop(4)
-        Asia.insert(4, 1) 
+        if Asia[4] == 0 and (int(playersList[playersTurn][2]) - int(20)) >= 0:
+            playersList[playersTurn][2] = int(playersList[playersTurn][2]) - int(20)
+            Asia.pop(4)
+            Asia.insert(4, 1) 
+        if  Asia[4] != 1:
+            image(ground20, width * 0.41, height* 0.43) 
     else:    
         image(ground20, width * 0.41 , height* 0.43)
 
     if mousePressed == True and mouseX >width * 0.51 and mouseX < width * 0.51 + 29 and mouseY > height* 0.42 and mouseY <height* 0.42 + 29 or Asia[5] == 1:
-        Asia.pop(5)
-        Asia.insert(5, 1) 
+        if Asia[5] == 0 and (int(playersList[playersTurn][2]) - int(50)) >= 0:
+            playersList[playersTurn][2] = int(playersList[playersTurn][2]) - int(50)
+            Asia.pop(5)
+            Asia.insert(5, 1) 
+        if  Asia[5] != 1:
+            image(ground50, width * 0.51, height* 0.42) 
     else:
         image(ground50, width * 0.51 , height* 0.42)
     
     if mousePressed == True and mouseX >width * 0.56 and mouseX < width * 0.56 + 29 and mouseY > height* 0.22 and mouseY <height* 0.22 + 29 or Asia[6] == 1:
+        if Asia[6] == 0 and (int(playersList[playersTurn][2]) - int(20)) >= 0:
+            playersList[playersTurn][2] = int(playersList[playersTurn][2]) - int(20)
         Asia.pop(6)
-        Asia.insert(6, 1) 
+        Asia.insert(6, 1)
+        if  Asia[6] != 1:
+            image(ground20, width * 0.56, height* 0.22)  
     else:
         image(ground20, width * 0.56 , height* 0.22)
     
     if mousePressed == True and mouseX >width * 0.47 and mouseX < width * 0.47 + 29 and mouseY > height* 0.4 and mouseY <height* 0.4 + 29 or Asia[7] == 1:
-        Asia.pop(7)
-        Asia.insert(7, 1) 
+        if Asia[7] == 0 and (int(playersList[playersTurn][2]) - int(15)) >= 0:
+            playersList[playersTurn][2] = int(playersList[playersTurn][2]) - int(15)
+            Asia.pop(7)
+            Asia.insert(7, 1) 
+        if  Asia[7] != 1:
+            image(ground15, width * 0.47, height* 0.4)  
     else:
         image(ground15, width * 0.47 , height* 0.4)
     
     if mousePressed == True and mouseX >width * 0.44 and mouseX < width * 0.44 + 29 and mouseY > height* 0.28 and mouseY <height* 0.28 + 29 or Asia[8] == 1:
-        Asia.pop(8)
-        Asia.insert(8, 1) 
+        if Asia[8] == 0 and (int(playersList[playersTurn][2]) - int(20)) >= 0:
+            playersList[playersTurn][2] = int(playersList[playersTurn][2]) - int(20)
+            Asia.pop(8)
+            Asia.insert(8, 1) 
+        if  Asia[8] != 1:
+            image(ground20, width * 0.44, height* 0.28)  
     else:
         image(ground20, width * 0.44 , height* 0.28)
     
     
-    
-
-    
-    
-def northAmerika():
-    global BackgroundImg, ground10, ground15, ground20, ground50, landkaart , NorthAmerika
+def southAmerika():
+    global BackgroundImg, ground10, ground15, ground20, ground50, landkaart , SouthAmerika
     background(backgroundImg)
     image(landkaart, -12, -8, width*0.82, height)
-    #Noord-Amerika
-    if mousePressed == True and mouseX > width * 0.17  and mouseX < width * 0.17 + 29 and mouseY > height* 0.73 and mouseY < height* 0.73 + 29 or NorthAmerika[0] == 1:
-        NorthAmerika.pop(0)
-        NorthAmerika.insert(0, 1) 
+    #zuid-Amerika
+    if mousePressed == True and mouseX > width * 0.17  and mouseX < width * 0.17 + 29 and mouseY > height* 0.73 and mouseY < height* 0.73 + 29 or SouthAmerika[0] == 1:
+        if SouthAmerika[0] == 0 and (int(playersList[playersTurn][2]) - int(20)) >= 0:
+            playersList[playersTurn][2] = int(playersList[playersTurn][2]) - int(20)
+            SouthAmerika.pop(0)
+            SouthAmerika.insert(0, 1) 
+        if  SouthAmerika[0] != 1:
+            image(ground20, width * 0.17, height* 0.73) 
     else:
           image(ground20, width * 0.17, height* 0.73)
 
     
-    if mousePressed == True and mouseX > width * 0.17 and mouseX < width * 0.17 + 29 and mouseY > height * 0.6 and mouseY < height* 0.6 + 29 or NorthAmerika[1] == 1:
-        NorthAmerika.pop(1)
-        NorthAmerika.insert(1, 1) 
+    if mousePressed == True and mouseX > width * 0.17 and mouseX < width * 0.17 + 29 and mouseY > height * 0.6 and mouseY < height* 0.6 + 29 or SouthAmerika[1] == 1:
+        if SouthAmerika[1] == 0 and (int(playersList[playersTurn][2]) - int(20)) >= 0:
+            playersList[playersTurn][2] = int(playersList[playersTurn][2]) - int(20)
+            SouthAmerika.pop(1)
+            SouthAmerika.insert(1, 1) 
+        if  SouthAmerika[1] != 1:
+            image(ground20, width * 0.17, height* 0.6)
     else:
         image(ground20, width * 0.17 , height* 0.6)
 
 
-    if mousePressed == True and mouseX >width * 0.12 and mouseX <width * 0.12 + 29 and mouseY > height* 0.63 and mouseY <height* 0.63 + 29 or NorthAmerika[2] == 1:
-        NorthAmerika.pop(2)
-        NorthAmerika.insert(2, 1) 
+    if mousePressed == True and mouseX >width * 0.12 and mouseX <width * 0.12 + 29 and mouseY > height* 0.63 and mouseY <height* 0.63 + 29 or SouthAmerika[2] == 1:
+        if SouthAmerika[2] == 0 and (int(playersList[playersTurn][2]) - int(20)) >= 0:
+            playersList[playersTurn][2] = int(playersList[playersTurn][2]) - int(20)
+            SouthAmerika.pop(2)
+            SouthAmerika.insert(2, 1)
+        if  SouthAmerika[2] != 1:
+            image(ground20, width * 0.12, height* 0.63) 
     else:
         image(ground20, width * 0.12 , height* 0.63)
 
     
-    if mousePressed == True and mouseX >width * 0.15 and mouseX < width * 0.15 + 29 and mouseY > height* 0.86 and mouseY <height* 0.86 + 29 or NorthAmerika[3] == 1:
-        NorthAmerika.pop(3)
-        NorthAmerika.insert(3, 1) 
+    if mousePressed == True and mouseX >width * 0.15 and mouseX < width * 0.15 + 29 and mouseY > height* 0.86 and mouseY <height* 0.86 + 29 or SouthAmerika[3] == 1:
+        if SouthAmerika[3] == 0 and (int(playersList[playersTurn][2]) - int(15)) >= 0:
+            playersList[playersTurn][2] = int(playersList[playersTurn][2]) - int(15)
+            SouthAmerika.pop(3)
+            SouthAmerika.insert(3, 1) 
+        if  SouthAmerika[3] != 1:
+            image(ground15, width * 0.15, height* 0.86)
     else:
         image(ground15, width * 0.15 , height* 0.86)
 
     
     
-    if mousePressed == True and mouseX >width * 0.16  and mouseX < width * 0.16 + 29 and mouseY > height* 0.65 and mouseY <height* 0.65 + 29 or NorthAmerika[4] == 1:
-        NorthAmerika.pop(4)
-        NorthAmerika.insert(4, 1) 
+    if mousePressed == True and mouseX >width * 0.16  and mouseX < width * 0.16 + 29 and mouseY > height* 0.65 and mouseY <height* 0.65 + 29 or SouthAmerika[4] == 1:
+        if SouthAmerika[4] == 0 and (int(playersList[playersTurn][2]) - int(20)) >= 0:
+            playersList[playersTurn][2] = int(playersList[playersTurn][2]) - int(20)
+            SouthAmerika.pop(4)
+            SouthAmerika.insert(4, 1) 
+        if  SouthAmerika[4] != 1:
+            image(ground20, width * 0.16, height* 0.65)
     else:    
         image(ground20, width * 0.16 , height* 0.65)
 
 
-    if mousePressed == True and mouseX >width * 0.14 and mouseX < width * 0.14+ 29 and mouseY > height* 0.75 and mouseY <height* 0.75 + 29 or NorthAmerika[5] == 1:
-        NorthAmerika.pop(5)
-        NorthAmerika.insert(5, 1) 
+    if mousePressed == True and mouseX >width * 0.14 and mouseX < width * 0.14+ 29 and mouseY > height* 0.75 and mouseY <height* 0.75 + 29 or SouthAmerika[5] == 1:
+        if SouthAmerika[5] == 0 and (int(playersList[playersTurn][2]) - int(20)) >= 0:
+            playersList[playersTurn][2] = int(playersList[playersTurn][2]) - int(20)
+            SouthAmerika.pop(5)
+            SouthAmerika.insert(5, 1) 
+        if  SouthAmerika[5] != 1:
+            image(ground20, width * 0.14, height* 0.75)
     else:
         image(ground20, width * 0.14 , height* 0.75)
     
-    if mousePressed == True and mouseX >width * 0.2 and mouseX < width * 0.2 + 29 and mouseY > height* 0.64 and mouseY <height* 0.64 + 29 or NorthAmerika[6] == 1:
-        NorthAmerika.pop(6)
-        NorthAmerika.insert(6, 1) 
+    if mousePressed == True and mouseX >width * 0.2 and mouseX < width * 0.2 + 29 and mouseY > height* 0.64 and mouseY <height* 0.64 + 29 or SouthAmerika[6] == 1:
+        if SouthAmerika[6] == 0 and (int(playersList[playersTurn][2]) - int(50)) >= 0:
+            playersList[playersTurn][2] = int(playersList[playersTurn][2]) - int(50)
+            SouthAmerika.pop(6)
+            SouthAmerika.insert(6, 1) 
+        if  SouthAmerika[6] != 1:
+            image(ground50, width * 0.20, height* 0.64)
     else:
         image(ground50, width * 0.20, height* 0.64)
 
     
-    if mousePressed == True and mouseX >width * 0.16 and mouseX < width * 0.16 + 29 and mouseY > height* 0.78 and mouseY <height* 0.78 + 29 or NorthAmerika[7] == 1:
-        NorthAmerika.pop(7)
-        NorthAmerika.insert(7, 1) 
+    if mousePressed == True and mouseX >width * 0.16 and mouseX < width * 0.16 + 29 and mouseY > height* 0.78 and mouseY <height* 0.78 + 29 or SouthAmerika[7] == 1:
+        if SouthAmerika[7] == 0 and (int(playersList[playersTurn][2]) - int(20)) >= 0:
+            playersList[playersTurn][2] = int(playersList[playersTurn][2]) - int(20)
+            SouthAmerika.pop(7)
+            SouthAmerika.insert(7, 1) 
+        if  SouthAmerika[7] != 1:
+            image(ground20, width * 0.16, height* 0.78)
     else:
         image(ground20, width * 0.16 , height* 0.78)
     
     
-    if mousePressed == True and mouseX >width * 0.13 and mouseX < width * 0.13 + 29 and mouseY > height* 0.56 and mouseY <height* 0.56 + 29 or NorthAmerika[8] == 1:
-        NorthAmerika.pop(8)
-        NorthAmerika.insert(8, 1) 
+    if mousePressed == True and mouseX >width * 0.13 and mouseX < width * 0.13 + 29 and mouseY > height* 0.56 and mouseY <height* 0.56 + 29 or SouthAmerika[8] == 1:
+        if SouthAmerika[8] == 0 and (int(playersList[playersTurn][2]) - int(15)) >= 0:
+            playersList[playersTurn][2] = int(playersList[playersTurn][2]) - int(15)
+            SouthAmerika.pop(8)
+            SouthAmerika.insert(8, 1) 
+        if  SouthAmerika[8] != 1:
+            image(ground15, width * 0.13, height* 0.56)
     else:
         image(ground15, width * 0.13 , height* 0.56)
 
@@ -937,66 +1007,66 @@ def africa():
 
     
     
-def southAmerika():
-    global BackgroundImg, ground10, ground15, ground20, ground50, landkaart , SouthAmerika
+def northAmerika():
+    global BackgroundImg, ground10, ground15, ground20, ground50, landkaart , NorthAmerika
     background(backgroundImg)
     image(landkaart, -12, -8, width*0.82, height)
-    #SouthAmerika
-    if mousePressed == True and mouseX > width * 0.1 and mouseX < width * 0.1 + 29 and mouseY > height* 0.33 and mouseY < height* 0.33 + 29 or SouthAmerika[0] == 1:
-        SouthAmerika.pop(0)
-        SouthAmerika.insert(0, 1) 
+    #North-Amerika
+    if mousePressed == True and mouseX > width * 0.1 and mouseX < width * 0.1 + 29 and mouseY > height* 0.33 and mouseY < height* 0.33 + 29 or NorthAmerika[0] == 1:
+        NorthAmerika.pop(0)
+        NorthAmerika.insert(0, 1) 
     else:
          image(ground20, width * 0.1, height* 0.33)
     
     
-    if mousePressed == True and mouseX > width * 0.08 and mouseX < width * 0.08 + 29 and mouseY > height * 0.37 and mouseY < height* 0.37 + 29 or SouthAmerika[1] == 1:
-        SouthAmerika.pop(1)
-        SouthAmerika.insert(1, 1) 
+    if mousePressed == True and mouseX > width * 0.08 and mouseX < width * 0.08 + 29 and mouseY > height * 0.37 and mouseY < height* 0.37 + 29 or NorthAmerika[1] == 1:
+        NorthAmerika.pop(1)
+        NorthAmerika.insert(1, 1) 
     else:
         image(ground20, width * 0.08 , height* 0.37)
 
-    if mousePressed == True and mouseX >width * 0.08 and mouseX <width * 0.08 + 29 and mouseY > height* 0.26 and mouseY <height* 0.26 + 29 or SouthAmerika[2] == 1:
-        SouthAmerika.pop(2)
-        SouthAmerika.insert(2, 1) 
+    if mousePressed == True and mouseX >width * 0.08 and mouseX <width * 0.08 + 29 and mouseY > height* 0.26 and mouseY <height* 0.26 + 29 or NorthAmerika[2] == 1:
+        NorthAmerika.pop(2)
+        NorthAmerika.insert(2, 1) 
     else:
         image(ground15, width * 0.08 , height* 0.26)
 
     
-    if mousePressed == True and mouseX >width * 0.19 and mouseX < width * 0.19 + 29 and mouseY > height* 0.25 and mouseY <height* 0.25 + 29 or SouthAmerika[3] == 1:
-        SouthAmerika.pop(3)
-        SouthAmerika.insert(3, 1) 
+    if mousePressed == True and mouseX >width * 0.19 and mouseX < width * 0.19 + 29 and mouseY > height* 0.25 and mouseY <height* 0.25 + 29 or NorthAmerika[3] == 1:
+        NorthAmerika.pop(3)
+        NorthAmerika.insert(3, 1) 
     else:
         image(ground20, width * 0.19 , height* 0.25)
     
     
-    if mousePressed == True and mouseX >width * 0.14 and mouseX < width * 0.14 + 29 and mouseY > height* 0.35 and mouseY <height* 0.35 + 29 or SouthAmerika[4] == 1:
-        SouthAmerika.pop(4)
-        SouthAmerika.insert(4, 1) 
+    if mousePressed == True and mouseX >width * 0.14 and mouseX < width * 0.14 + 29 and mouseY > height* 0.35 and mouseY <height* 0.35 + 29 or NorthAmerika[4] == 1:
+        NorthAmerika.pop(4)
+        NorthAmerika.insert(4, 1) 
     else:    
         image(ground20, width * 0.14 , height* 0.35)
 
 
-    if mousePressed == True and mouseX >width * 0.2 and mouseX < width * 0.2 + 29 and mouseY > height* 0.14 and mouseY <height* 0.14 + 29 or SouthAmerika[5] == 1:
-        SouthAmerika.pop(5)
-        SouthAmerika.insert(5, 1) 
+    if mousePressed == True and mouseX >width * 0.2 and mouseX < width * 0.2 + 29 and mouseY > height* 0.14 and mouseY <height* 0.14 + 29 or NorthAmerika[5] == 1:
+        NorthAmerika.pop(5)
+        NorthAmerika.insert(5, 1) 
     else:
         image(ground50, width * 0.20, height* 0.14)
     
-    if mousePressed == True and mouseX >width * 0.16 and mouseX < width * 0.16 + 29 and mouseY > height* 0.18 and mouseY <height* 0.18 + 29 or SouthAmerika[6] == 1:
-        SouthAmerika.pop(6)
-        SouthAmerika.insert(6, 1) 
+    if mousePressed == True and mouseX >width * 0.16 and mouseX < width * 0.16 + 29 and mouseY > height* 0.18 and mouseY <height* 0.18 + 29 or NorthAmerika[6] == 1:
+        NorthAmerika.pop(6)
+        NorthAmerika.insert(6, 1) 
     else:
         image(ground20, width * 0.16 , height* 0.18)
     
-    if mousePressed == True and mouseX >width * 0.09 and mouseX < width * 0.09 + 29 and mouseY > height* 0.44 and mouseY <height* 0.44 + 29 or SouthAmerika[7] == 1:
-        SouthAmerika.pop(7)
-        SouthAmerika.insert(7, 1) 
+    if mousePressed == True and mouseX >width * 0.09 and mouseX < width * 0.09 + 29 and mouseY > height* 0.44 and mouseY <height* 0.44 + 29 or NorthAmerika[7] == 1:
+        NorthAmerika.pop(7)
+        NorthAmerika.insert(7, 1) 
     else:
         image(ground15, width * 0.09 , height* 0.44)
     
-    if mousePressed == True and mouseX >width * 0.06 and mouseX < width * 0.06 + 29 and mouseY > height* 0.17 and mouseY <height* 0.17 + 29 or SouthAmerika[8] == 1:
-        SouthAmerika.pop(8)
-        SouthAmerika.insert(8, 1) 
+    if mousePressed == True and mouseX >width * 0.06 and mouseX < width * 0.06 + 29 and mouseY > height* 0.17 and mouseY <height* 0.17 + 29 or NorthAmerika[8] == 1:
+        NorthAmerika.pop(8)
+        NorthAmerika.insert(8, 1) 
     else:
         image(ground20, width * 0.06 , height* 0.17)
                                 
@@ -1178,6 +1248,10 @@ def keyPressed():
     global currentScreen, d, timerStart
     d = 0
     print(keyCode) 
+    if key == 'a' and currentScreen == 'worldMap':
+        mouseWidth = float(mouseX) / float(width)
+        mouseHeight = float(mouseY) / float(height)
+        print(str(mouseWidth), str(mouseHeight))
     
 def mouseReleased():
     global d, currentScreen
