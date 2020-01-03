@@ -614,7 +614,24 @@ def timerFunc(placement):
         text(timerDifficulty - timePassed, placement, height/2)
 
 def worldMap():
-    global img10,backgroundImg,ground10, ground15, ground20, ground50, landkaart, Europe, NorthAmerika, SouthAmerika, Africa, Asia, Antartica, Australia, d
+    global playersTurn
+    if playersTurn == 0:
+        europe()
+    if playersTurn == 1:
+        northAmerika()
+    if playersTurn == 2:
+        southAmerika()
+    if playersTurn == 3:
+        africa()
+    if playersTurn == 4:
+        asia()
+    if playersTurn == 5:
+        antartica()
+    if playersTurn == 6:
+        australia()
+    
+def europe():
+    global BackgroundImg, ground10, ground15, ground20, ground50, landkaart , Europe
     background(backgroundImg)
     image(landkaart, -12, -8, width*0.82, height)
     #Europe 
@@ -673,7 +690,13 @@ def worldMap():
         image(ground20, width * 0.41 , height* 0.2)
         
         
+
     
+    
+def asia():
+    global BackgroundImg, ground10, ground15, ground20, ground50, landkaart , Asia
+    background(backgroundImg)
+    image(landkaart, -12, -8, width*0.82, height)
     #Asia
     if mousePressed == True and mouseX > width * 0.46 and mouseX < width * 0.46+ 29 and mouseY > height* 0.33 and mouseY < height* 0.33 + 29 or Asia[0] == 1:
         Asia.pop(0)
@@ -731,7 +754,13 @@ def worldMap():
     
     
     
+
     
+    
+def northAmerika():
+    global BackgroundImg, ground10, ground15, ground20, ground50, landkaart , NorthAmerika
+    background(backgroundImg)
+    image(landkaart, -12, -8, width*0.82, height)
     #Noord-Amerika
     if mousePressed == True and mouseX > width * 0.17  and mouseX < width * 0.17 + 29 and mouseY > height* 0.73 and mouseY < height* 0.73 + 29 or NorthAmerika[0] == 1:
         NorthAmerika.pop(0)
@@ -798,6 +827,12 @@ def worldMap():
     
 
 
+    
+    
+def africa():
+    global BackgroundImg, ground10, ground15, ground20, ground50, landkaart , Africa
+    background(backgroundImg)
+    image(landkaart, -12, -8, width*0.82, height)
     #Africa
     if mousePressed == True and mouseX > width * 0.39 and mouseX < width * 0.39 + 29 and mouseY > height* 0.71 and mouseY < height* 0.71 + 29 or Africa[0] == 1:
         Africa.pop(0)
@@ -864,6 +899,11 @@ def worldMap():
     
 
     
+    
+def southAmerika():
+    global BackgroundImg, ground10, ground15, ground20, ground50, landkaart , SouthAmerika
+    background(backgroundImg)
+    image(landkaart, -12, -8, width*0.82, height)
     #SouthAmerika
     if mousePressed == True and mouseX > width * 0.1 and mouseX < width * 0.1 + 29 and mouseY > height* 0.33 and mouseY < height* 0.33 + 29 or SouthAmerika[0] == 1:
         SouthAmerika.pop(0)
@@ -923,7 +963,13 @@ def worldMap():
     else:
         image(ground20, width * 0.06 , height* 0.17)
                                 
+
     
+    
+def antartica():
+    global BackgroundImg, ground10, ground15, ground20, ground50, landkaart , Antartica
+    background(backgroundImg)
+    image(landkaart, -12, -8, width*0.82, height)
     #antartica
     if mousePressed == True and mouseX > width * 0.39 and mouseX < width * 0.39 + 29 and mouseY > height* 0.81 and mouseY < height* 0.81 + 29 or Antartica[0] == 1:
         Antartica.pop(0)
@@ -989,6 +1035,13 @@ def worldMap():
         image(ground20, width * 0.45 , height* 0.89)
   
     
+    
+    
+    
+def australia():
+    global BackgroundImg, ground10, ground15, ground20, ground50, landkaart , Australia
+    background(backgroundImg)
+    image(landkaart, -12, -8, width*0.82, height)
     #Australie
     if mousePressed == True and mouseX > width * 0.63 and mouseX < width * 0.63 + 29 and mouseY > height* 0.7 and mouseY < height* 0.7 + 29 or Australia[0] == 1:
         Australia.pop(0)
