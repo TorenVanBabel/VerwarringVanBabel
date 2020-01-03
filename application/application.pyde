@@ -21,7 +21,7 @@ def setup():
     Save = False
     #looks which players turn it is
     
-    PlayerCount = 6 
+    PlayerCount = -1
     playersTurn = 0
     #makes empty list for every continet
     Europe = [0,0,0,0,0,0,0,0,0]
@@ -176,7 +176,7 @@ def inputNames():
     mainMenuButtonNames()
 
 def mainMenuButtonNames():
-    global currentScreen, Save, d
+    global currentScreen, Save, d, PlayerCount
     buttonCoordX = width*0.375
     buttonCoordY = height/2*1.3
     buttonSizeX = 0.25*width
@@ -201,7 +201,7 @@ def mainMenuButtonNames():
 
 # Draws the hoofdmenu
 def hoofdmenu():
-    global font, font2, imgLogo, d, currentScreen, timerStart, img6,img7, img8, img9, playersTurn, playersLists, PlayerCount
+    global font, font2, imgLogo, d, currentScreen, timerStart, img6,img7, img8, img9, playersTurn, playersLists, PlayerCount, Save
     currentScreen = 'hoofdmenu'
     background(backgroundImg)
         
@@ -229,29 +229,29 @@ def hoofdmenu():
     fill(0,0,0)
     textAlign(LEFT)
         
-    if mousePressed == True and mouseX > 105 and mouseX < 575 and mouseY > 309 and mouseY < 371 and d == 0:
-        d = 1
-        currentScreen = 'random'
-        timerStart = datetime.now()
-        background(backgroundImg)
+
     
     if mousePressed == True and mouseX > 29 and mouseX < 381 and mouseY > 249 and mouseY < 801 and d == 0: 
         d = 1
+        Save = False
         currentScreen = 'instructieBackV'
         timerStart = datetime.now()
         background(backgroundImg)
     if mousePressed == True and mouseX > 409 and mouseX < 761 and mouseY > 249 and mouseY < 801 and d == 0:
         d = 1
+        Save = False
         currentScreen = 'instructieBack'
         timerStart = datetime.now()
         background(backgroundImg)
     if mousePressed == True and mouseX > 789 and mouseX < 1141 and mouseY > 249 and mouseY < 801 and d == 0: 
         d = 1
+        Save = False
         currentScreen = 'droomBack'
         timerStart = datetime.now()
         background(backgroundImg)
     if mousePressed == True and mouseX > 1169 and mouseX < 1521 and mouseY > 249 and mouseY < 801 and d == 0:
         d = 1
+        Save = False
         currentScreen = 'babelen'
         timerStart = datetime.now()
         background(backgroundImg)
@@ -270,10 +270,10 @@ def hoofdmenu():
     fill(0)
     circle(width*0.347, height*0.835, 50)
     if mousePressed == True and mouseX > width*0.015 and mouseX < width*0.38 + width *0.015 and mouseY > height*0.8 and mouseY < height * 0.07 + height * 0.8 and d == 0:
-        if playersTurn == PlayerCount:
-            playersTurn == 0
+        if playersTurn < PlayerCount:
+            playersTurn += 1
         else:
-            playersTurn += 1   
+            playersTurn = 0   
         d = 1
         
     fill(218,165,32)
@@ -563,16 +563,17 @@ def instructie():
     f = 0
     o = 0
     textSize(30)
-    while f < 31:
-        if o < 16:
-            x = fillOrNoFill[o]
-        o = o + 1
-        if x == 0:
-            fill(0)
-        if x == 1:
-            noFill()
-        circle(randomList[f], randomList[f+1], 60)
-        f += 2
+    if len(fillOrNoFill) > 14:
+        while f < 31:
+            if o < 16:
+                x = fillOrNoFill[o]
+            o = o + 1
+            if x == 0:
+                fill(0)
+            if x == 1:
+                noFill()
+            circle(randomList[f], randomList[f+1], 60)
+            f += 2
         
     if verwarring == True:
         textAlign(LEFT, CENTER)
@@ -1076,6 +1077,7 @@ def keyReleased():
         elif key == BACKSPACE:                        
             playersList[currentPlayer][0] = playersList[currentPlayer][0][:-1]
         elif key == ENTER and playersList[currentPlayer][0] != '':
+            PlayerCount += 1
             if currentPlayer == 6:
                 currentScreen = 'hoofdmenu'
             else:
