@@ -631,61 +631,98 @@ def worldMap():
         australia()
     
 def europe():
-    global BackgroundImg, ground10, ground15, ground20, ground50, landkaart , Europe
+    global BackgroundImg, ground10, ground15, ground20, ground50, landkaart , Europe, playersTurn, PlayersList
     background(backgroundImg)
     image(landkaart, -12, -8, width*0.82, height)
     #Europe 
     if mousePressed == True and mouseX > width * 0.28 and mouseX < width * 0.28 + 29 and mouseY > height* 0.33 and mouseY < height* 0.33 + 29 or Europe[0] == 1:
-        Europe.pop(0)
-        Europe.insert(0, 1) 
+        if Europe[0] == 0 and (int(playersList[playersTurn][2]) - int(20)) >= 0:
+            playersList[playersTurn][2] = int(playersList[playersTurn][2]) - int(20)
+            Europe.pop(0)
+            Europe.insert(0, 1) 
+        if  Europe[0] != 1:
+            image(ground20, width * 0.28, height* 0.33)
+            
     else:
         image(ground20, width * 0.28, height* 0.33)
     
     if mousePressed == True and mouseX > width * 0.30 and mouseX < width * 0.30 + 29 and mouseY > height * 0.3 and mouseY < height* 0.3 + 29 or Europe[1] == 1:
-        Europe.pop(1)
-        Europe.insert(1, 1) 
+        if Europe[0] == 0 and (int(playersList[playersTurn][2]) - int(20)) >= 0:
+            playersList[playersTurn][2] = int(playersList[playersTurn][2]) - int(20)
+            Europe.pop(1)
+            Europe.insert(1, 1) 
+        if Europe[1] != 1:
+            image(ground20, width * 0.30 , height* 0.3)
     else:
         image(ground20, width * 0.30 , height* 0.3)
     
     if mousePressed == True and mouseX >width * 0.32 and mouseX <width * 0.32 + 29 and mouseY > height* 0.20 and mouseY <height* 0.20 + 29 or Europe[2] == 1:
-        Europe.pop(2)
-        Europe.insert(2, 1) 
+        if Europe[0] == 0 and (int(playersList[playersTurn][2]) - int(15)) >= 0:
+            playersList[playersTurn][2] = int(playersList[playersTurn][2]) - int(15)
+            Europe.pop(2)
+            Europe.insert(2, 1) 
+        if Europe[2] != 1:
+            image(ground15, width * 0.32 , height* 0.20)
     else:
         image(ground15, width * 0.32 , height* 0.20)
     
     if mousePressed == True and mouseX >width * 0.33 and mouseX < width * 0.33 + 29 and mouseY > height* 0.28 and mouseY <height* 0.28 + 29 or Europe[3] == 1:
-        Europe.pop(3)
-        Europe.insert(3, 1) 
+        if Europe[3] == 0 and (int(playersList[playersTurn][2]) - int(20)) >= 0:
+            playersList[playersTurn][2] = int(playersList[playersTurn][2]) - int(20)
+            Europe.pop(3)
+            Europe.insert(3, 1) 
+        if Europe[3] != 1:
+            image(ground20, width * 0.33 , height* 0.28)
     else:
         image(ground20, width * 0.33 , height* 0.28)
     
     if mousePressed == True and mouseX >width * 0.35 and mouseX < width * 0.35 + 29 and mouseY > height* 0.35 and mouseY <height* 0.35 + 29 or Europe[4] == 1:
-        Europe.pop(4)
-        Europe.insert(4, 1) 
+        if Europe[4] == 0 and (int(playersList[playersTurn][2]) - int(20)) >= 0:
+            playersList[playersTurn][2] = int(playersList[playersTurn][2]) - int(20)
+            Europe.pop(4)
+            Europe.insert(4, 1) 
+        if Europe[4] != 1:
+            image(ground20, width * 0.35 , height* 0.35)
     else:
         image(ground20, width * 0.35 , height* 0.35)
     
     if mousePressed == True and mouseX >width * 0.36 and mouseX < width * 0.36 + 29 and mouseY > height* 0.3 and mouseY <height* 0.3 + 29 or Europe[5] == 1:
-        Europe.pop(5)
-        Europe.insert(5, 1) 
+        if Europe[5] == 0 and (int(playersList[playersTurn][2]) - int(50)) >= 0:
+            playersList[playersTurn][2] = int(playersList[playersTurn][2]) - int(50)
+            Europe.pop(5)
+            Europe.insert(5, 1) 
+        if Europe[5] != 1:
+            image(ground50, width * 0.36 , height* 0.3)
     else:
         image(ground50, width * 0.36 , height* 0.3)
     
     if mousePressed == True and mouseX >width * 0.37 and mouseX < width * 0.37 + 29 and mouseY > height* 0.18 and mouseY <height* 0.18 + 29 or Europe[6] == 1:
-        Europe.pop(6)
-        Europe.insert(6, 1) 
+        if Europe[6] == 0 and (int(playersList[playersTurn][2]) - int(20)) >= 0:
+            playersList[playersTurn][2] = int(playersList[playersTurn][2]) - int(20)
+            Europe.pop(6)
+            Europe.insert(6, 1) 
+        if Europe[6] != 1:
+            image(ground20, width * 0.37 , height* 0.18)        
     else:
         image(ground20, width * 0.37 , height* 0.18)
     
     if mousePressed == True and mouseX >width * 0.38 and mouseX < width * 0.38 + 29 and mouseY > height* 0.25 and mouseY <height* 0.25 + 29 or Europe[7] == 1:
-        Europe.pop(7)
-        Europe.insert(7, 1) 
+        if Europe[7] == 0 and (int(playersList[playersTurn][2]) - int(15)) >= 0:
+            playersList[playersTurn][2] = int(playersList[playersTurn][2]) - int(15)
+            Europe.pop(7)
+            Europe.insert(7, 1) 
+        if Europe[7] != 1:
+            image(ground15, width * 0.38 , height* 0.25)
     else:
         image(ground15, width * 0.38 , height* 0.25)
     
     if mousePressed == True and mouseX >width * 0.41 and mouseX < width * 0.41 + 29 and mouseY > height* 0.2 and mouseY <height* 0.2 + 29 or Europe[8] == 1:
-        Europe.pop(8)
-        Europe.insert(8, 1) 
+        if Europe[8] == 0 and (int(playersList[playersTurn][2]) - int(20)) >= 0:
+            playersList[playersTurn][2] = int(playersList[playersTurn][2]) - int(20)
+            Europe.pop(8)
+            Europe.insert(8, 1)
+        if Europe [8] != 1:
+            image(ground20, width * 0.41 , height* 0.2)
     else:
         image(ground20, width * 0.41 , height* 0.2)
         
