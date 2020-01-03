@@ -382,10 +382,11 @@ def GoedOfFoutClick():
         currentScreen = 'hoofdmenu'
 
     if currentScreen == 'hoofdmenu':
-        if playersTurn == PlayerCount: 
-            playersTurn == 0
+        if playersTurn < PlayerCount:
+            playersTurn += 1
         else:
-            playersTurn += 1   
+            playersTurn = 0   
+        d = 1   
         
 
 def difficultyButtons():
