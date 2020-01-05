@@ -167,6 +167,11 @@ def startmenu():
     image(img3,1020,300,150,170)
     image(img4,700, 450, 500, 350)
     
+    textAlign(CENTER)
+    fill(255)
+    textSize(70)
+    text('Kies de moeilijkheidsgraad!', width/2, height * 0.8)
+    
     if mouseX > 780 and mouseX < 1100 and mouseY > 560 and mouseY < 660:
         d = 1
         image(img5,700, 450, 500, 350)
@@ -471,11 +476,11 @@ def difficultyButtons():
     
 def instructieBackV():
     global img6, currentScreen, d, timerStart, PlayerCount, seccondPlayer, playersTurn
+    
     if mousePressed == True and mouseX > width * 0.34 and mouseX < width * 0.685 and mouseY > height * 0.03 and mouseY < height * 0.95 and seccondPlayer != '' and d == 0:
         background(backgroundImg)
         timerStart = datetime.now()
         currentScreen = 'random'
-
     else:
         if seccondPlayer == playersTurn:
             seccondPlayer = ''
@@ -652,12 +657,15 @@ def instructieBackV():
         textAlign(LEFT, TOP)
         for x in range(0,7):
             if playersList[x][0] != '':
-                text(playersList[x][0],width * 0.05, (height * x * 0.039) + (height * 0.306))    
+                text(playersList[x][0],width * 0.05, (height * x * 0.039) + (height * 0.306))   
+                
+    drawMedespelerTekst() 
 
 
 
 def instructieBack():
     global img7, currentScreen, d, timerStart, PlayerCount, seccondPlayer, playersTurn
+        
     if mousePressed == True and mouseX > width * 0.34 and mouseX < width * 0.685 and mouseY > height * 0.03 and mouseY < height * 0.95 and seccondPlayer != '' and d == 0:
         background(backgroundImg)
         timerStart = datetime.now()
@@ -838,11 +846,15 @@ def instructieBack():
         textAlign(LEFT, TOP)
         for x in range(0,7):
             if playersList[x][0] != '':
-                text(playersList[x][0],width * 0.05, (height * x * 0.039) + (height * 0.306))    
+                text(playersList[x][0],width * 0.05, (height * x * 0.039) + (height * 0.306)) 
+                
+        drawMedespelerTekst()   
 
         
 def droomBack():
     global img8, currentScreen, d, timerStart, Save, PlayerCount, seccondPlayer, playersTurn
+    drawMedespelerTekst()
+    
     if mousePressed == True and mouseX > width * 0.34 and mouseX < width * 0.685 and mouseY > height * 0.03 and mouseY < height * 0.95 and seccondPlayer != '' and d == 0:
         d = 1
         background(backgroundImg)
@@ -1026,6 +1038,8 @@ def droomBack():
         for x in range(0,7):
             if playersList[x][0] != '':
                 text(playersList[x][0],width * 0.05, (height * x * 0.039) + (height * 0.306))    
+                
+    drawMedespelerTekst()
 
 
 def backBabelen():
@@ -2106,6 +2120,12 @@ def clock():
     current_time = time.strftime("%H:%M", t)
     text(current_time, width-20, height-20)
     
+def drawMedespelerTekst():
+    fill(255)
+    textSize(38)
+    textAlign(LEFT, TOP)
+    text('Kies je medespeler!', width*0.03, height*0.22)
+    
 
 def keyReleased():
     global currentPlayer, playerList, currentScreen, PlayerCount
@@ -2126,7 +2146,7 @@ def keyPressed():
     global currentScreen, d, timerStart
     d = 0
     print(keyCode) 
-    if key == 'a' and currentScreen == 'worldMap':
+    if key == 'a' and currentScreen == 'instructieBack':
         mouseWidth = float(mouseX) / float(width)
         mouseHeight = float(mouseY) / float(height)
         print(str(mouseWidth), str(mouseHeight))
