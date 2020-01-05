@@ -350,18 +350,23 @@ def GoedOfFoutClick():
         image(img10,280,500,500,300)
         image(img11,1050,510,500,290)
     fill(0)
-    stroke(100,100,100)
+    stroke(0)
     textAlign(CENTER)
     textSize(80)
     l = ['5','10','15','20','25','50']
     textSize(40)
     if Save == True:
+
         fill(220,150,0)
         rect(650,50,600, 250)
         rect(650,450,600, 250)
         fill(0)
         text(playersList[playersTurn][0] + '\nJe krijgt een munt van ' + str(b) +'\nJe hebt nu ' + str(playersList[playersTurn][2]) + ' munten',width/ 2,100)
         text(playersList[seccondPlayer][0] + '\nJe krijgt een munt van ' + str(b1)+'\nJe hebt nu ' + str(playersList[seccondPlayer][2]) +' munten',width/ 2,500)
+
+
+        if mousePressed == True and mouseX > width*0.43 and mouseX < width*0.43 + width*0.15 and mouseY > height*0.55 and mouseY < height*0.55 + height*0.04:
+            currentScreen = 'hoofdmenu'
 
         
         
@@ -375,6 +380,18 @@ def GoedOfFoutClick():
             playersList[seccondPlayer][2] = int(playersList[seccondPlayer][2]) + int(b1)
             playersList[playersTurn][2] = int(playersList[playersTurn][2]) + int(b)
             addedCoins = True
+
+
+
+        fill(220,150,0)
+        rect(1600,100,300,110)
+        print (b)
+        fill(0)
+        text(str(b)+'+',1750,180)
+        print(playersList[currentPlayer][2])
+        rect(550,450,200,50)
+        if mousePressed == True and mouseX > 550 and mouseX < 550 + 200 and mouseY > 450 and mouseY < 450 + 50:
+            circle(20,20,20)
 
 
         
