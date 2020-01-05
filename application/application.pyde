@@ -5,9 +5,10 @@ def setup():
     # Sets required global variables
     global currentScreen, timerDifficulty, timerStart, secondsPassed, regularFont, d, playersList, allowedCharacters, currentPlayer, verwarring, addedCoins, Higlight, fillOrNoFill
     global backgroundImg, instrImg, droomImg, img, Save, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, punten, ground10, ground15, ground20, ground50, landkaart
-    global Europe, NorthAmerika, SouthAmerika, Africa, Asia, Antartica, Australia, playersTurn, PlayerCount
-    playersList = [['', 'Antarctica', 0], ['', 'Europa', 0], ['', 'Zuid-Amerika', 0], ['', 'Noord-Amerika', 0], ['', u'Azi\u00EB', 0], ['', u'Australi\u00EB', 0], ['', 'Afrika', 0]]
+    global Europe, NorthAmerika, SouthAmerika, Africa, Asia, Antartica, Australia, playersTurn, PlayerCount, gameWinner, gameOver
+    playersList = [['', 'Antarctica', 500], ['', 'Europa', 0], ['', 'Zuid-Amerika', 0], ['', 'Noord-Amerika', 0], ['', u'Azi\u00EB', 0], ['', u'Australi\u00EB', 0], ['', 'Afrika', 0]]
     fillOrNoFill = ''
+    gameOver = False
     currentPlayer = 0
     allowedCharacters = list('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890')
     verwarring = False
@@ -135,16 +136,23 @@ def draw():
         GoedOfFoutClick()
     
     elif currentScreen == 'worldMap':
+        checkIfGameFinished()
         worldMap()
         
+    elif currentScreen == 'gameFinished':
+        gameFinished()
+        
     # Draws button back to main menu where needed
-    if False == (currentScreen == 'start' or currentScreen == 'hoofdmenu' or currentScreen == 'inputNames'):
+    if False == (currentScreen == 'start' or currentScreen == 'hoofdmenu' or currentScreen == 'inputNames' or currentScreen == 'gameFinished'):
         mainMenuButton()
     
     #Draws names from the players on the screen where needed
-    if False == (currentScreen == 'inputNames' or currentScreen == 'start'):
+    if False == (currentScreen == 'inputNames' or currentScreen == 'start' or currentScreen == 'gameFinished'):
         showNames()
         
+        
+    
+    
     # Draws clock in bottom right on every screen
     clock()
     
@@ -656,7 +664,9 @@ def timerFunc(placement):
         text(timerDifficulty - timePassed, placement, height/2)
 
 def worldMap():
-    global playersTurn
+    global playersTurn, gameOver
+    if gameOver == True:
+        currentScreen = 'gameFinished'
     if playersTurn == 0:
         antartica()
     if playersTurn == 1:
@@ -1398,11 +1408,47 @@ def australia():
     else:
         image(ground20, width * 0.7 , height* 0.68)
 
-    
-    
-    
-    
-    
+
+
+def checkIfGameFinished():
+    global Europe, NorthAmerika, SouthAmerika, Africa, Asia, Antartica, Australia, gameWinner, gameOver, currentScreen
+    if Antartica == [1,1,1,1,1,1,1,1,1]:
+        gameWinner = 0
+        gameOver = True
+        currentScreen = 'gameFinished'
+    elif Europe == [1,1,1,1,1,1,1,1,1]:
+        gameWinner = 1
+        gameOver = True
+        currentScreen = 'gameFinished'
+    elif SouthAmerika == [1,1,1,1,1,1,1,1,1]:
+        gameWinner = 2
+        gameOver = True
+        currentScreen = 'gameFinished'
+    elif NorthAmerika == [1,1,1,1,1,1,1,1,1]:
+        gameWinner = 3
+        gameOver = True
+        currentScreen = 'gameFinished'
+    elif Asia == [1,1,1,1,1,1,1,1,1]:
+        gameWinner = 4
+        gameOver = True
+        currentScreen = 'gameFinished'
+    elif Australia == [1,1,1,1,1,1,1,1,1]:
+        gameWinner = 5
+        gameOver = True 
+        currentScreen = 'gameFinished'
+    elif Africa == [1,1,1,1,1,1,1,1,1]:
+        gameWinner = 6
+        gameOver = True
+        currentScreen = 'gameFinished'
+
+
+def gameFinished():
+    global gameWinner, playersList
+    background(backgroundImg)
+    textAlign(CENTER, CENTER)
+    textSize(70)
+    fill(255)
+    text(playersList[gameWinner][0] + ' (' + playersList[gameWinner][1] + ') \n' + 'heeft de Verwarring van Babel gewonnen!', width/2, height/2)
     
     
 def clock():
