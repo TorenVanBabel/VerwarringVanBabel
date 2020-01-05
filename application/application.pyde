@@ -363,14 +363,17 @@ def GoedOfFoutClick():
     if Save == True:
 
         fill(220,150,0)
+        rect(width*0.43,height*0.79,width*0.15,height*0.041)
         rect(650,50,600, 250)
         rect(650,450,600, 250)
         fill(0)
+        text('Menu', width/2, height*0.83)
         text(playersList[playersTurn][0] + '\nJe krijgt een munt van ' + str(b) +'\nJe hebt nu ' + str(playersList[playersTurn][2]) + ' munten',width/ 2,100)
         text(playersList[seccondPlayer][0] + '\nJe krijgt een munt van ' + str(b1)+'\nJe hebt nu ' + str(playersList[seccondPlayer][2]) +' munten',width/ 2,500)
 
-
-        if mousePressed == True and mouseX > width*0.43 and mouseX < width*0.43 + width*0.15 and mouseY > height*0.55 and mouseY < height*0.55 + height*0.04:
+    
+        
+        if mousePressed == True and mouseX > width*0.43 and mouseX < width*0.43 + width*0.15 and mouseY > height*0.79 and mouseY < height*0.79 + height*0.041:
             currentScreen = 'hoofdmenu'
 
         
@@ -388,24 +391,17 @@ def GoedOfFoutClick():
 
 
 
-        fill(220,150,0)
-        rect(1600,100,300,110)
-        print (b)
-        fill(0)
-        text(str(b)+'+',1750,180)
-        print(playersList[currentPlayer][2])
-        rect(550,450,200,50)
-        if mousePressed == True and mouseX > 550 and mouseX < 550 + 200 and mouseY > 450 and mouseY < 450 + 50:
-            circle(20,20,20)
+
 
 
         
         
-    elif mousePressed == True and mouseX > 1050 and  mouseX  < 1450 and mouseY  > 550 and mouseY < 750 and d == 0:
+    elif mousePressed == True and mouseX > 1050 and  mouseX  < 1450 and mouseY  > 550 and mouseY < 750 and d == 0 and Save == False:
         d = 1
         currentScreen = 'hoofdmenu'
 
     if currentScreen == 'hoofdmenu':
+        seccondPlayer = ''
         if playersTurn < PlayerCount:
             playersTurn += 1
         else:
@@ -603,7 +599,7 @@ def instructieBackV():
             fill(218,165,32)
             rect(width*0.03, height*0.497, width*0.2, height*0.038)
             fill(0)
-            if playersTurn == 4:
+            if playersTurn == 5:
                 fill(218,165,32)
                 stroke(255)
                 rect(width*0.03, height*0.497, width*0.2, height*0.038)
@@ -626,7 +622,7 @@ def instructieBackV():
             fill(218,165,32)
             rect(width*0.03, height*0.536, width*0.2, height*0.038)
             fill(0)
-            if playersTurn == 4:
+            if playersTurn == 6:
                 fill(218,165,32)
                 stroke(255)
                 rect(width*0.03, height*0.536, width*0.2, height*0.038)
@@ -670,6 +666,7 @@ def instructieBack():
         background(backgroundImg)
         timerStart = datetime.now()
         currentScreen = 'random'
+    
     else:
         if seccondPlayer == playersTurn:
             seccondPlayer = ''
@@ -983,7 +980,7 @@ def droomBack():
             fill(218,165,32)
             rect(width*0.03, height*0.497, width*0.2, height*0.038)
             fill(0)
-            if playersTurn == 4:
+            if playersTurn == 5:
                 fill(218,165,32)
                 stroke(255)
                 rect(width*0.03, height*0.497, width*0.2, height*0.038)
@@ -1006,7 +1003,7 @@ def droomBack():
             fill(218,165,32)
             rect(width*0.03, height*0.536, width*0.2, height*0.038)
             fill(0)
-            if playersTurn == 4:
+            if playersTurn == 6:
                 fill(218,165,32)
                 stroke(255)
                 rect(width*0.03, height*0.536, width*0.2, height*0.038)
@@ -1050,9 +1047,10 @@ def backBabelen():
         currentScreen = 'babelen'
 
 def babelen():
-    global img8, currentScreen, d, timerStart, Save, PlayerCount, seccondPlayer, playersTurn
+    global img8, currentScreen, d, timerStart, Save, PlayerCount, seccondPlayer, playersTurn, Save
     if seccondPlayer != '':
         seccondPlayer = ''
+        Save = False
     else:
         
         if seccondPlayer == playersTurn:
@@ -1065,7 +1063,7 @@ def babelen():
         if mouseX > width*0.3 and mouseX < width*0.4 + width *0.3 and mouseY > height*0.290 and mouseY < height * 0.055 + height * 0.290 or seccondPlayer == 0:
             fill(218,165,32)
             stroke(255)
-            rect(width*0.3, height*0.302, width*0.4, height*0.038)
+            rect(width*0.3, height*0.290, width*0.4, height*0.056)
             fill(255)
             stroke(0)
         fill(0)
