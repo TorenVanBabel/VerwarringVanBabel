@@ -127,7 +127,9 @@ def draw():
     #Displays an droom card
     elif currentScreen == 'droomCards':
         droomCards()  
-     
+    elif currentScreen == 'backBabelen':
+        backBabelen()
+    
     #Displays back of babel card
     elif currentScreen == 'babelen':
         babelen()
@@ -264,7 +266,7 @@ def hoofdmenu():
     if mousePressed == True and mouseX > 1169 and mouseX < 1521 and mouseY > 249 and mouseY < 801 and d == 0:
         d = 1
         Save = False
-        currentScreen = 'babelen'
+        currentScreen = 'backBabelen'
         timerStart = datetime.now()
         background(backgroundImg)
 
@@ -342,7 +344,7 @@ def mainMenuButton():
         Save = False
         
 def GoedOfFoutClick():
-    global goed,fout,img10,img11, b, punten,d, backgroundImg, Save, addedCoins, currentScreen, playersTurn, PlayerCount, l
+    global goed,fout,img10,img11, b, b1, punten,d, backgroundImg, Save, addedCoins, currentScreen, playersTurn, PlayerCount, l, seccondPlayer
     background(backgroundImg)
     if Save != True:
         image(img10,280,500,500,300)
@@ -354,35 +356,33 @@ def GoedOfFoutClick():
     l = ['5','10','15','20','25','50']
     textSize(40)
     if Save == True:
-        print('good')
-        text('Yes!\nJe krijgt een munt',width/ 2,100)
-        if addedCoins == False:
-            playersList[playersTurn][2] = int(playersList[playersTurn][2]) + int(b)
-            addedCoins = True
-        fill(220, 150, 0)
-        rect(width*0.43,height*0.55,width*0.15,height*0.04)
+
+        fill(220,150,0)
+        rect(650,50,600, 250)
+        rect(650,450,600, 250)
         fill(0)
-        textSize(31)
-        text('Menu', width/2, height*0.58)
-        fill(218,165,32)
-        rect(1600,100,300,110)
-        print (b)
-        fill(0)
-        text(str(b)+'+',1750,180)
-        print(playersList[currentPlayer][2])
+        text(playersList[playersTurn][0] + '\nJe krijgt een munt van ' + str(b) +'\nJe hebt nu ' + str(playersList[playersTurn][2]) + ' munten',width/ 2,100)
+        text(playersList[seccondPlayer][0] + '\nJe krijgt een munt van ' + str(b1)+'\nJe hebt nu ' + str(playersList[seccondPlayer][2]) +' munten',width/ 2,500)
+
+
         if mousePressed == True and mouseX > width*0.43 and mouseX < width*0.43 + width*0.15 and mouseY > height*0.55 and mouseY < height*0.55 + height*0.04:
             currentScreen = 'hoofdmenu'
+
         
         
     elif mousePressed == True and mouseX > 380 and mouseX < 780 and mouseY > 550 and mouseY < 750 and d == 0:
         b = int(random(0,6))
+        b1 = int(random(0,6))
         b = l[b]
+        b1 = l[b1]
         Save = True
-        print('good')
-        text('Yes!\nJe krijgt een munt',width/ 2,100)
         if addedCoins == False:
+            playersList[seccondPlayer][2] = int(playersList[seccondPlayer][2]) + int(b1)
             playersList[playersTurn][2] = int(playersList[playersTurn][2]) + int(b)
             addedCoins = True
+
+
+
         fill(220,150,0)
         rect(1600,100,300,110)
         print (b)
@@ -392,6 +392,7 @@ def GoedOfFoutClick():
         rect(550,450,200,50)
         if mousePressed == True and mouseX > 550 and mouseX < 550 + 200 and mouseY > 450 and mouseY < 450 + 50:
             circle(20,20,20)
+
 
         
         
@@ -406,30 +407,7 @@ def GoedOfFoutClick():
             playersTurn = 0   
         d = 1   
         
-def goedGekozen():
-    global b, punten,d, backgroundImg, Save, addedCoins, currentScreen, playersTurn, PlayerCount, l
-    background(backgroundImg)
-    currentScreen = 'goedGekozen'
-    fill(0)
-    stroke(100,100,100)
-    textAlign(CENTER)
-    textSize(40)
-    text('Yes!\nJe krijgt een munt',width/ 2,100)
-    c = 0 
-    d = 0
-    if c == 0:
-        b = int(random(0,5))
-        b = l[b]
-        c += 1
-    if addedCoins == False and d == 0:
-        playersList[playersTurn][2] = int(playersList[playersTurn][2]) + int(b)
-        addedCoins = True
-    fill(220,150,0)
-    rect(1600,100,300,110)
-    print (b)
-    fill(0)
-    text(b+'+',1750,180)
-    print(punten)
+
    
  
 
@@ -1050,10 +1028,145 @@ def droomBack():
                 text(playersList[x][0],width * 0.05, (height * x * 0.039) + (height * 0.306))    
 
 
-def babelen():
-    global img9, currentScreen, d
+def backBabelen():
+    global img9, currentScreen, d, seccondPlayer
     background(backgroundImg)
     image(img9, (width // 2) -300 , 30)
+    if mousePressed == True and mouseX > width * 0.34 and mouseX < width * 0.685 and mouseY > height * 0.03 and mouseY < height * 0.95 and d == 0:
+        currentScreen = 'babelen'
+
+def babelen():
+    global img8, currentScreen, d, timerStart, Save, PlayerCount, seccondPlayer, playersTurn
+    if seccondPlayer != '':
+        seccondPlayer = ''
+    else:
+        
+        if seccondPlayer == playersTurn:
+            seccondPlayer = ''
+        background(backgroundImg)
+        fill(218,165,32)
+        rect(width*0.3, height*0.290, width*0.4, height*0.056)
+        fill(0)
+
+        if mouseX > width*0.3 and mouseX < width*0.4 + width *0.3 and mouseY > height*0.290 and mouseY < height * 0.055 + height * 0.290 or seccondPlayer == 0:
+            fill(218,165,32)
+            stroke(255)
+            rect(width*0.3, height*0.302, width*0.4, height*0.038)
+            fill(255)
+            stroke(0)
+        fill(0)
+        if mousePressed == True and mouseX > width*0.3 and mouseX < width*0.4 + width *0.3 and mouseY > height*0.290 and mouseY < height * 0.055 + height * 0.290 and d == 0 or seccondPlayer == 0:
+             seccondPlayer = 0
+                
+        
+        
+        fill(218,165,32)
+        rect(width*0.3, height*0.347, width*0.4, height*0.056)
+        fill(0)
+        if mouseX > width*0.3 and mouseX < width*0.4 + width *0.3 and mouseY > height*0.347 and mouseY < height * 0.055 + height * 0.347 or seccondPlayer == 1:
+            fill(218,165,32)
+            stroke(255)
+            rect(width*0.3, height*0.347, width*0.4, height*0.056)
+            fill(255)
+            stroke(0)
+        fill(0)
+        if mousePressed == True and mouseX > width*0.3 and mouseX < width*0.4 + width *0.3 and mouseY > height*0.347 and mouseY < height * 0.055 + height * 0.347 and d == 0 or seccondPlayer == 1:
+            seccondPlayer = 1
+                
+        
+        fill(218,165,32)
+        rect(width*0.3, height*0.404, width*0.4, height*0.056)
+        fill(0)
+       
+        if mouseX > width*0.3 and mouseX < width*0.4 + width *0.3 and mouseY > height*0.404 and mouseY < height * 0.055 + height * 0.404 or seccondPlayer == 2:
+            fill(218,165,32)
+            stroke(255)
+            rect(width*0.3, height*0.404, width*0.4, height*0.056)
+            fill(255)
+            stroke(0)
+        fill(0)
+        if mousePressed == True and mouseX > width*0.3 and mouseX < width*0.4 + width *0.3 and mouseY > height*0.404 and mouseY < height * 0.056 + height * 0.404 and d == 0 or seccondPlayer == 2:
+            seccondPlayer = 2
+                
+        
+        if PlayerCount >= 3:
+            fill(218,165,32)
+            rect(width*0.3, height*0.461, width*0.4, height*0.056)
+            fill(0)
+
+            if mouseX > width*0.3 and mouseX < width*0.4 + width *0.3 and mouseY > height*0.461 and mouseY < height * 0.055 + height * 0.461 or seccondPlayer == 3:
+                fill(218,165,32)
+                stroke(255)
+                rect(width*0.3, height*0.461, width*0.4, height*0.056)
+                fill(255)
+                stroke(0)
+            fill(0)
+            if mousePressed == True and mouseX > width*0.3 and mouseX < width*0.4 + width *0.3 and mouseY > height*0.461 and mouseY < height * 0.055 + height * 0.461 and d == 0 or seccondPlayer == 3:
+                seccondPlayer = 3
+                    
+            
+        if PlayerCount >= 4:    
+            fill(218,165,32)
+            rect(width*0.3, height*0.518 ,width*0.4, height*0.0565)
+            fill(0)
+
+
+            if mouseX > width*0.3 and mouseX < width*0.4 + width *0.3 and mouseY > height*0.518 and mouseY < height * 0.055 + height * 0.518 or seccondPlayer == 4:
+                fill(218,165,32)
+                stroke(255)
+                rect(width*0.3, height*0.518, width*0.4, height*0.056)
+                fill(255)
+                stroke(0)
+            fill(0)
+            if mousePressed == True and mouseX > width*0.3 and mouseX < width*0.4 + width *0.3 and mouseY > height*0.518 and mouseY < height * 0.055 + height * 0.518 and d == 0 or seccondPlayer == 4:
+                seccondPlayer = 4
+                    
+                
+        if PlayerCount >= 5:    
+            fill(218,165,32)
+            rect(width*0.3, height*0.575, width*0.4, height*0.056)
+            fill(0)
+
+            if mouseX > width*0.3 and mouseX < width*0.4 + width *0.3 and mouseY > height*0.575 and mouseY < height * 0.055+ height * 0.575 or seccondPlayer == 5:
+                fill(218,165,32)
+                stroke(255)
+                rect(width*0.3, height*0.575, width*0.4, height*0.056)
+                fill(255)
+                stroke(0)
+            fill(0)
+            if mousePressed == True and mouseX > width*0.3 and mouseX < width*0.4 + width *0.3 and mouseY > height*0.575 and mouseY < height * 0.055 + height * 0.575 and d == 0 or seccondPlayer == 5:
+                seccondPlayer = 5
+                    
+            
+        if PlayerCount >= 6:    
+            fill(218,165,32)
+            rect(width*0.3, height*0.632, width*0.4, height*0.056)
+            fill(0)
+            if mouseX > width*0.3 and mouseX < width*0.4 + width *0.3 and mouseY > height*0.632 and mouseY < height * 0.055 + height * 0.632 or seccondPlayer == 6:
+                fill(218,165,32)
+                stroke(255)
+                rect(width*0.3, height*0.632, width*0.4, height*0.056)
+                fill(255)
+                stroke(0)
+            fill(0)
+            if mousePressed == True and mouseX > width*0.3 and mouseX < width*0.4 + width *0.3 and mouseY > height*0.632 and mouseY < height * 0.056 + height * 0.632 and d == 0 or seccondPlayer == 6:
+                seccondPlayer = 6
+                
+            
+
+        global playersTurn
+        fill(0)
+        rectMode(CENTER)
+        textAlign (CENTER)
+        textSize(40)
+        text('Kies de Speler die gewonnen heeft', width / 2, height * 0,2)
+        textSize(50)
+        fill(0)
+        textAlign(LEFT, TOP)
+        for x in range(0,7):
+            if playersList[x][0] != '':
+                text(playersList[x][0],width * 0.33 , (height * x * 0.057) + (height * 0.29)) 
+        
     
 # Generates a new random card and shows it on the screen    
 def instructie():
