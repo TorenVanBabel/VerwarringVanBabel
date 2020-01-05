@@ -465,28 +465,99 @@ def instructieBackV():
         background(backgroundImg)
         image(img6, (width // 2) -300 , 30)
         fill(218,165,32)
-        rect(width*0.03, height*0.46, width*0.2, height*0.036)
+        rect(width*0.03, height*0.302, width*0.2, height*0.038)
         fill(0)
-        if mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.46 and mouseY < height * 0.036 + height * 0.46:
+        if mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.302 and mouseY < height * 0.037 + height * 0.302:
             fill(218,165,32)
             stroke(255)
-            rect(width*0.03, height*0.46, width*0.2, height*0.036)
+            rect(width*0.03, height*0.302, width*0.2, height*0.038)
             fill(255)
             stroke(0)
         fill(0)
-        if mousePressed == True and mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.495 and mouseY < height * 0.036 + height * 0.495 and d == 0:
+        if mousePressed == True and mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.302 and mouseY < height * 0.037 + height * 0.302 and d == 0:
             d = 0
+        
+        
         fill(218,165,32)
-        rect(width*0.03, height*0.497, width*0.2, height*0.036)
+        rect(width*0.03, height*0.341, width*0.2, height*0.038)
         fill(0)
-        if mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.495 and mouseY < height * 0.035 + height * 0.495:
+        if mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.341 and mouseY < height * 0.037 + height * 0.341:
             fill(218,165,32)
             stroke(255)
-            rect(width*0.03, height*0.497, width*0.2, height*0.036)
+            rect(width*0.03, height*0.341, width*0.2, height*0.038)
             fill(255)
             stroke(0)
         fill(0)
-        if mousePressed == True and mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.495 and mouseY < height * 0.035 + height * 0.495 and d == 0:
+        if mousePressed == True and mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.341 and mouseY < height * 0.037 + height * 0.341 and d == 0:
+            d = 0
+        
+        fill(218,165,32)
+        rect(width*0.03, height*0.380, width*0.2, height*0.038)
+        fill(0)
+        if mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.380 and mouseY < height * 0.037 + height * 0.380:
+            fill(218,165,32)
+            stroke(255)
+            rect(width*0.03, height*0.380, width*0.2, height*0.038)
+            fill(255)
+            stroke(0)
+        fill(0)
+        if mousePressed == True and mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.380 and mouseY < height * 0.037 + height * 0.380 and d == 0:
+            d = 0
+        
+        
+        fill(218,165,32)
+        rect(width*0.03, height*0.419, width*0.2, height*0.038)
+        fill(0)
+        if mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.419 and mouseY < height * 0.037 + height * 0.419:
+            fill(218,165,32)
+            stroke(255)
+            rect(width*0.03, height*0.419, width*0.2, height*0.038)
+            fill(255)
+            stroke(0)
+        fill(0)
+        if mousePressed == True and mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.419 and mouseY < height * 0.037 + height * 0.419 and d == 0:
+            d = 0
+            
+            
+        fill(218,165,32)
+        rect(width*0.03, height*0.458, width*0.2, height*0.038)
+        fill(0)
+        if mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.458 and mouseY < height * 0.037 + height * 0.458:
+            fill(218,165,32)
+            stroke(255)
+            rect(width*0.03, height*0.458, width*0.2, height*0.038)
+            fill(255)
+            stroke(0)
+        fill(0)
+        if mousePressed == True and mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.458 and mouseY < height * 0.037 + height * 0.458 and d == 0:
+            d = 0
+            
+            
+        fill(218,165,32)
+        rect(width*0.03, height*0.497, width*0.2, height*0.038)
+        fill(0)
+        if mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.497 and mouseY < height * 0.038+ height * 0.497:
+            fill(218,165,32)
+            stroke(255)
+            rect(width*0.03, height*0.497, width*0.2, height*0.038)
+            fill(255)
+            stroke(0)
+        fill(0)
+        if mousePressed == True and mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.497 and mouseY < height * 0.038 + height * 0.497 and d == 0:
+            d = 0
+            
+            
+        fill(218,165,32)
+        rect(width*0.03, height*0.536, width*0.2, height*0.038)
+        fill(0)
+        if mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.534 and mouseY < height * 0.037 + height * 0.536:
+            fill(218,165,32)
+            stroke(255)
+            rect(width*0.03, height*0.536, width*0.2, height*0.038)
+            fill(255)
+            stroke(0)
+        fill(0)
+        if mousePressed == True and mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.536 and mouseY < height * 0.037 + height * 0.536 and d == 0:
             d = 0
             
         
@@ -501,7 +572,7 @@ def instructieBackV():
         textAlign(LEFT, TOP)
         for x in range(0,7):
             if playersList[x][0] != '':
-                text(playersList[x][0],width * 0.05, (height * x * 0.04) + (height * 0.3))    
+                text(playersList[x][0],width * 0.05, (height * x * 0.039) + (height * 0.306))    
 
 
 
