@@ -151,7 +151,7 @@ def draw():
         mainMenuButton()
     
     #Draws names from the players on the screen where needed
-    if False == (currentScreen == 'inputNames' or currentScreen == 'start' or currentScreen == 'gameFinished'):
+    if False == (currentScreen == 'inputNames' or currentScreen == 'start' or currentScreen == 'gameFinished' or currentScreen == 'GoodOrBad'):
         showNames()
         
         
