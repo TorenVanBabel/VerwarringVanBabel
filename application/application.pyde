@@ -145,7 +145,7 @@ def draw():
         gameFinished()
         
     # Draws button back to main menu where needed
-    if False == (currentScreen == 'start' or currentScreen == 'hoofdmenu' or currentScreen == 'inputNames' or currentScreen == 'gameFinished'):
+    if False == (currentScreen == 'start' or currentScreen == 'hoofdmenu' or currentScreen == 'inputNames' or currentScreen == 'gameFinished' or currentScreen == 'droomCards' or currentScreen == 'random' or currentScreen == 'GoodOrBad' ):
         mainMenuButton()
     
     #Draws names from the players on the screen where needed
@@ -344,8 +344,9 @@ def mainMenuButton():
 def GoedOfFoutClick():
     global goed,fout,img10,img11, b, punten,d, backgroundImg, Save, addedCoins, currentScreen, playersTurn, PlayerCount, l
     background(backgroundImg)
-    image(img10,280,500,500,300)
-    image(img11,1050,510,500,290)
+    if Save != True:
+        image(img10,280,500,500,300)
+        image(img11,1050,510,500,290)
     fill(0)
     stroke(100,100,100)
     textAlign(CENTER)
@@ -362,13 +363,26 @@ def GoedOfFoutClick():
         rect(1600,100,300,110)
         print (b)
         fill(0)
-        text(b+'+',1750,180)
+        text(str(b)+'+',1750,180)
         print(playersList[currentPlayer][2])
-        currentScreen = 'hoofdmenu'
         
         
     elif mousePressed == True and mouseX > 380 and mouseX < 780 and mouseY > 550 and mouseY < 750 and d == 0:
-        goedGekozen()
+        b = int(random(0,6))
+        b = l[b]
+        Save = True
+        print('good')
+        text('Yes!\nJe krijgt een munt',width/ 2,100)
+        if addedCoins == False:
+            playersList[playersTurn][2] = int(playersList[playersTurn][2]) + int(b)
+            addedCoins = True
+        fill(220,150,0)
+        rect(1600,100,300,110)
+        print (b)
+        fill(0)
+        text(str(b)+'+',1750,180)
+        print(playersList[currentPlayer][2])
+
         
         
     elif mousePressed == True and mouseX > 1050 and  mouseX  < 1450 and mouseY  > 550 and mouseY < 750 and d == 0:
