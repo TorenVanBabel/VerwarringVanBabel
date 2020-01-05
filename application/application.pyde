@@ -6,7 +6,7 @@ def setup():
     global currentScreen, timerDifficulty, timerStart, secondsPassed, regularFont, d, playersList, allowedCharacters, currentPlayer, verwarring, addedCoins, Higlight, fillOrNoFill
     global backgroundImg, instrImg, droomImg, img, Save, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, punten, ground10, ground15, ground20, ground50, landkaart
     global Europe, NorthAmerika, SouthAmerika, Africa, Asia, Antartica, Australia, playersTurn, PlayerCount, gameWinner, gameOver, seccondPlayer
-    playersList = [['', 'Antarctica', 500], ['', 'Europa', 0], ['', 'Zuid-Amerika', 0], ['', 'Noord-Amerika', 0], ['', u'Azi\u00EB', 0], ['', u'Australi\u00EB', 0], ['', 'Afrika', 0]]
+    playersList = [['', 'Antarctica', 0], ['', 'Europa', 0], ['', 'Zuid-Amerika', 0], ['', 'Noord-Amerika', 0], ['', u'Azi\u00EB', 0], ['', u'Australi\u00EB', 0], ['', 'Afrika', 0]]
     fillOrNoFill = ''
     gameOver = False
     currentPlayer = 0
@@ -141,8 +141,6 @@ def draw():
         checkIfGameFinished()
         worldMap()
         
-    elif currentScreen == 'goedGeklikt':
-        goedGekozen()
     elif currentScreen == 'gameFinished':
         gameFinished()
         
@@ -163,18 +161,18 @@ def draw():
 def startmenu():
     global img, img2, img3, img4, img5, currentScreen, d, Higlight
     image(backgroundImg, 0, 0, width, height)
-    image(img2,570,80,720,576)
-    image(img3,1020,300,150,170)
-    image(img4,700, 450, 500, 350)
+    image(img2,width*0.3,height*0.1,width*0.38,height*0.5)
+    image(img3,width*0.53,height*0.28,width*0.08,height*0.15)
+    image(img4,width*0.36, height*0.42, width*0.26, height*0.32)
     
     textAlign(CENTER)
     fill(255)
     textSize(70)
     text('Kies de moeilijkheidsgraad!', width/2, height * 0.8)
     
-    if mouseX > 780 and mouseX < 1100 and mouseY > 560 and mouseY < 660:
+    if mouseX > width*0.41 and mouseX < width*0.41 + width*0.16 and mouseY > height*0.529 and mouseY < height*0.529 + height*0.086:
         d = 1
-        image(img5,700, 450, 500, 350)
+        image(img5,width*0.36, height*0.42, width*0.26, height*0.32)
         if mousePressed == True and Higlight != 0:
             currentScreen = 'inputNames'
 
