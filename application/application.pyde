@@ -137,6 +137,9 @@ def draw():
     elif currentScreen == 'worldMap':
         worldMap()
         
+    elif currentScreen == 'goedGeklikt':
+        goedGekozen()
+        
     # Draws button back to main menu where needed
     if False == (currentScreen == 'start' or currentScreen == 'hoofdmenu' or currentScreen == 'inputNames'):
         mainMenuButton()
@@ -332,7 +335,7 @@ def mainMenuButton():
         Save = False
         
 def GoedOfFoutClick():
-    global goed,fout,img10,img11, b, punten,d, backgroundImg, Save, addedCoins, currentScreen, playersTurn, PlayerCount
+    global goed,fout,img10,img11, b, punten,d, backgroundImg, Save, addedCoins, currentScreen, playersTurn, PlayerCount, l
     background(backgroundImg)
     image(img10,280,500,500,300)
     image(img11,1050,510,500,290)
@@ -342,7 +345,6 @@ def GoedOfFoutClick():
     textSize(80)
     l = ['5','10','15','20','25','50']
     textSize(40)
-    text(str(punten),1700,100,100,100)
     if Save == True:
         print('good')
         text('Yes!\nJe krijgt een munt',width/ 2,100)
@@ -359,22 +361,7 @@ def GoedOfFoutClick():
         
         
     elif mousePressed == True and mouseX > 380 and mouseX < 780 and mouseY > 550 and mouseY < 750 and d == 0:
-        d = 1
-        b = int(random(0,5))
-        b = l[b]
-        fill(200)
-        print('good')
-        text('Yes!\nJe krijgt een munt',width/ 2,100)
-        if addedCoins == False:
-            playersList[playersTurn][2] = int(playersList[playersTurn][2]) + int(b)
-            addedCoins = True
-        fill(220,150,0)
-        rect(1600,100,300,110)
-        print (b)
-        fill(0)
-        text(b+'+',1750,180)
-        print(punten)
-        Save = True
+        goedGekozen()
         
         
     elif mousePressed == True and mouseX > 1050 and  mouseX  < 1450 and mouseY  > 550 and mouseY < 750 and d == 0:
@@ -388,6 +375,32 @@ def GoedOfFoutClick():
             playersTurn = 0   
         d = 1   
         
+def goedGekozen():
+    global b, punten,d, backgroundImg, Save, addedCoins, currentScreen, playersTurn, PlayerCount, l
+    background(backgroundImg)
+    currentScreen = 'goedGekozen'
+    fill(0)
+    stroke(100,100,100)
+    textAlign(CENTER)
+    textSize(40)
+    text('Yes!\nJe krijgt een munt',width/ 2,100)
+    c = 0 
+    d = 0
+    if c == 0:
+        b = int(random(0,5))
+        b = l[b]
+        c += 1
+    if addedCoins == False and d == 0:
+        playersList[playersTurn][2] = int(playersList[playersTurn][2]) + int(b)
+        addedCoins = True
+    fill(220,150,0)
+    rect(1600,100,300,110)
+    print (b)
+    fill(0)
+    text(b+'+',1750,180)
+    print(punten)
+   
+ 
 
 def difficultyButtons():
     global currentScreen, timerDifficulty, Higlight
