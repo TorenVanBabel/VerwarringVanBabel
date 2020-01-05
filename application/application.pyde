@@ -1972,6 +1972,16 @@ def gameFinished():
     textSize(70)
     fill(255)
     text(playersList[gameWinner][0] + ' (' + playersList[gameWinner][1] + ') \n' + 'heeft de Verwarring van Babel gewonnen!', width/2, height/2)
+    fill(218,165,32)
+    rectMode(CENTER)
+    rect(width/2, height*0.8, width * 0.4, height * 0.15)
+    
+    textAlign(CENTER, CENTER)
+    fill(0)
+    textSize(60)
+    text('Speel opnieuw!', width/2, height * 0.8) 
+    if (mousePressed == True and (width * 0.3 < mouseX < width * 0.7) and (height * 0.725 < mouseY < height * 0.875)):
+        setup()
     
     
 def clock():
