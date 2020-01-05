@@ -396,6 +396,7 @@ def GoedOfFoutClick():
         currentScreen = 'hoofdmenu'
 
     if currentScreen == 'hoofdmenu':
+        seccondPlayer = ''
         if playersTurn < PlayerCount:
             playersTurn += 1
         else:
@@ -470,7 +471,6 @@ def instructieBackV():
         background(backgroundImg)
         timerStart = datetime.now()
         currentScreen = 'random'
-
     else:
         if seccondPlayer == playersTurn:
             seccondPlayer = ''
@@ -593,7 +593,7 @@ def instructieBackV():
             fill(218,165,32)
             rect(width*0.03, height*0.497, width*0.2, height*0.038)
             fill(0)
-            if playersTurn == 4:
+            if playersTurn == 5:
                 fill(218,165,32)
                 stroke(255)
                 rect(width*0.03, height*0.497, width*0.2, height*0.038)
@@ -616,7 +616,7 @@ def instructieBackV():
             fill(218,165,32)
             rect(width*0.03, height*0.536, width*0.2, height*0.038)
             fill(0)
-            if playersTurn == 4:
+            if playersTurn == 6:
                 fill(218,165,32)
                 stroke(255)
                 rect(width*0.03, height*0.536, width*0.2, height*0.038)
@@ -657,6 +657,7 @@ def instructieBack():
         background(backgroundImg)
         timerStart = datetime.now()
         currentScreen = 'random'
+    
     else:
         if seccondPlayer == playersTurn:
             seccondPlayer = ''
@@ -966,7 +967,7 @@ def droomBack():
             fill(218,165,32)
             rect(width*0.03, height*0.497, width*0.2, height*0.038)
             fill(0)
-            if playersTurn == 4:
+            if playersTurn == 5:
                 fill(218,165,32)
                 stroke(255)
                 rect(width*0.03, height*0.497, width*0.2, height*0.038)
@@ -989,7 +990,7 @@ def droomBack():
             fill(218,165,32)
             rect(width*0.03, height*0.536, width*0.2, height*0.038)
             fill(0)
-            if playersTurn == 4:
+            if playersTurn == 6:
                 fill(218,165,32)
                 stroke(255)
                 rect(width*0.03, height*0.536, width*0.2, height*0.038)
@@ -1031,9 +1032,10 @@ def backBabelen():
         currentScreen = 'babelen'
 
 def babelen():
-    global img8, currentScreen, d, timerStart, Save, PlayerCount, seccondPlayer, playersTurn
+    global img8, currentScreen, d, timerStart, Save, PlayerCount, seccondPlayer, playersTurn, Save
     if seccondPlayer != '':
         seccondPlayer = ''
+        Save = False
     else:
         
         if seccondPlayer == playersTurn:
@@ -1046,7 +1048,7 @@ def babelen():
         if mouseX > width*0.3 and mouseX < width*0.4 + width *0.3 and mouseY > height*0.290 and mouseY < height * 0.055 + height * 0.290 or seccondPlayer == 0:
             fill(218,165,32)
             stroke(255)
-            rect(width*0.3, height*0.302, width*0.4, height*0.038)
+            rect(width*0.3, height*0.290, width*0.4, height*0.056)
             fill(255)
             stroke(0)
         fill(0)
