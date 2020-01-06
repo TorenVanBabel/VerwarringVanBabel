@@ -1062,6 +1062,10 @@ def babelen():
             background(backgroundImg)
             fill(218,165,32)
             rect(width*0.3, height*0.290, width*0.4, height*0.056)
+            fill(255)
+            textAlign (CENTER, CENTER)
+            textSize(55)
+            text('Kies de Speler die gewonnen heeft', width / 2, height * 0.2)
             fill(0)
     
             if mouseX > width*0.3 and mouseX < width*0.4 + width *0.3 and mouseY > height*0.290 and mouseY < height * 0.055 + height * 0.290 or seccondPlayer == 0:
@@ -1175,11 +1179,6 @@ def babelen():
             
 
             global playersTurn
-            fill(0)
-            rectMode(CENTER)
-            textAlign (CENTER)
-            textSize(40)
-            text('Kies de Speler die gewonnen heeft', width / 2, height * 0,2)
             textSize(50)
             fill(0)
             textAlign(LEFT, TOP)
@@ -1204,9 +1203,11 @@ def babelen():
         fill(255)
         textSize(70)
         textAlign(CENTER, CENTER)
-        text(playersList[seccondPlayer][0] + ' je krijgt een munt van ' + str(coins) + '\nJe hebt nu ' + str(playersList[seccondPlayer][2]) + ' munten', width/2, height/2)
         fill(0)
         text('Menu', width/2, height*0.75)
+        
+        fill(0)
+        text(playersList[seccondPlayer][0] + ' je krijgt een munt van ' + str(coins) + '\nJe hebt nu ' + str(playersList[seccondPlayer][2]) + ' munten', width/2, height/2)
         
         if mousePressed == True and width*0.4 < mouseX < width*0.6 and height*0.72 < mouseY < height*0.8 and d == 0:
             currentScreen = 'hoofdmenu'
@@ -2160,7 +2161,7 @@ def drawMedespelerTekst():
 def keyReleased():
     global currentPlayer, playerList, currentScreen, PlayerCount
     if currentScreen == 'inputNames':
-        if key in allowedCharacters and len(playersList[currentPlayer][0]) <= 10:
+        if key in allowedCharacters and len(playersList[currentPlayer][0]) <= 8:
             playersList[currentPlayer][0] += key
         elif key == BACKSPACE:                        
             playersList[currentPlayer][0] = playersList[currentPlayer][0][:-1]
