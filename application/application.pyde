@@ -189,7 +189,7 @@ def inputNames():
     rect(width/2, height*0.55, width*0.35, height*0.075)
     
     textAlign(CENTER, CENTER)
-    textSize(60)
+    textSize(65)
     fill(0)
     text('Naam speler ' + str(currentPlayer + 1) +  ' (' + playersList[currentPlayer][1] + ')', width/2, height/2 * 0.8) 
     text(playersList[currentPlayer][0], width/2, height*0.54)
@@ -1320,7 +1320,9 @@ def droomCards():
 
     if Save == False:
         x = int(random(0, 4))
-        droomList = ['Aarde','Aarde','Aarde','Aarde']
+        droomList = ['Aarde','Vuur','Water','Lucht', 'Bouwstenen', 'Constructie', 'Sloophamer', 'Opdrachten', 'Metselaar', 'Pikhouweel', 'Inspanning', 'Teamwork', 'Instorten', 'Hoogbouw', 
+                     'Laagbouw', 'Straffen', 'Vertaling', 'Wereldreis', 'Hoogtevrees', 'Onduidelijk', 'Begrijpen', 'Goddelijk', 'Verhalen', 'Mythe', 'Oudheid', 'Legende', 'Zuid-Amerika', 
+                     'Noord-Amerika', 'Europa', u'Azi\u00EB', u'Australi\u00EB', 'Antarctica', 'Afrika', 'Continent', 'Toendra', 'Woestijn', 'IJs', 'Zonneschijn', 'Maneschijn', 'Letters', 'Woorden']
         textSize(60)
         droom = droomList.pop(x)
         Save = True
@@ -1335,6 +1337,7 @@ def timerFunc(placement):
     textSize(200)
     fill(255)
     textAlign(CENTER, CENTER)
+    
     timePassed = (datetime.now() - timerStart).seconds
     if timePassed > timerDifficulty or timePassed == 'De tijd is op!':
         timePassed = 'De tijd is op!'
@@ -1343,6 +1346,16 @@ def timerFunc(placement):
         currentScreen = 'GoodOrBad'
     else:
         text(timerDifficulty - timePassed, placement, height/2)
+    rectMode(CENTER)
+    fill(218,165,32)
+    rect(placement, height*0.65, width*0.12, height*0.045)
+    textAlign(CENTER, CENTER)
+    textSize(25)
+    fill(0)
+    text('Klaar', placement, height*0.645)
+    if mousePressed == True and placement-width*0.06 < mouseX < placement+width*0.06 and height*0.65-height*0.0225 < mouseY < height*0.65+height*0.0225:
+        timerStart = datetime.max
+    
 
 def worldMap():
     global playersTurn, gameOver
@@ -2132,7 +2145,7 @@ def gameFinished():
     text(playersList[gameWinner][0] + ' (' + playersList[gameWinner][1] + ') \n' + 'heeft de Verwarring van Babel gewonnen!', width/2, height/2)
     fill(218,165,32)
     rectMode(CENTER)
-    rect(width/2, height*0.8, width * 0.4, height * 0.15)
+    rect(width/2, height*0.8, width * 0.35, height * 0.13)
     
     textAlign(CENTER, CENTER)
     fill(0)
