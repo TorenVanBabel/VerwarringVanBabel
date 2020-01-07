@@ -173,7 +173,7 @@ def startmenu():
     textAlign(CENTER)
     fill(255)
     textSize(70)
-    text('Kies de moeilijkheidsgraad!', width/2, height * 0.8)
+    text('Kies de moeilijkheidsgraad', width/2, height * 0.8)
     
     if mouseX > width*0.41 and mouseX < width*0.41 + width*0.16 and mouseY > height*0.529 and mouseY < height*0.529 + height*0.086:
         d = 1
@@ -509,138 +509,138 @@ def instructieBackV():
         
         
         fill(218,165,32)
-        rect(width*0.03, height*0.341, width*0.2, height*0.038)
+        rect(width*0.03, height*0.352, width*0.2, height*0.038)
         fill(0)
         if playersTurn == 1:
             fill(218,165,32)
             stroke(255)
-            rect(width*0.03, height*0.341, width*0.2, height*0.038)
+            rect(width*0.03, height*0.352, width*0.2, height*0.038)
             fill(255)
             stroke(0)
             fill(0)
         else:
-            if mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.341 and mouseY < height * 0.037 + height * 0.341 or seccondPlayer == 1:
+            if mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.352 and mouseY < height * 0.037 + height * 0.352 or seccondPlayer == 1:
                 fill(218,165,32)
                 stroke(255)
-                rect(width*0.03, height*0.341, width*0.2, height*0.038)
+                rect(width*0.03, height*0.352, width*0.2, height*0.038)
                 fill(255)
                 stroke(0)
             fill(0)
-            if mousePressed == True and mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.341 and mouseY < height * 0.037 + height * 0.341 and d == 0 or seccondPlayer == 1:
+            if mousePressed == True and mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.352 and mouseY < height * 0.037 + height * 0.341 and d == 0 or seccondPlayer == 1:
                 seccondPlayer = 1
                 d = 0
         
         fill(218,165,32)
-        rect(width*0.03, height*0.380, width*0.2, height*0.038)
+        rect(width*0.03, height*0.402,width*0.2, height*0.038)
         fill(0)
         if playersTurn == 2:
             fill(218,165,32)
             stroke(255)
-            rect(width*0.03, height*0.380, width*0.2, height*0.038)
+            rect(width*0.03, height*0.402, width*0.2, height*0.038)
             fill(255)
             stroke(0)
             fill(0)
         else:
-            if mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.380 and mouseY < height * 0.037 + height * 0.380 or seccondPlayer == 2:
+            if mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.402 and mouseY < height * 0.037 + height * 0.402 or seccondPlayer == 2:
                 fill(218,165,32)
                 stroke(255)
-                rect(width*0.03, height*0.380, width*0.2, height*0.038)
+                rect(width*0.03, height*0.402, width*0.2, height*0.038)
                 fill(255)
                 stroke(0)
             fill(0)
-            if mousePressed == True and mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.380 and mouseY < height * 0.037 + height * 0.380 and d == 0 or seccondPlayer == 2:
+            if mousePressed == True and mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.402 and mouseY < height * 0.037 + height * 0.402 and d == 0 or seccondPlayer == 2:
                 seccondPlayer = 2
                 d = 0
         
         if PlayerCount >= 3:
             fill(218,165,32)
-            rect(width*0.03, height*0.419, width*0.2, height*0.038)
+            rect(width*0.03, height*0.452, width*0.2, height*0.038)
             fill(0)
             if playersTurn == 3:
                 fill(218,165,32)
                 stroke(255)
-                rect(width*0.03, height*0.419, width*0.2, height*0.038)
+                rect(width*0.03, height*0.452, width*0.2, height*0.038)
                 fill(255)
                 stroke(0)
                 fill(0)
             else:
-                if mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.419 and mouseY < height * 0.037 + height * 0.419 or seccondPlayer == 3:
+                if mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.452 and mouseY < height * 0.037 + height * 0.452 or seccondPlayer == 3:
                     fill(218,165,32)
                     stroke(255)
-                    rect(width*0.03, height*0.419, width*0.2, height*0.038)
+                    rect(width*0.03, height*0.452, width*0.2, height*0.038)
                     fill(255)
                     stroke(0)
                 fill(0)
-                if mousePressed == True and mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.419 and mouseY < height * 0.037 + height * 0.419 and d == 0 or seccondPlayer == 3:
+                if mousePressed == True and mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.452 and mouseY < height * 0.037 + height * 0.452 and d == 0 or seccondPlayer == 3:
                     seccondPlayer = 3
                     d = 0
             
         if PlayerCount >= 4:    
             fill(218,165,32)
-            rect(width*0.03, height*0.458, width*0.2, height*0.038)
+            rect(width*0.03, height*0.502, width*0.2, height*0.038)
             fill(0)
             if playersTurn == 4:
                 fill(218,165,32)
                 stroke(255)
-                rect(width*0.03, height*0.458, width*0.2, height*0.038)
+                rect(width*0.03, height*0.502, width*0.2, height*0.038)
                 fill(255)
                 stroke(0)
                 fill(0)
             else:
-                if mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.458 and mouseY < height * 0.037 + height * 0.458 or seccondPlayer == 4:
+                if mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.502 and mouseY < height * 0.037 + height * 0.502 or seccondPlayer == 4:
                     fill(218,165,32)
                     stroke(255)
-                    rect(width*0.03, height*0.458, width*0.2, height*0.038)
+                    rect(width*0.03, height*0.502, width*0.2, height*0.038)
                     fill(255)
                     stroke(0)
                 fill(0)
-                if mousePressed == True and mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.458 and mouseY < height * 0.037 + height * 0.458 and d == 0 or seccondPlayer == 4:
+                if mousePressed == True and mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.502 and mouseY < height * 0.037 + height * 0.502 and d == 0 or seccondPlayer == 4:
                     seccondPlayer = 4
                     d = 0
                 
         if PlayerCount >= 5:    
             fill(218,165,32)
-            rect(width*0.03, height*0.497, width*0.2, height*0.038)
+            rect(width*0.03, height*0.552, width*0.2, height*0.038)
             fill(0)
             if playersTurn == 5:
                 fill(218,165,32)
                 stroke(255)
-                rect(width*0.03, height*0.497, width*0.2, height*0.038)
+                rect(width*0.03, height*0.552, width*0.2, height*0.038)
                 fill(255)
                 stroke(0)
                 fill(0)
             else:
-                if mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.497 and mouseY < height * 0.038+ height * 0.497 or seccondPlayer == 5:
+                if mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.552 and mouseY < height * 0.038+ height * 0.552 or seccondPlayer == 5:
                     fill(218,165,32)
                     stroke(255)
-                    rect(width*0.03, height*0.497, width*0.2, height*0.038)
+                    rect(width*0.03, height*0.552, width*0.2, height*0.038)
                     fill(255)
                     stroke(0)
                 fill(0)
-                if mousePressed == True and mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.497 and mouseY < height * 0.038 + height * 0.497 and d == 0 or seccondPlayer == 5:
+                if mousePressed == True and mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.552 and mouseY < height * 0.038 + height * 0.552 and d == 0 or seccondPlayer == 5:
                     seccondPlayer = 5
                     d = 0
             
         if PlayerCount >= 6:    
             fill(218,165,32)
-            rect(width*0.03, height*0.536, width*0.2, height*0.038)
+            rect(width*0.03, height*0.602, width*0.2, height*0.038)
             fill(0)
             if playersTurn == 6:
                 fill(218,165,32)
                 stroke(255)
-                rect(width*0.03, height*0.536, width*0.2, height*0.038)
+                rect(width*0.03, height*0.602, width*0.2, height*0.038)
                 fill(255)
                 stroke(0)
                 fill(0)
             else:
-                if mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.534 and mouseY < height * 0.037 + height * 0.536 or seccondPlayer == 6:
+                if mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.600 and mouseY < height * 0.037 + height * 0.602 or seccondPlayer == 6:
                     fill(218,165,32)
                     stroke(255)
-                    rect(width*0.03, height*0.536, width*0.2, height*0.038)
+                    rect(width*0.03, height*0.602, width*0.2, height*0.038)
                     fill(255)
                     stroke(0)
                 fill(0)
-                if mousePressed == True and mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.536 and mouseY < height * 0.037 + height * 0.536 and d == 0 or seccondPlayer == 6:
+                if mousePressed == True and mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.602 and mouseY < height * 0.037 + height * 0.602 and d == 0 or seccondPlayer == 6:
                     seccondPlayer = 6
                     d = 0
             
@@ -656,7 +656,7 @@ def instructieBackV():
         textAlign(LEFT, TOP)
         for x in range(0,7):
             if playersList[x][0] != '':
-                text(playersList[x][0],width * 0.05, (height * x * 0.039) + (height * 0.306))   
+                text(playersList[x][0],width * 0.05, (height * x * 0.050) + (height * 0.300))   
                 
     drawMedespelerTekst() 
 
@@ -699,138 +699,138 @@ def instructieBack():
         
         
         fill(218,165,32)
-        rect(width*0.03, height*0.341, width*0.2, height*0.038)
+        rect(width*0.03, height*0.352, width*0.2, height*0.038)
         fill(0)
         if playersTurn == 1:
             fill(218,165,32)
             stroke(255)
-            rect(width*0.03, height*0.341, width*0.2, height*0.038)
+            rect(width*0.03, height*0.352, width*0.2, height*0.038)
             fill(255)
             stroke(0)
             fill(0)
         else:
-            if mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.341 and mouseY < height * 0.037 + height * 0.341 or seccondPlayer == 1:
+            if mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.352 and mouseY < height * 0.037 + height * 0.352 or seccondPlayer == 1:
                 fill(218,165,32)
                 stroke(255)
-                rect(width*0.03, height*0.341, width*0.2, height*0.038)
+                rect(width*0.03, height*0.352, width*0.2, height*0.038)
                 fill(255)
                 stroke(0)
             fill(0)
-            if mousePressed == True and mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.341 and mouseY < height * 0.037 + height * 0.341 and d == 0 or seccondPlayer == 1:
+            if mousePressed == True and mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.352 and mouseY < height * 0.037 + height * 0.352 and d == 0 or seccondPlayer == 1:
                 seccondPlayer = 1
                 
         
         fill(218,165,32)
-        rect(width*0.03, height*0.380, width*0.2, height*0.038)
+        rect(width*0.03, height*0.402, width*0.2, height*0.038)
         fill(0)
         if playersTurn == 2:
             fill(218,165,32)
             stroke(255)
-            rect(width*0.03, height*0.380, width*0.2, height*0.038)
+            rect(width*0.03, height*0.402, width*0.2, height*0.038)
             fill(255)
             stroke(0)
             fill(0)
         else:
-            if mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.380 and mouseY < height * 0.037 + height * 0.380 or seccondPlayer == 2:
+            if mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.402 and mouseY < height * 0.037 + height * 0.402 or seccondPlayer == 2:
                 fill(218,165,32)
                 stroke(255)
-                rect(width*0.03, height*0.380, width*0.2, height*0.038)
+                rect(width*0.03, height*0.402, width*0.2, height*0.038)
                 fill(255)
                 stroke(0)
             fill(0)
-            if mousePressed == True and mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.380 and mouseY < height * 0.037 + height * 0.380 and d == 0 or seccondPlayer == 2:
+            if mousePressed == True and mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.402 and mouseY < height * 0.037 + height * 0.402 and d == 0 or seccondPlayer == 2:
                 seccondPlayer = 2
                 
         
         if PlayerCount >= 3:
             fill(218,165,32)
-            rect(width*0.03, height*0.419, width*0.2, height*0.038)
+            rect(width*0.03, height*0.452, width*0.2, height*0.038)
             fill(0)
             if playersTurn == 3:
                 fill(218,165,32)
                 stroke(255)
-                rect(width*0.03, height*0.419, width*0.2, height*0.038)
+                rect(width*0.03, height*0.452, width*0.2, height*0.038)
                 fill(255)
                 stroke(0)
                 fill(0)
             else:
-                if mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.419 and mouseY < height * 0.037 + height * 0.419 or seccondPlayer == 3:
+                if mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.452 and mouseY < height * 0.037 + height * 0.452 or seccondPlayer == 3:
                     fill(218,165,32)
                     stroke(255)
-                    rect(width*0.03, height*0.419, width*0.2, height*0.038)
+                    rect(width*0.03, height*0.452, width*0.2, height*0.038)
                     fill(255)
                     stroke(0)
                 fill(0)
-                if mousePressed == True and mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.419 and mouseY < height * 0.037 + height * 0.419 and d == 0 or seccondPlayer == 3:
+                if mousePressed == True and mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.452 and mouseY < height * 0.037 + height * 0.452 and d == 0 or seccondPlayer == 3:
                     seccondPlayer = 3
                 
             
         if PlayerCount >= 4:    
             fill(218,165,32)
-            rect(width*0.03, height*0.458, width*0.2, height*0.038)
+            rect(width*0.03, height*0.502, width*0.2, height*0.038)
             fill(0)
             if playersTurn == 4:
                 fill(218,165,32)
                 stroke(255)
-                rect(width*0.03, height*0.458, width*0.2, height*0.038)
+                rect(width*0.03, height*0.502, width*0.2, height*0.038)
                 fill(255)
                 stroke(0)
                 fill(0)
             else:
-                if mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.458 and mouseY < height * 0.037 + height * 0.458 or seccondPlayer == 4:
+                if mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.502 and mouseY < height * 0.037 + height * 0.502 or seccondPlayer == 4:
                     fill(218,165,32)
                     stroke(255)
-                    rect(width*0.03, height*0.458, width*0.2, height*0.038)
+                    rect(width*0.03, height*0.502, width*0.2, height*0.038)
                     fill(255)
                     stroke(0)
                 fill(0)
-                if mousePressed == True and mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.458 and mouseY < height * 0.037 + height * 0.458 and d == 0 or seccondPlayer == 4:
+                if mousePressed == True and mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.502 and mouseY < height * 0.037 + height * 0.502 and d == 0 or seccondPlayer == 4:
                     seccondPlayer = 4
                 
                 
         if PlayerCount >= 5:    
             fill(218,165,32)
-            rect(width*0.03, height*0.497, width*0.2, height*0.038)
+            rect(width*0.03, height*0.552, width*0.2, height*0.038)
             fill(0)
             if playersTurn == 4:
                 fill(218,165,32)
                 stroke(255)
-                rect(width*0.03, height*0.497, width*0.2, height*0.038)
+                rect(width*0.03, height*0.552, width*0.2, height*0.038)
                 fill(255)
                 stroke(0)
                 fill(0)
             else:
-                if mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.497 and mouseY < height * 0.038+ height * 0.497 or seccondPlayer == 5:
+                if mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.552 and mouseY < height * 0.038+ height * 0.552 or seccondPlayer == 5:
                     fill(218,165,32)
                     stroke(255)
-                    rect(width*0.03, height*0.497, width*0.2, height*0.038)
+                    rect(width*0.03, height*0.552, width*0.2, height*0.038)
                     fill(255)
                     stroke(0)
                 fill(0)
-                if mousePressed == True and mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.497 and mouseY < height * 0.038 + height * 0.497 and d == 0 or seccondPlayer == 5:
+                if mousePressed == True and mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.552 and mouseY < height * 0.038 + height * 0.552 and d == 0 or seccondPlayer == 5:
                     seccondPlayer = 5
                 
             
         if PlayerCount >= 6:    
             fill(218,165,32)
-            rect(width*0.03, height*0.536, width*0.2, height*0.038)
+            rect(width*0.03, height*0.602, width*0.2, height*0.038)
             fill(0)
             if playersTurn == 4:
                 fill(218,165,32)
                 stroke(255)
-                rect(width*0.03, height*0.536, width*0.2, height*0.038)
+                rect(width*0.03, height*0.602, width*0.2, height*0.038)
                 fill(255)
                 stroke(0)
                 fill(0)
             else:
-                if mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.534 and mouseY < height * 0.037 + height * 0.536 or seccondPlayer == 6:
+                if mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.600 and mouseY < height * 0.037 + height * 0.602 or seccondPlayer == 6:
                     fill(218,165,32)
                     stroke(255)
-                    rect(width*0.03, height*0.536, width*0.2, height*0.038)
+                    rect(width*0.03, height*0.602, width*0.2, height*0.038)
                     fill(255)
                     stroke(0)
                 fill(0)
-                if mousePressed == True and mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.536 and mouseY < height * 0.037 + height * 0.536 and d == 0 or seccondPlayer == 6:
+                if mousePressed == True and mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.602 and mouseY < height * 0.037 + height * 0.602 and d == 0 or seccondPlayer == 6:
                     seccondPlayer = 6
                 
             
@@ -846,7 +846,7 @@ def instructieBack():
         textAlign(LEFT, TOP)
         for x in range(0,7):
             if playersList[x][0] != '':
-                text(playersList[x][0],width * 0.05, (height * x * 0.039) + (height * 0.306)) 
+                text(playersList[x][0],width * 0.05, (height * x * 0.050) + (height * 0.300)) 
                 
         drawMedespelerTekst()   
 
@@ -890,138 +890,138 @@ def droomBack():
         
         
         fill(218,165,32)
-        rect(width*0.03, height*0.341, width*0.2, height*0.038)
+        rect(width*0.03, height*0.352, width*0.2, height*0.038)
         fill(0)
         if playersTurn == 1:
             fill(218,165,32)
             stroke(255)
-            rect(width*0.03, height*0.341, width*0.2, height*0.038)
+            rect(width*0.03, height*0.352, width*0.2, height*0.038)
             fill(255)
             stroke(0)
             fill(0)
         else:
-            if mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.341 and mouseY < height * 0.037 + height * 0.341 or seccondPlayer == 1:
+            if mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.352 and mouseY < height * 0.037 + height * 0.352 or seccondPlayer == 1:
                 fill(218,165,32)
                 stroke(255)
-                rect(width*0.03, height*0.341, width*0.2, height*0.038)
+                rect(width*0.03, height*0.352, width*0.2, height*0.038)
                 fill(255)
                 stroke(0)
             fill(0)
-            if mousePressed == True and mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.341 and mouseY < height * 0.037 + height * 0.341 and d == 0 or seccondPlayer == 1:
+            if mousePressed == True and mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.352 and mouseY < height * 0.037 + height * 0.352 and d == 0 or seccondPlayer == 1:
                 seccondPlayer = 1
                 
         
         fill(218,165,32)
-        rect(width*0.03, height*0.380, width*0.2, height*0.038)
+        rect(width*0.03, height*0.402, width*0.2, height*0.038)
         fill(0)
         if playersTurn == 2:
             fill(218,165,32)
             stroke(255)
-            rect(width*0.03, height*0.380, width*0.2, height*0.038)
+            rect(width*0.03, height*0.402, width*0.2, height*0.038)
             fill(255)
             stroke(0)
             fill(0)
         else:
-            if mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.380 and mouseY < height * 0.037 + height * 0.380 or seccondPlayer == 2:
+            if mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.402 and mouseY < height * 0.037 + height * 0.402 or seccondPlayer == 2:
                 fill(218,165,32)
                 stroke(255)
-                rect(width*0.03, height*0.380, width*0.2, height*0.038)
+                rect(width*0.03, height*0.402, width*0.2, height*0.038)
                 fill(255)
                 stroke(0)
             fill(0)
-            if mousePressed == True and mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.380 and mouseY < height * 0.037 + height * 0.380 and d == 0 or seccondPlayer == 2:
+            if mousePressed == True and mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.402 and mouseY < height * 0.037 + height * 0.402 and d == 0 or seccondPlayer == 2:
                 seccondPlayer = 2
                 
         
         if PlayerCount >= 3:
             fill(218,165,32)
-            rect(width*0.03, height*0.419, width*0.2, height*0.038)
+            rect(width*0.03, height*0.452, width*0.2, height*0.038)
             fill(0)
             if playersTurn == 3:
                 fill(218,165,32)
                 stroke(255)
-                rect(width*0.03, height*0.419, width*0.2, height*0.038)
+                rect(width*0.03, height*0.452, width*0.2, height*0.038)
                 fill(255)
                 stroke(0)
                 fill(0)
             else:
-                if mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.419 and mouseY < height * 0.037 + height * 0.419 or seccondPlayer == 3:
+                if mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.452 and mouseY < height * 0.037 + height * 0.452 or seccondPlayer == 3:
                     fill(218,165,32)
                     stroke(255)
-                    rect(width*0.03, height*0.419, width*0.2, height*0.038)
+                    rect(width*0.03, height*0.452, width*0.2, height*0.038)
                     fill(255)
                     stroke(0)
                 fill(0)
-                if mousePressed == True and mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.419 and mouseY < height * 0.037 + height * 0.419 and d == 0 or seccondPlayer == 3:
+                if mousePressed == True and mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.452 and mouseY < height * 0.037 + height * 0.452 and d == 0 or seccondPlayer == 3:
                     seccondPlayer = 3
                     
             
         if PlayerCount >= 4:    
             fill(218,165,32)
-            rect(width*0.03, height*0.458, width*0.2, height*0.038)
+            rect(width*0.03, height*0.502, width*0.2, height*0.038)
             fill(0)
             if playersTurn == 4:
                 fill(218,165,32)
                 stroke(255)
-                rect(width*0.03, height*0.458, width*0.2, height*0.038)
+                rect(width*0.03, height*0.502, width*0.2, height*0.038)
                 fill(255)
                 stroke(0)
                 fill(0)
             else:
-                if mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.458 and mouseY < height * 0.037 + height * 0.458 or seccondPlayer == 4:
+                if mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.502 and mouseY < height * 0.037 + height * 0.502 or seccondPlayer == 4:
                     fill(218,165,32)
                     stroke(255)
-                    rect(width*0.03, height*0.458, width*0.2, height*0.038)
+                    rect(width*0.03, height*0.502, width*0.2, height*0.038)
                     fill(255)
                     stroke(0)
                 fill(0)
-                if mousePressed == True and mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.458 and mouseY < height * 0.037 + height * 0.458 and d == 0 or seccondPlayer == 4:
+                if mousePressed == True and mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.502 and mouseY < height * 0.037 + height * 0.502 and d == 0 or seccondPlayer == 4:
                     seccondPlayer = 4
                     
                 
         if PlayerCount >= 5:    
             fill(218,165,32)
-            rect(width*0.03, height*0.497, width*0.2, height*0.038)
+            rect(width*0.03, height*0.552, width*0.2, height*0.038)
             fill(0)
             if playersTurn == 5:
                 fill(218,165,32)
                 stroke(255)
-                rect(width*0.03, height*0.497, width*0.2, height*0.038)
+                rect(width*0.03, height*0.552, width*0.2, height*0.038)
                 fill(255)
                 stroke(0)
                 fill(0)
             else:
-                if mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.497 and mouseY < height * 0.038+ height * 0.497 or seccondPlayer == 5:
+                if mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.552 and mouseY < height * 0.038+ height * 0.552 or seccondPlayer == 5:
                     fill(218,165,32)
                     stroke(255)
-                    rect(width*0.03, height*0.497, width*0.2, height*0.038)
+                    rect(width*0.03, height*0.552, width*0.2, height*0.038)
                     fill(255)
                     stroke(0)
                 fill(0)
-                if mousePressed == True and mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.497 and mouseY < height * 0.038 + height * 0.497 and d == 0 or seccondPlayer == 5:
+                if mousePressed == True and mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.552 and mouseY < height * 0.038 + height * 0.552 and d == 0 or seccondPlayer == 5:
                     seccondPlayer = 5
                     
             
         if PlayerCount >= 6:    
             fill(218,165,32)
-            rect(width*0.03, height*0.536, width*0.2, height*0.038)
+            rect(width*0.03, height*0.602, width*0.2, height*0.038)
             fill(0)
             if playersTurn == 6:
                 fill(218,165,32)
                 stroke(255)
-                rect(width*0.03, height*0.536, width*0.2, height*0.038)
+                rect(width*0.03, height*0.602, width*0.2, height*0.038)
                 fill(255)
                 stroke(0)
                 fill(0)
             else:
-                if mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.534 and mouseY < height * 0.037 + height * 0.536 or seccondPlayer == 6:
+                if mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.600 and mouseY < height * 0.037 + height * 0.602 or seccondPlayer == 6:
                     fill(218,165,32)
                     stroke(255)
-                    rect(width*0.03, height*0.536, width*0.2, height*0.038)
+                    rect(width*0.03, height*0.602, width*0.2, height*0.038)
                     fill(255)
                     stroke(0)
                 fill(0)
-                if mousePressed == True and mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.536 and mouseY < height * 0.037 + height * 0.536 and d == 0 or seccondPlayer == 6:
+                if mousePressed == True and mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.602 and mouseY < height * 0.037 + height * 0.602 and d == 0 or seccondPlayer == 6:
                     seccondPlayer = 6
                 
             
@@ -1037,7 +1037,7 @@ def droomBack():
         textAlign(LEFT, TOP)
         for x in range(0,7):
             if playersList[x][0] != '':
-                text(playersList[x][0],width * 0.05, (height * x * 0.039) + (height * 0.306))    
+                text(playersList[x][0],width * 0.05, (height * x * 0.050) + (height * 0.300))    
                 
     drawMedespelerTekst()
 
@@ -1081,98 +1081,98 @@ def babelen():
             
             
             fill(218,165,32)
-            rect(width*0.3, height*0.347, width*0.4, height*0.056)
+            rect(width*0.3, height*0.360, width*0.4, height*0.056)
             fill(0)
-            if mouseX > width*0.3 and mouseX < width*0.4 + width *0.3 and mouseY > height*0.347 and mouseY < height * 0.055 + height * 0.347 or seccondPlayer == 1:
+            if mouseX > width*0.3 and mouseX < width*0.4 + width *0.3 and mouseY > height*0.360 and mouseY < height * 0.055 + height * 0.347 or seccondPlayer == 1:
                 fill(218,165,32)
                 stroke(255)
-                rect(width*0.3, height*0.347, width*0.4, height*0.056)
+                rect(width*0.3, height*0.360, width*0.4, height*0.056)
                 fill(255)
                 stroke(0)
             fill(0)
-            if mousePressed == True and mouseX > width*0.3 and mouseX < width*0.4 + width *0.3 and mouseY > height*0.347 and mouseY < height * 0.055 + height * 0.347 and d == 0 or seccondPlayer == 1:
+            if mousePressed == True and mouseX > width*0.3 and mouseX < width*0.4 + width *0.3 and mouseY > height*0.360 and mouseY < height * 0.055 + height * 0.360 and d == 0 or seccondPlayer == 1:
                 seccondPlayer = 1
                 clicked = True
                 
             
             fill(218,165,32)
-            rect(width*0.3, height*0.404, width*0.4, height*0.056)
+            rect(width*0.3, height*0.430, width*0.4, height*0.056)
             fill(0)
         
-            if mouseX > width*0.3 and mouseX < width*0.4 + width *0.3 and mouseY > height*0.404 and mouseY < height * 0.055 + height * 0.404 or seccondPlayer == 2:
+            if mouseX > width*0.3 and mouseX < width*0.4 + width *0.3 and mouseY > height*0.430 and mouseY < height * 0.055 + height * 0.430 or seccondPlayer == 2:
                 fill(218,165,32)
                 stroke(255)
-                rect(width*0.3, height*0.404, width*0.4, height*0.056)
+                rect(width*0.3, height*0.430, width*0.4, height*0.056)
                 fill(255)
                 stroke(0)
             fill(0)
-            if mousePressed == True and mouseX > width*0.3 and mouseX < width*0.4 + width *0.3 and mouseY > height*0.404 and mouseY < height * 0.056 + height * 0.404 and d == 0 or seccondPlayer == 2:
+            if mousePressed == True and mouseX > width*0.3 and mouseX < width*0.4 + width *0.3 and mouseY > height*0.430 and mouseY < height * 0.056 + height * 0.430 and d == 0 or seccondPlayer == 2:
                 seccondPlayer = 2
                 clicked = True
                 
         
             if PlayerCount >= 3:
                 fill(218,165,32)
-                rect(width*0.3, height*0.461, width*0.4, height*0.056)
+                rect(width*0.3, height*0.500, width*0.4, height*0.056)
                 fill(0)
     
-                if mouseX > width*0.3 and mouseX < width*0.4 + width *0.3 and mouseY > height*0.461 and mouseY < height * 0.055 + height * 0.461 or seccondPlayer == 3:
+                if mouseX > width*0.3 and mouseX < width*0.4 + width *0.3 and mouseY > height*0.500 and mouseY < height * 0.055 + height * 0.500 or seccondPlayer == 3:
                     fill(218,165,32)
                     stroke(255)
-                    rect(width*0.3, height*0.461, width*0.4, height*0.056)
+                    rect(width*0.3, height*0.500, width*0.4, height*0.056)
                     fill(255)
                     stroke(0)
                 fill(0)
-                if mousePressed == True and mouseX > width*0.3 and mouseX < width*0.4 + width *0.3 and mouseY > height*0.461 and mouseY < height * 0.055 + height * 0.461 and d == 0 or seccondPlayer == 3:
+                if mousePressed == True and mouseX > width*0.3 and mouseX < width*0.4 + width *0.3 and mouseY > height*0.500 and mouseY < height * 0.055 + height * 0.500 and d == 0 or seccondPlayer == 3:
                     seccondPlayer = 3
                     clicked = True
                     
             
             if PlayerCount >= 4:    
                 fill(218,165,32)
-                rect(width*0.3, height*0.518 ,width*0.4, height*0.0565)
+                rect(width*0.3, height*0.570 ,width*0.4, height*0.0565)
                 fill(0)
 
 
-                if mouseX > width*0.3 and mouseX < width*0.4 + width *0.3 and mouseY > height*0.518 and mouseY < height * 0.055 + height * 0.518 or seccondPlayer == 4:
+                if mouseX > width*0.3 and mouseX < width*0.4 + width *0.3 and mouseY > height*0.570 and mouseY < height * 0.055 + height * 0.570 or seccondPlayer == 4:
                     fill(218,165,32)
                     stroke(255)
-                    rect(width*0.3, height*0.518, width*0.4, height*0.056)
+                    rect(width*0.3, height*0.570, width*0.4, height*0.056)
                     fill(255)
                     stroke(0)
                 fill(0)
-                if mousePressed == True and mouseX > width*0.3 and mouseX < width*0.4 + width *0.3 and mouseY > height*0.518 and mouseY < height * 0.055 + height * 0.518 and d == 0 or seccondPlayer == 4:
+                if mousePressed == True and mouseX > width*0.3 and mouseX < width*0.4 + width *0.3 and mouseY > height*0.570 and mouseY < height * 0.055 + height * 0.570 and d == 0 or seccondPlayer == 4:
                     seccondPlayer = 4
                     clicked = True    
                     
             if PlayerCount >= 5:    
                 fill(218,165,32)
-                rect(width*0.3, height*0.575, width*0.4, height*0.056)
+                rect(width*0.3, height*0.640, width*0.4, height*0.056)
                 fill(0)
     
-                if mouseX > width*0.3 and mouseX < width*0.4 + width *0.3 and mouseY > height*0.575 and mouseY < height * 0.055+ height * 0.575 or seccondPlayer == 5:
+                if mouseX > width*0.3 and mouseX < width*0.4 + width *0.3 and mouseY > height*0.640 and mouseY < height * 0.055+ height * 0.640 or seccondPlayer == 5:
                     fill(218,165,32)
                     stroke(255)
-                    rect(width*0.3, height*0.575, width*0.4, height*0.056)
+                    rect(width*0.3, height*0.640, width*0.4, height*0.056)
                     fill(255)
                     stroke(0)
                 fill(0)
-                if mousePressed == True and mouseX > width*0.3 and mouseX < width*0.4 + width *0.3 and mouseY > height*0.575 and mouseY < height * 0.055 + height * 0.575 and d == 0 or seccondPlayer == 5:
+                if mousePressed == True and mouseX > width*0.3 and mouseX < width*0.4 + width *0.3 and mouseY > height*0.640 and mouseY < height * 0.055 + height * 0.640 and d == 0 or seccondPlayer == 5:
                     seccondPlayer = 5
                     clicked = True    
             
             if PlayerCount >= 6:    
                 fill(218,165,32)
-                rect(width*0.3, height*0.632, width*0.4, height*0.056)
+                rect(width*0.3, height*0.710, width*0.4, height*0.056)
                 fill(0)
-                if mouseX > width*0.3 and mouseX < width*0.4 + width *0.3 and mouseY > height*0.632 and mouseY < height * 0.055 + height * 0.632 or seccondPlayer == 6:
+                if mouseX > width*0.3 and mouseX < width*0.4 + width *0.3 and mouseY > height*0.710 and mouseY < height * 0.055 + height * 0.710 or seccondPlayer == 6:
                     fill(218,165,32)
                     stroke(255)
-                    rect(width*0.3, height*0.632, width*0.4, height*0.056)
+                    rect(width*0.3, height*0.710, width*0.4, height*0.056)
                     fill(255)
                     stroke(0)
                 fill(0)
-                if mousePressed == True and mouseX > width*0.3 and mouseX < width*0.4 + width *0.3 and mouseY > height*0.632 and mouseY < height * 0.056 + height * 0.632 and d == 0 or seccondPlayer == 6:
+                if mousePressed == True and mouseX > width*0.3 and mouseX < width*0.4 + width *0.3 and mouseY > height*0.710 and mouseY < height * 0.056 + height * 0.710 and d == 0 or seccondPlayer == 6:
                     seccondPlayer = 6
                     clicked = True
                     
@@ -1184,7 +1184,7 @@ def babelen():
             textAlign(LEFT, TOP)
             for x in range(0,7):
                 if playersList[x][0] != '':
-                    text(playersList[x][0],width * 0.33 , (height * x * 0.057) + (height * 0.29)) 
+                    text(playersList[x][0],width * 0.33 , (height * x * 0.0685) + (height * 0.29)) 
                     
                 
     if clicked == True:
@@ -2155,7 +2155,7 @@ def drawMedespelerTekst():
     fill(255)
     textSize(38)
     textAlign(LEFT, TOP)
-    text('Kies je medespeler!', width*0.03, height*0.22)
+    text('Kies je medespeler', width*0.03, height*0.22)
     
 
 def keyReleased():
