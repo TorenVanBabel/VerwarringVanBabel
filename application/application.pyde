@@ -26,7 +26,7 @@ def setup():
     seccondPlayer = ''
     PlayerCount = -1
     playersTurn = 0
-    #makes empty list for every continet
+    #makes empty list for every continen t
     Europe = [0,0,0,0,0,0,0,0,0]
     NorthAmerika = [0,0,0,0,0,0,0,0,0]
     SouthAmerika = [0,0,0,0,0,0,0,0,0]
@@ -489,8 +489,8 @@ def instructieBackV():
         rect(width*0.03, height*0.302, width*0.2, height*0.038)
         fill(0)
         if playersTurn == 0:
-            fill(218,165,32)
-            stroke(255)
+            fill(200)
+            stroke(0)
             rect(width*0.03, height*0.302, width*0.2, height*0.038)
             fill(255)
             stroke(0)
@@ -512,8 +512,8 @@ def instructieBackV():
         rect(width*0.03, height*0.352, width*0.2, height*0.038)
         fill(0)
         if playersTurn == 1:
-            fill(218,165,32)
-            stroke(255)
+            fill(200)
+            stroke(0)
             rect(width*0.03, height*0.352, width*0.2, height*0.038)
             fill(255)
             stroke(0)
@@ -521,7 +521,7 @@ def instructieBackV():
         else:
             if mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.352 and mouseY < height * 0.037 + height * 0.352 or seccondPlayer == 1:
                 fill(218,165,32)
-                stroke(255)
+                stroke(0)
                 rect(width*0.03, height*0.352, width*0.2, height*0.038)
                 fill(255)
                 stroke(0)
@@ -534,8 +534,8 @@ def instructieBackV():
         rect(width*0.03, height*0.402,width*0.2, height*0.038)
         fill(0)
         if playersTurn == 2:
-            fill(218,165,32)
-            stroke(255)
+            fill(200)
+            stroke(0)
             rect(width*0.03, height*0.402, width*0.2, height*0.038)
             fill(255)
             stroke(0)
@@ -557,8 +557,8 @@ def instructieBackV():
             rect(width*0.03, height*0.452, width*0.2, height*0.038)
             fill(0)
             if playersTurn == 3:
-                fill(218,165,32)
-                stroke(255)
+                fill(200)
+                stroke(0)
                 rect(width*0.03, height*0.452, width*0.2, height*0.038)
                 fill(255)
                 stroke(0)
@@ -580,8 +580,8 @@ def instructieBackV():
             rect(width*0.03, height*0.502, width*0.2, height*0.038)
             fill(0)
             if playersTurn == 4:
-                fill(218,165,32)
-                stroke(255)
+                fill(200)
+                stroke(0)
                 rect(width*0.03, height*0.502, width*0.2, height*0.038)
                 fill(255)
                 stroke(0)
@@ -603,8 +603,8 @@ def instructieBackV():
             rect(width*0.03, height*0.552, width*0.2, height*0.038)
             fill(0)
             if playersTurn == 5:
-                fill(218,165,32)
-                stroke(255)
+                fill(200)
+                stroke(0)
                 rect(width*0.03, height*0.552, width*0.2, height*0.038)
                 fill(255)
                 stroke(0)
@@ -626,8 +626,8 @@ def instructieBackV():
             rect(width*0.03, height*0.602, width*0.2, height*0.038)
             fill(0)
             if playersTurn == 6:
-                fill(218,165,32)
-                stroke(255)
+                fill(200)
+                stroke(0)
                 rect(width*0.03, height*0.602, width*0.2, height*0.038)
                 fill(255)
                 stroke(0)
@@ -679,8 +679,8 @@ def instructieBack():
         rect(width*0.03, height*0.302, width*0.2, height*0.038)
         fill(0)
         if playersTurn == 0:
-            fill(218,165,32)
-            stroke(255)
+            fill(200)
+            stroke(0)
             rect(width*0.03, height*0.302, width*0.2, height*0.038)
             fill(255)
             stroke(0)
@@ -702,8 +702,8 @@ def instructieBack():
         rect(width*0.03, height*0.352, width*0.2, height*0.038)
         fill(0)
         if playersTurn == 1:
-            fill(218,165,32)
-            stroke(255)
+            fill(200)
+            stroke(0)
             rect(width*0.03, height*0.352, width*0.2, height*0.038)
             fill(255)
             stroke(0)
@@ -724,8 +724,8 @@ def instructieBack():
         rect(width*0.03, height*0.402, width*0.2, height*0.038)
         fill(0)
         if playersTurn == 2:
-            fill(218,165,32)
-            stroke(255)
+            fill(200)
+            stroke(0)
             rect(width*0.03, height*0.402, width*0.2, height*0.038)
             fill(255)
             stroke(0)
@@ -747,8 +747,8 @@ def instructieBack():
             rect(width*0.03, height*0.452, width*0.2, height*0.038)
             fill(0)
             if playersTurn == 3:
-                fill(218,165,32)
-                stroke(255)
+                fill(200)
+                stroke(0)
                 rect(width*0.03, height*0.452, width*0.2, height*0.038)
                 fill(255)
                 stroke(0)
@@ -770,8 +770,8 @@ def instructieBack():
             rect(width*0.03, height*0.502, width*0.2, height*0.038)
             fill(0)
             if playersTurn == 4:
-                fill(218,165,32)
-                stroke(255)
+                fill(200)
+                stroke(0)
                 rect(width*0.03, height*0.502, width*0.2, height*0.038)
                 fill(255)
                 stroke(0)
@@ -792,9 +792,9 @@ def instructieBack():
             fill(218,165,32)
             rect(width*0.03, height*0.552, width*0.2, height*0.038)
             fill(0)
-            if playersTurn == 4:
-                fill(218,165,32)
-                stroke(255)
+            if playersTurn == 5:
+                fill(200)
+                stroke(0)
                 rect(width*0.03, height*0.552, width*0.2, height*0.038)
                 fill(255)
                 stroke(0)
@@ -815,9 +815,9 @@ def instructieBack():
             fill(218,165,32)
             rect(width*0.03, height*0.602, width*0.2, height*0.038)
             fill(0)
-            if playersTurn == 4:
-                fill(218,165,32)
-                stroke(255)
+            if playersTurn == 6:
+                fill(200)
+                stroke(0)
                 rect(width*0.03, height*0.602, width*0.2, height*0.038)
                 fill(255)
                 stroke(0)
@@ -870,8 +870,8 @@ def droomBack():
         rect(width*0.03, height*0.302, width*0.2, height*0.038)
         fill(0)
         if playersTurn == 0:
-            fill(218,165,32)
-            stroke(255)
+            fill(200)
+            stroke(0)
             rect(width*0.03, height*0.302, width*0.2, height*0.038)
             fill(255)
             stroke(0)
@@ -893,8 +893,8 @@ def droomBack():
         rect(width*0.03, height*0.352, width*0.2, height*0.038)
         fill(0)
         if playersTurn == 1:
-            fill(218,165,32)
-            stroke(255)
+            fill(200)
+            stroke(0)
             rect(width*0.03, height*0.352, width*0.2, height*0.038)
             fill(255)
             stroke(0)
@@ -915,8 +915,8 @@ def droomBack():
         rect(width*0.03, height*0.402, width*0.2, height*0.038)
         fill(0)
         if playersTurn == 2:
-            fill(218,165,32)
-            stroke(255)
+            fill(200)
+            stroke(0)
             rect(width*0.03, height*0.402, width*0.2, height*0.038)
             fill(255)
             stroke(0)
@@ -938,8 +938,8 @@ def droomBack():
             rect(width*0.03, height*0.452, width*0.2, height*0.038)
             fill(0)
             if playersTurn == 3:
-                fill(218,165,32)
-                stroke(255)
+                fill(200)
+                stroke(0)
                 rect(width*0.03, height*0.452, width*0.2, height*0.038)
                 fill(255)
                 stroke(0)
@@ -961,8 +961,8 @@ def droomBack():
             rect(width*0.03, height*0.502, width*0.2, height*0.038)
             fill(0)
             if playersTurn == 4:
-                fill(218,165,32)
-                stroke(255)
+                fill(200)
+                stroke(0)
                 rect(width*0.03, height*0.502, width*0.2, height*0.038)
                 fill(255)
                 stroke(0)
@@ -984,8 +984,8 @@ def droomBack():
             rect(width*0.03, height*0.552, width*0.2, height*0.038)
             fill(0)
             if playersTurn == 5:
-                fill(218,165,32)
-                stroke(255)
+                fill(200)
+                stroke(0)
                 rect(width*0.03, height*0.552, width*0.2, height*0.038)
                 fill(255)
                 stroke(0)
@@ -1007,8 +1007,8 @@ def droomBack():
             rect(width*0.03, height*0.602, width*0.2, height*0.038)
             fill(0)
             if playersTurn == 6:
-                fill(218,165,32)
-                stroke(255)
+                fill(200)
+                stroke(0)
                 rect(width*0.03, height*0.602, width*0.2, height*0.038)
                 fill(255)
                 stroke(0)
