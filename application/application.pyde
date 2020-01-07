@@ -656,7 +656,7 @@ def instructieBackV():
         textAlign(LEFT, TOP)
         for x in range(0,7):
             if playersList[x][0] != '':
-                text(playersList[x][0],width * 0.05, (height * x * 0.050) + (height * 0.300))   
+                text(playersList[x][0],width * 0.05, (height * x * 0.05) + (height * 0.305))   
                 
     drawMedespelerTekst() 
 
@@ -846,7 +846,7 @@ def instructieBack():
         textAlign(LEFT, TOP)
         for x in range(0,7):
             if playersList[x][0] != '':
-                text(playersList[x][0],width * 0.05, (height * x * 0.050) + (height * 0.300)) 
+                text(playersList[x][0],width * 0.05, (height * x * 0.050) + (height * 0.305)) 
                 
         drawMedespelerTekst()   
 
@@ -1037,7 +1037,7 @@ def droomBack():
         textAlign(LEFT, TOP)
         for x in range(0,7):
             if playersList[x][0] != '':
-                text(playersList[x][0],width * 0.05, (height * x * 0.050) + (height * 0.300))    
+                text(playersList[x][0],width * 0.05, (height * x * 0.050) + (height * 0.305))    
                 
     drawMedespelerTekst()
 
@@ -2166,7 +2166,7 @@ def clock():
     
 def drawMedespelerTekst():
     fill(255)
-    textSize(38)
+    textSize(40)
     textAlign(LEFT, TOP)
     text('Kies je medespeler', width*0.03, height*0.22)
     
