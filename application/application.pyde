@@ -521,7 +521,7 @@ def instructieBackV():
         else:
             if mouseX > width*0.03 and mouseX < width*0.2 + width *0.03 and mouseY > height*0.352 and mouseY < height * 0.037 + height * 0.352 or seccondPlayer == 1:
                 fill(218,165,32)
-                stroke(0)
+                stroke(255)
                 rect(width*0.03, height*0.352, width*0.2, height*0.038)
                 fill(255)
                 stroke(0)
