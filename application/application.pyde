@@ -369,14 +369,15 @@ def GoedOfFoutClick():
         rect(width/2,height*0.8,width*0.20,height*0.08)
             
         fill(255)
-        textSize(70)
+        textSize(50)
         textAlign(CENTER, CENTER)
         fill(0)
-        text('Menu', width/2, height*0.795)
+        text('Menu', width/2, height*0.79)
         
         fill(255)
-        text(playersList[playersTurn][0] + ' je krijgt een munt van ' + str(b) + '\nJe hebt nu ' + str(playersList[playersTurn][2]) + ' munten', width/2, height*0.25)
-        text(playersList[seccondPlayer][0] + ' je krijgt een munt van ' + str(b1) + '\nJe hebt nu ' + str(playersList[seccondPlayer][2]) + ' munten', width/2, height*0.55)
+        text(playersList[playersTurn][0] + ' je krijgt een munt van ' + str(b) + '\nJe hebt nu ' + str(playersList[playersTurn][2]) + ' munten', width/2, height*0.2)
+        text(playersList[seccondPlayer][0] + ' je krijgt een munt van ' + str(b1) + '\nJe hebt nu ' + str(playersList[seccondPlayer][2]) + ' munten', width/2, height*0.4)
+        text('Leg een bouwblokje neer op het bord', width/2, height*0.6)
         
         if mousePressed == True and width*0.4 < mouseX < width*0.6 and height*0.76 < mouseY < height*0.84 and d == 0:
             currentScreen = 'hoofdmenu'
