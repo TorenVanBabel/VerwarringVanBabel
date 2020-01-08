@@ -384,7 +384,6 @@ def GoedOfFoutClick():
         
         
     elif mousePressed == True and mouseX > width*0.161 and mouseX < width*0.246 + width*0.161 and mouseY > height*0.404 and mouseY < height*0.194 + height*0.404 and d == 0:
-    elif mousePressed == True and mouseX > 380 and mouseX < 780 and mouseY > 550 and mouseY < 750 and d == 0:
         b = int(random(0,6))
         b1 = int(random(0,6))
         b = l[b]
