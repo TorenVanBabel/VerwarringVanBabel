@@ -48,8 +48,8 @@ def setup():
     img9 = loadImage("Babelspel.jpeg")
 
     #Loads stuf good or bad
-    img10 = loadImage('TextBalkGoedGoed.png')
-    img11 = loadImage('TextBalkFoutGoed.png')
+    img10 = loadImage('TextBalkGoedGoedgoed.png')
+    img11 = loadImage('TextBalkFoutGoedgoed.png')
     punten = 0
     # Loads static image for random card generation
     instrImg = loadImage('instructie.jpeg')
@@ -355,8 +355,8 @@ def GoedOfFoutClick():
     global goed,fout,img10,img11, b, b1, punten,d, backgroundImg, Save, addedCoins, currentScreen, playersTurn, PlayerCount, l, seccondPlayer
     background(backgroundImg)
     if Save != True:
-        image(img10,width*0.17,height*0.3,width*0.25,height*0.6)
-        image(img11,width*0.55,height*0.3,width*0.25,height*0.6)
+        image(img10,width*0.16,height*0.4,width*0.25,height*0.2)
+        image(img11,width*0.6,height*0.4,width*0.25,height*0.2)
     fill(0)
     stroke(0)
     textAlign(CENTER)
@@ -392,6 +392,7 @@ def GoedOfFoutClick():
             playersList[seccondPlayer][2] = int(playersList[seccondPlayer][2]) + int(b1)
             playersList[playersTurn][2] = int(playersList[playersTurn][2]) + int(b)
             addedCoins = True
+
 
     elif mousePressed == True and width*0.56 < mouseX < width*0.78 and height*0.39 < mouseY < height*0.6 and d == 0 and Save == False:
         d = 1
