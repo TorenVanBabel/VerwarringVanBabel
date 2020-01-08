@@ -366,6 +366,7 @@ def GoedOfFoutClick():
     if Save == True:
 
         fill(220,150,0)
+        rectMode(CORNER)
         rect(width*0.43,height*0.79,width*0.15,height*0.041)
         rect(650,50,600, 250)
         rect(650,450,600, 250)
@@ -1185,7 +1186,7 @@ def babelen():
             textAlign(LEFT, TOP)
             for x in range(0,7):
                 if playersList[x][0] != '':
-                    text(playersList[x][0],width * 0.33 , (height * x * 0.0685) + (height * 0.29)) 
+                    text(playersList[x][0],width * 0.33 , (height * x * 0.0698) + (height * 0.291)) 
                     
                 
     if clicked == True:
@@ -1283,13 +1284,14 @@ def instructie():
                 randomList.append (l.pop())
             e  = e - 1
         x = int(random(0, 4))
-        instrlist = ['Je mag geen links of rechts zeggen', u'Je mag geen co\u00F6rdinaten gebruiken', 'Je mag geen ja of nee zeggen','Je mag geen omhoog, omlaag, \n naar boven of beneden gebruiken']
-        textSize(30)
-        instr = instrlist.pop(x)
+        instrlist = ["Gebruik niet de woorden 'links' en 'rechts'", u'Je mag geen co\u00F6rdinaten gebruiken', "Gebruik niet de woorden 'omhoog',\n'omlaag', 'boven' of 'beneden'", 
+                     'gebruik geen getallen', "Gebruik Niet de woorden 'Wel'\n en 'Niet'", "Gebruik niet de woorden 'goed'\nof 'fout'", "Gebruik niet de woorden 'onder'\n en 'boven'",
+                     'Gebruik geen woorden', "Gebruik niet de woorden 'ja' en 'nee'"]
+        instr = instrlist.pop(int(random(0, len(instrlist))))
         Save = True
         fill(0)
-        
-    timerFunc(width*0.17)
+    
+    
     background(backgroundImg)
     image(instrImg, (width // 2) -300 , 30)
     f = 0
@@ -1308,8 +1310,8 @@ def instructie():
             f += 2
         
     if verwarring == True:
-        textAlign(LEFT, CENTER)
-        text(instr, width / 2.75 ,height / 1.4 )
+        textAlign(CENTER, CENTER)
+        text(instr, width/2+ width*0.0199 ,height / 1.4 )
     timerFunc(width*0.17)        
 
 def droomCards():
