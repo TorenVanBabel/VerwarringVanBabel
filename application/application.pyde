@@ -393,7 +393,7 @@ def GoedOfFoutClick():
             addedCoins = True
 
 
-    elif mousePressed == True and width*0.56 < mouseX < width*0.78 and height*0.39 < mouseY < height*0.6 and d == 0 and Save == False:
+    elif mousePressed == True and width*0.6 < mouseX < width*0.85 and height*0.4 < mouseY < height*0.6 and d == 0 and Save == False:
         d = 1
         currentScreen = 'hoofdmenu'
 
