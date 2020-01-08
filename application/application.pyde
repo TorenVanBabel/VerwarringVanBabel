@@ -26,7 +26,7 @@ def setup():
     seccondPlayer = ''
     PlayerCount = -1
     playersTurn = 0
-    #makes empty list for every continen t
+    #makes empty list for every continent
     Europe = [0,0,0,0,0,0,0,0,0]
     NorthAmerika = [0,0,0,0,0,0,0,0,0]
     SouthAmerika = [0,0,0,0,0,0,0,0,0]
@@ -69,7 +69,6 @@ def setup():
     backgroundImg.resize(width, height)
     regularFont = createFont('Felix Titling', 50)
     textFont(regularFont)
-    textSize(200)
     fill(0)
     textAlign(CENTER, CENTER)
     background(backgroundImg)
@@ -382,8 +381,7 @@ def GoedOfFoutClick():
         if mousePressed == True and width*0.4 < mouseX < width*0.6 and height*0.76 < mouseY < height*0.84 and d == 0:
             currentScreen = 'hoofdmenu'
 
-        
-        
+
     elif mousePressed == True and mouseX > width*0.161 and mouseX < width*0.246 + width*0.161 and mouseY > height*0.404 and mouseY < height*0.194 + height*0.404 and d == 0:
         b = int(random(0,6))
         b1 = int(random(0,6))
@@ -396,12 +394,7 @@ def GoedOfFoutClick():
             addedCoins = True
 
 
-
-
-
-
-        
-    elif mousePressed == True and mouseX > width*0.6 and  mouseX  < width*0.25 + width*0.6 and mouseY  > height*0.4 and mouseY < height*0.2+height*0.4 and d == 0 and Save == False:
+    elif mousePressed == True and width*0.6 < mouseX < width*0.85 and height*0.4 < mouseY < height*0.6 and d == 0 and Save == False:
         d = 1
         currentScreen = 'hoofdmenu'
 
@@ -468,7 +461,7 @@ def difficultyButtons():
         timerDifficulty = 30
         Higlight = 2
     if (mousePressed == True and (width*0.7 < mouseX < width*0.8) and (height*0.85 < mouseY < height*0.9)):
-        timerDifficulty = 2
+        timerDifficulty = 20
         Higlight = 3
 
     
@@ -1200,13 +1193,12 @@ def babelen():
         rectMode(CENTER)
         rect(width/2,height*0.76,width*0.20,height*0.08)
             
-        fill(255)
         textSize(70)
         textAlign(CENTER, CENTER)
         fill(0)
         text('Menu', width/2, height*0.75)
         
-        fill(0)
+        fill(255)
         text(playersList[seccondPlayer][0] + ' je krijgt een munt van ' + str(coins) + '\nJe hebt nu ' + str(playersList[seccondPlayer][2]) + ' munten', width/2, height/2)
         
         if mousePressed == True and width*0.4 < mouseX < width*0.6 and height*0.72 < mouseY < height*0.8 and d == 0:
@@ -1282,9 +1274,9 @@ def instructie():
                 randomList.append (l.pop())
             e  = e - 1
         x = int(random(0, 4))
-        instrlist = ["Gebruik niet de woorden 'links' en 'rechts'", u'Je mag geen co\u00F6rdinaten gebruiken', "Gebruik niet de woorden 'omhoog',\n'omlaag', 'boven' of 'beneden'", 
+        instrlist = ["Gebruik niet de woorden 'links' \nen 'rechts'", u'Je mag geen co\u00F6rdinaten gebruiken', "Gebruik niet de woorden 'omhoog',\n'omlaag', 'boven' of 'beneden'", 
                      'gebruik geen getallen', "Gebruik Niet de woorden 'Wel'\n en 'Niet'", "Gebruik niet de woorden 'goed'\nof 'fout'", "Gebruik niet de woorden 'onder'\n en 'boven'",
-                     'Gebruik geen woorden', "Gebruik niet de woorden 'ja' en 'nee'"]
+                     'Gebruik geen woorden', "Gebruik niet de woorden \n'ja' en 'nee'"]
         instr = instrlist.pop(int(random(0, len(instrlist))))
         Save = True
         fill(0)
@@ -1320,15 +1312,15 @@ def droomCards():
     image(droomImg, (width // 2) -300 , 30)
 
     if Save == False:
-        x = int(random(0, 4))
         droomList = ['Aarde','Vuur','Water','Lucht', 'Bouwstenen', 'Constructie', 'Sloophamer', 'Opdrachten', 'Metselaar', 'Pikhouweel', 'Inspanning', 'Teamwork', 'Instorten', 'Hoogbouw', 
                      'Laagbouw', 'Straffen', 'Vertaling', 'Wereldreis', 'Hoogtevrees', 'Onduidelijk', 'Begrijpen', 'Goddelijk', 'Verhalen', 'Mythe', 'Oudheid', 'Legende', 'Zuid-Amerika', 
                      'Noord-Amerika', 'Europa', u'Azi\u00EB', u'Australi\u00EB', 'Antarctica', 'Afrika', 'Continent', 'Toendra', 'Woestijn', 'IJs', 'Zonneschijn', 'Maneschijn', 'Letters', 'Woorden']
-        textSize(60)
+        x = int(random(0, len(droomList)-1))
         droom = droomList.pop(x)
         Save = True
     if Save == True:
-        text(droom, width / 1.9 ,height / 2 )
+        textSize(60)
+        text(droom, width * 0.52 ,height / 2 )
         timerFunc(width*0.17)
 
 
@@ -2191,7 +2183,7 @@ def keyPressed():
     global currentScreen, d, timerStart
     d = 0
     print(keyCode) 
-    if key == 'a' and currentScreen == 'instructieBack':
+    if key == 'a':
         mouseWidth = float(mouseX) / float(width)
         mouseHeight = float(mouseY) / float(height)
         print(str(mouseWidth), str(mouseHeight))
