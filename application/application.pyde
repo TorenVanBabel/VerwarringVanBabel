@@ -48,8 +48,8 @@ def setup():
     img9 = loadImage("Babelspel.jpeg")
 
     #Loads stuf good or bad
-    img10 = loadImage('TextBalkGoed.png')
-    img11 = loadImage('TextBalkFout.png')
+    img10 = loadImage('TextBalkGoedGoed.png')
+    img11 = loadImage('TextBalkFoutGoed.png')
     punten = 0
     # Loads static image for random card generation
     instrImg = loadImage('instructie.jpeg')
@@ -355,8 +355,8 @@ def GoedOfFoutClick():
     global goed,fout,img10,img11, b, b1, punten,d, backgroundImg, Save, addedCoins, currentScreen, playersTurn, PlayerCount, l, seccondPlayer
     background(backgroundImg)
     if Save != True:
-        image(img10,280,500,500,300)
-        image(img11,1050,510,500,290)
+        image(img10,width*0.17,height*0.3,width*0.25,height*0.6)
+        image(img11,width*0.55,height*0.3,width*0.25,height*0.6)
     fill(0)
     stroke(0)
     textAlign(CENTER)
@@ -1047,6 +1047,7 @@ def backBabelen():
     background(backgroundImg)
     image(img9, (width // 2) -300 , 30)
     if mousePressed == True and mouseX > width * 0.34 and mouseX < width * 0.685 and mouseY > height * 0.03 and mouseY < height * 0.95 and d == 0:
+        d = 1
         currentScreen = 'babelen'
 
 def babelen():
@@ -1055,7 +1056,7 @@ def babelen():
         if seccondPlayer != '':
             seccondPlayer = ''
             Save = False
-        else:
+        elif d == 0:
         
             if seccondPlayer == playersTurn:
                 seccondPlayer = ''
