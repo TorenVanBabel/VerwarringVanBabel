@@ -364,25 +364,27 @@ def GoedOfFoutClick():
     l = ['5','10','15','20','25','50']
     textSize(40)
     if Save == True:
-
-        fill(220,150,0)
-        rectMode(CORNER)
-        rect(width*0.43,height*0.79,width*0.15,height*0.041)
-        rect(650,50,600, 250)
-        rect(650,450,600, 250)
+        fill(218,165,32)
+        rectMode(CENTER)
+        rect(width/2,height*0.8,width*0.20,height*0.08)
+            
+        fill(255)
+        textSize(70)
+        textAlign(CENTER, CENTER)
         fill(0)
-        text('Menu', width/2, height*0.83)
-        text(playersList[playersTurn][0] + '\nJe krijgt een munt van ' + str(b) +'\nJe hebt nu ' + str(playersList[playersTurn][2]) + ' munten',width/ 2,100)
-        text(playersList[seccondPlayer][0] + '\nJe krijgt een munt van ' + str(b1)+'\nJe hebt nu ' + str(playersList[seccondPlayer][2]) +' munten',width/ 2,500)
-
-    
+        text('Menu', width/2, height*0.795)
         
-        if mousePressed == True and mouseX > width*0.43 and mouseX < width*0.43 + width*0.15 and mouseY > height*0.79 and mouseY < height*0.79 + height*0.041:
+        fill(255)
+        text(playersList[playersTurn][0] + ' je krijgt een munt van ' + str(b) + '\nJe hebt nu ' + str(playersList[playersTurn][2]) + ' munten', width/2, height*0.25)
+        text(playersList[seccondPlayer][0] + ' je krijgt een munt van ' + str(b1) + '\nJe hebt nu ' + str(playersList[seccondPlayer][2]) + ' munten', width/2, height*0.55)
+        
+        if mousePressed == True and width*0.4 < mouseX < width*0.6 and height*0.76 < mouseY < height*0.84 and d == 0:
             currentScreen = 'hoofdmenu'
 
         
         
     elif mousePressed == True and mouseX > width*0.161 and mouseX < width*0.246 + width*0.161 and mouseY > height*0.404 and mouseY < height*0.194 + height*0.404 and d == 0:
+    elif mousePressed == True and mouseX > 380 and mouseX < 780 and mouseY > 550 and mouseY < 750 and d == 0:
         b = int(random(0,6))
         b1 = int(random(0,6))
         b = l[b]
@@ -410,10 +412,7 @@ def GoedOfFoutClick():
         else:
             playersTurn = 0   
         d = 1   
-        
-
-   
- 
+         
 
 def difficultyButtons():
     global currentScreen, timerDifficulty, Higlight
