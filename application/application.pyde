@@ -26,7 +26,7 @@ def setup():
     seccondPlayer = ''
     PlayerCount = -1
     playersTurn = 0
-    #makes empty list for every continen t
+    #makes empty list for every continent
     Europe = [0,0,0,0,0,0,0,0,0]
     NorthAmerika = [0,0,0,0,0,0,0,0,0]
     SouthAmerika = [0,0,0,0,0,0,0,0,0]
@@ -69,7 +69,6 @@ def setup():
     backgroundImg.resize(width, height)
     regularFont = createFont('Felix Titling', 50)
     textFont(regularFont)
-    textSize(200)
     fill(0)
     textAlign(CENTER, CENTER)
     background(backgroundImg)
@@ -382,7 +381,7 @@ def GoedOfFoutClick():
             currentScreen = 'hoofdmenu'
 
 
-    elif mousePressed == True and width*0.185 < mouseX < width*0.39 and  height* 0.39< mouseY < height*0.6 and d == 0:
+    elif mousePressed == True and mouseX > width*0.161 and mouseX < width*0.246 + width*0.161 and mouseY > height*0.404 and mouseY < height*0.194 + height*0.404 and d == 0:
         b = int(random(0,6))
         b1 = int(random(0,6))
         b = l[b]
@@ -461,7 +460,7 @@ def difficultyButtons():
         timerDifficulty = 30
         Higlight = 2
     if (mousePressed == True and (width*0.7 < mouseX < width*0.8) and (height*0.85 < mouseY < height*0.9)):
-        timerDifficulty = 2
+        timerDifficulty = 20
         Higlight = 3
 
     
